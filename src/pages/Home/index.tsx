@@ -1,4 +1,4 @@
-import girlImage from 'assets/girl.png';
+import mainImage from 'assets/girl.png';
 import { H1, Span } from 'Atoms/text';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
@@ -25,7 +25,10 @@ const Container = styled.div`
 const ImageWrapper = styled.div`
   width: 35%;
 `;
-const Image = styled.img``;
+const Image = styled.img`
+  position: absolute;
+  width: 38%;
+`;
 
 const Titles = styled.div`
   width: 100%;
@@ -36,7 +39,7 @@ export const Home: FC = () => {
   return (
     <Container>
       <ImageWrapper>
-        <Image src={girlImage} />
+        <Image src={mainImage} />
       </ImageWrapper>
       <Titles>
         <H1 size="huge" color="secondary" weight="400" font="Rowdies">

@@ -120,6 +120,7 @@ declare module 'styled-components' {
       bigTextBold: string;
       bigTextLight: string;
       mediumTextBold: string;
+      mediumTextSemiBold: string;
       mediumText: string;
       normalText: string;
       normalTextSemiBold: string;

@@ -1,4 +1,5 @@
-import mainImage from 'assets/girl.png';
+import mainImage from 'assets/main.png';
+import { ActionButton } from 'Atoms/buttons/ActionButton';
 import { H1, Span } from 'Atoms/text';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
@@ -23,16 +24,42 @@ const Container = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  width: 35%;
+  position: relative;
+  width: 55%;
 `;
 const Image = styled.img`
   position: absolute;
-  width: 38%;
+  width: 100%;
+`;
+
+const TitlesWrapper = styled.div`
+  width: 100%;
+  align-self: center;
+  position: relative;
 `;
 
 const Titles = styled.div`
-  width: 100%;
-  align-self: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Title = styled(H1)`
+  margin: 35px 0;
+`;
+
+const BackgroundTitle = styled(H1)`
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 0.035;
+`;
+
+const StyledActionButton = styled(ActionButton)`
+  margin-top: 50px;
 `;
 
 export const Home: FC = () => {
@@ -41,17 +68,23 @@ export const Home: FC = () => {
       <ImageWrapper>
         <Image src={mainImage} />
       </ImageWrapper>
-      <Titles>
-        <H1 size="huge" color="secondary" weight="400" font="Rowdies">
-          Health Coaching
-        </H1>
-        <H1 size="huge" color="secondary" weight="400" font="Rowdies">
-          Just Got{' '}
-          <Span size="huge" color="secondary" weight="400" font="Caveat">
-            Easier!
-          </Span>
-        </H1>
-      </Titles>
+      <TitlesWrapper>
+        <Titles>
+          <Title size="big" color="secondary" weight="400" font="Rowdies">
+            Health Coaching
+          </Title>
+          <Title size="big" color="secondary" weight="400" font="Rowdies">
+            Just Got{' '}
+            <Span size="huge" color="secondary" weight="400" font="Caveat">
+              Easier!
+            </Span>
+          </Title>
+          <StyledActionButton>More about health</StyledActionButton>
+        </Titles>
+        <BackgroundTitle size="veryBig" font="Rowdies">
+          Healthy
+        </BackgroundTitle>
+      </TitlesWrapper>
     </Container>
   );
 };

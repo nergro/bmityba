@@ -17,6 +17,7 @@ export const lightTheme: DefaultTheme = {
     bigText: '400 20px Open Sans, Sans-serif',
     bigTextLight: '300 20px Open Sans, Sans-serif',
     mediumTextBold: '700 18px Open Sans, Sans-serif',
+    mediumTextSemiBold: '500 18px Open Sans, Sans-serif',
     mediumText: '400 18px Open Sans, Sans-serif',
     normalText: '400 16px Open Sans, Sans-serif',
     normalTextSemiBold: '500 16px Open Sans, Sans-serif',
@@ -43,19 +44,19 @@ export const lightTheme: DefaultTheme = {
     },
     button: {
       default: {
-        backgroundColor: '#F8B600',
-        borderColor: '#F8B600',
-        textColor: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
+        borderColor: '#FFFFFF',
+        textColor: '#FF194F',
       },
       hover: {
-        backgroundColor: '#222222',
-        borderColor: '#000000',
-        textColor: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
+        borderColor: '#FFFFFF',
+        textColor: '#42CAF3',
       },
       active: {
-        backgroundColor: '#222222',
-        borderColor: '#009FD5',
-        textColor: '#009FD5',
+        backgroundColor: '#FFFFFF',
+        borderColor: '#FFFFFF',
+        textColor: '#42CAF3',
       },
     },
     select: {

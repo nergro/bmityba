@@ -1,10 +1,12 @@
 import mainImage from 'assets/main.png';
 import { ActionButton } from 'Atoms/buttons/ActionButton';
 import { H1, Span } from 'Atoms/text';
+import { Logos } from 'Molecules/Logos';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   background: linear-gradient(
@@ -25,11 +27,11 @@ const Container = styled.div`
 
 const ImageWrapper = styled.div`
   position: relative;
-  width: 55%;
+  width: 50%;
+  margin-left: 50px;
 `;
 const Image = styled.img`
-  position: absolute;
-  width: 100%;
+  width: 115%;
 `;
 
 const TitlesWrapper = styled.div`
@@ -62,6 +64,15 @@ const StyledActionButton = styled(ActionButton)`
   margin-top: 50px;
 `;
 
+const StyledLogos = styled(Logos)`
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 50%;
+  justify-content: space-evenly;
+`;
+
 export const Home: FC = () => {
   return (
     <Container>
@@ -85,6 +96,7 @@ export const Home: FC = () => {
           Healthy
         </BackgroundTitle>
       </TitlesWrapper>
+      <StyledLogos />
     </Container>
   );
 };

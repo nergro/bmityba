@@ -30,7 +30,7 @@ const sizes: FontSizeCollection<Size> = {
     mobile: '30px',
   },
   veryBig: {
-    desktop: '280px',
+    desktop: '300px',
     mobile: '70px',
   },
 };

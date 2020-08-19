@@ -13,11 +13,11 @@ const sizes: FontSizeCollection<Size> = {
     mobile: '14px',
   },
   medium: {
-    desktop: '18px',
+    desktop: '24px',
     mobile: '16px',
   },
   big: {
-    desktop: '20px',
+    desktop: '30px',
     mobile: '16px',
   },
   veryBig: {
@@ -33,13 +33,14 @@ export interface Props {
   color?: keyof DefaultTheme['colors']['text'];
   weight?: '400' | '500' | '600' | '700' | '900';
   textAlign?: 'center' | 'left';
+  font?: keyof DefaultTheme['fontFamily'];
 }
 
 const PComp: FC<Props> = ({ className, children }) => <p className={className}>{children}</p>;
 
 export const P = styled(PComp)`
   color: ${props => props.theme.colors.text[props.color || 'main']};
-  font-family: ${props => props.theme.fontFamily.OpenSans};
+  font-family: ${props => props.theme.fontFamily[props.font || 'Roboto']};
   font-weight: ${props => props.weight || '400'};
   font-size: ${props => sizes[props.size || 'normal'].desktop};
   text-align: ${props => props.textAlign || 'unset'};

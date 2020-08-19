@@ -22,7 +22,7 @@ const sizes: FontSizeCollection<Size> = {
     mobile: '16px',
   },
   normal: {
-    desktop: '25px',
+    desktop: '60px',
     mobile: '20px',
   },
   big: {
@@ -46,7 +46,7 @@ interface Props {
   children: ReactNode;
   size?: Size;
   color?: keyof DefaultTheme['colors']['text'];
-  weight?: '400' | '500' | '600' | '700';
+  weight?: '300' | '400' | '500' | '600' | '700';
   font?: keyof DefaultTheme['fontFamily'];
   lineHeight?: keyof typeof lineHeights;
 }
@@ -55,7 +55,7 @@ interface Props {
 const componentFactory = (comp: FC<Props>): StyledComponent<FC<Props>, DefaultTheme> =>
   styled(comp)`
     color: ${props => props.theme.colors.text[props.color || 'main']};
-    font-family: ${props => props.theme.fontFamily[props.font || 'OpenSans']};
+    font-family: ${props => props.theme.fontFamily[props.font || 'Roboto']};
     font-weight: ${props => props.weight || '400'};
     font-size: ${props => sizes[props.size || 'normal'].desktop};
     line-height: ${props => lineHeights[props.lineHeight || 'default']};

@@ -7,10 +7,14 @@ interface ButtonStateTheme {
 }
 
 interface ButtonTheme {
-  disabled?: ButtonStateTheme;
-  default: ButtonStateTheme;
-  hover: ButtonStateTheme;
-  active: ButtonStateTheme;
+  main: {
+    default: ButtonStateTheme;
+    hover: ButtonStateTheme;
+  };
+  filled: {
+    default: ButtonStateTheme;
+    hover: ButtonStateTheme;
+  };
 }
 
 declare module 'styled-components' {
@@ -65,6 +69,8 @@ declare module 'styled-components' {
       text: {
         main: string;
         secondary: string;
+        tertiary: string;
+        special: string;
         warning: string;
         available: string;
         inactive: string;
@@ -109,6 +115,7 @@ declare module 'styled-components' {
       Caveat: string;
       OpenSans: string;
       Rowdies: string;
+      Roboto: string;
     };
     fonts: {
       HeaderBold: string;

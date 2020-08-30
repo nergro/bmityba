@@ -1,19 +1,18 @@
 import { rgba } from 'polished';
 import { DefaultTheme } from 'styled-components/macro';
 
+const primaryAccent = '#9DCA00';
+const secondaryAccent = '#2B343B';
+
 export const lightTheme: DefaultTheme = {
   fontFamily: {
     Caveat: '"Caveat", Sans-serif',
     OpenSans: '"Open Sans", Sans-serif',
     Rowdies: '"Rowdies", Sans-serif',
     Roboto: '"Roboto", Sans-serif',
+    Lato: '"Lato", Sans-serif',
   },
   fonts: {
-    HeaderBold: '600 60px Roboto, Sans-serif',
-    Header: '400 60px Roboto, Sans-serif',
-    SectionHeaderBold: '600 50px Roboto, Sans-serif',
-    SectionHeaderSemiBold: '500 50px Roboto, Sans-serif',
-    SectionHeader: '400 50px Roboto, Sans-serif',
     bigTextBold: '700 20px Roboto, Sans-serif',
     bigText: '400 20px Roboto, Sans-serif',
     bigTextLight: '300 20px Roboto, Sans-serif',
@@ -42,6 +41,13 @@ export const lightTheme: DefaultTheme = {
       primary: '#FFFFFF',
       navbar: rgba(34, 34, 34, 0.9),
       mobileDrawer: rgba(34, 34, 34, 0.9),
+    },
+    header: {
+      background: '#FFFFFF',
+    },
+    accents: {
+      primary: primaryAccent,
+      secondary: secondaryAccent,
     },
     button: {
       main: {
@@ -120,6 +126,8 @@ export const lightTheme: DefaultTheme = {
       error: '#FF0000',
       darkLink: '#055B7A',
       lightLink: '#0077A0',
+      primaryAccent,
+      secondaryAccent,
     },
     loader: '#F8B600',
     input: {

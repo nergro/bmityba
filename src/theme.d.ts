@@ -25,6 +25,13 @@ declare module 'styled-components' {
         navbar: string;
         mobileDrawer: string;
       };
+      header: {
+        background: string;
+      };
+      accents: {
+        primary: string;
+        secondary: string;
+      };
       button: ButtonTheme;
       select: {
         backgroundColor: string;
@@ -77,6 +84,8 @@ declare module 'styled-components' {
         error: string;
         lightLink: string;
         darkLink: string;
+        primaryAccent: string;
+        secondaryAccent: string;
       };
       loader: string;
       input: {
@@ -116,13 +125,9 @@ declare module 'styled-components' {
       OpenSans: string;
       Rowdies: string;
       Roboto: string;
+      Lato: string;
     };
     fonts: {
-      HeaderBold: string;
-      Header: string;
-      SectionHeader: string;
-      SectionHeaderSemiBold: string;
-      SectionHeaderBold: string;
       bigText: string;
       bigTextBold: string;
       bigTextLight: string;

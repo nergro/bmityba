@@ -6,7 +6,7 @@ export const Home: FC = () => {
   return (
     <>
       <MainSection />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
     </>
   );
 };

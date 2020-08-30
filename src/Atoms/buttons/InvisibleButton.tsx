@@ -6,5 +6,5 @@ export const InvisibleButton = styled.button`
   box-shadow: none;
   transition: all 0.1s ease-in;
   padding: 0;
-  color: ${props => props.theme.colors.button.default.textColor};
+  color: ${props => props.theme.colors.button.main.default.textColor};
 `;

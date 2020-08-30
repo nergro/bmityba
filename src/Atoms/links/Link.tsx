@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent, ReactNode, useCallback } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import styled, { DefaultTheme } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import { FontSizeCollection } from 'types/fontSizeCollection';
 
 type Size = 'reference' | 'small' | 'normal' | 'big' | 'veryBig';
@@ -34,7 +34,6 @@ interface Props {
   isActive?: boolean;
   onClick?(): void;
   size?: Size;
-  color?: keyof DefaultTheme['colors']['text'];
   weight?: '400' | '500' | '600' | '700';
   noUnderline?: boolean;
   replace?: boolean;
@@ -75,13 +74,16 @@ const BasicLink: FC<Props> = ({
 };
 
 export const Link = styled(BasicLink)`
-  color: ${props => props.theme.colors.text[props.color || 'darkLink']};
-  font-family: ${props => props.theme.fontFamily.Roboto};
-  font-weight: ${props => props.weight || '400'};
+  color: ${props => props.theme.colors.accents[props.isActive ? 'primary' : 'secondary']};
+  font-family: ${props => props.theme.fontFamily.Lato};
+  font-weight: ${props => props.weight || '700'};
   font-size: ${props => sizes[props.size || 'normal'].desktop};
   margin: 0;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     font-size: ${props => sizes[props.size || 'normal'].mobile};
   }
   ${props => (props.noUnderline ? 'text-decoration: none;' : '')}
+  &:hover {
+    color: ${props => props.theme.colors.accents.primary};
+  }
 `;

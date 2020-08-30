@@ -1,7 +1,6 @@
 import service1Image from 'assets/services/service1.jpg';
 import service2Image from 'assets/services/service2.jpg';
 import service3Image from 'assets/services/service3.jpg';
-
 import { H1 } from 'Atoms/text';
 import { Service } from 'Molecules/Service';
 import React, { FC } from 'react';
@@ -10,7 +9,8 @@ import styled from 'styled-components/macro';
 const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
+  height: 1500px;
   background: linear-gradient(
     to right bottom,
     rgba(254, 169, 115, 1) 0%,

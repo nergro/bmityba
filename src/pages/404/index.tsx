@@ -24,7 +24,6 @@ const TitleStyled = styled(H1)`
   color: rgba(0, 0, 0, 0.6);
   text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 16px rgba(255, 255, 255, 0.3);
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    font: ${props => props.theme.fonts.HeaderBold};
     margin: 0 0 20px 0;
   }
   @media (min-width: ${props => props.theme.breakpoints.s}) and (max-width: ${props =>

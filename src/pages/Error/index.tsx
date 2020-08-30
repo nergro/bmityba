@@ -23,7 +23,6 @@ const TitleStyled = styled(H1)`
   text-align: center;
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    font: ${props => props.theme.fonts.HeaderBold};
     margin: 0 0 20px 0;
   }
   @media (min-width: ${props => props.theme.breakpoints.s}) and (max-width: ${props =>

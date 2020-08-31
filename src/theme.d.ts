@@ -73,6 +73,10 @@ declare module 'styled-components' {
         link: string;
         linkHover: string;
       };
+      separator: {
+        light: string;
+        dark: string;
+      };
       text: {
         main: string;
         secondary: string;
@@ -126,6 +130,7 @@ declare module 'styled-components' {
       Rowdies: string;
       Roboto: string;
       Lato: string;
+      Prata: string;
     };
     fonts: {
       bigText: string;

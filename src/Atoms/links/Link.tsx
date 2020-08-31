@@ -19,7 +19,7 @@ const sizes: FontSizeCollection<Size> = {
   },
   big: {
     desktop: '20px',
-    mobile: '16px',
+    mobile: '20px',
   },
   veryBig: {
     desktop: '25px',

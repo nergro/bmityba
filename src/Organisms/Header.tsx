@@ -37,6 +37,13 @@ const LogoButton = styled.button`
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     display: none;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    display: block;
+    right: 20px;
+    left: unset;
+    top: 17px;
+  }
 `;
 
 const Links = styled.div`

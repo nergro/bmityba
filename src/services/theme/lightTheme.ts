@@ -11,6 +11,7 @@ export const lightTheme: DefaultTheme = {
     Rowdies: '"Rowdies", Sans-serif',
     Roboto: '"Roboto", Sans-serif',
     Lato: '"Lato", Sans-serif',
+    Prata: '"Prata", Sans-serif',
   },
   fonts: {
     bigTextBold: '700 20px Roboto, Sans-serif',
@@ -114,6 +115,10 @@ export const lightTheme: DefaultTheme = {
       description: rgba(0, 0, 0, 0.87),
       link: '#F8B600',
       linkHover: '#222222',
+    },
+    separator: {
+      light: '#DDDDDD',
+      dark: '#4F4F4F',
     },
     text: {
       main: '#000000',

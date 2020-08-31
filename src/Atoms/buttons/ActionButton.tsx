@@ -10,11 +10,13 @@ const Button: FC<Props> = ({ className, children }) => {
 };
 
 const ButtonBase = styled(Button)`
-  width: 270px;
-  height: 60px;
+  width: 160px;
+  height: 50px;
   border: none;
   border-radius: 30px;
-  font: ${props => props.theme.fonts.mediumTextBold};
+  font-size: 16px;
+  font-weight: 700;
+  font-family: ${props => props.theme.fontFamily.Lato}
   box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -29,13 +31,22 @@ export const ActionButton = styled(ButtonBase)`
   }
 `;
 
-export const ActionButtonFilled = styled(ButtonBase)`
+export const PrimaryButton = styled(ButtonBase)`
   color: ${props => props.theme.colors.button.filled.default.textColor};
   background: ${props => props.theme.colors.button.filled.default.backgroundColor};
-  border: 3px solid ${props => props.theme.colors.button.filled.default.borderColor};
 
   &:hover {
     color: ${props => props.theme.colors.button.filled.hover.textColor};
     background: ${props => props.theme.colors.button.filled.hover.backgroundColor};
+  }
+`;
+
+export const SecondaryButton = styled(ButtonBase)`
+  color: ${props => props.theme.colors.button.filled.hover.textColor};
+  background: ${props => props.theme.colors.button.filled.hover.backgroundColor};
+
+  &:hover {
+    color: ${props => props.theme.colors.button.filled.default.textColor};
+    background: ${props => props.theme.colors.button.filled.default.backgroundColor};
   }
 `;

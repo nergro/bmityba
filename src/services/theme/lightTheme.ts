@@ -65,14 +65,14 @@ export const lightTheme: DefaultTheme = {
       },
       filled: {
         default: {
-          backgroundColor: '#FF194F',
-          borderColor: '#FF194F',
+          backgroundColor: primaryAccent,
+          borderColor: primaryAccent,
           textColor: '#FFFFFF',
         },
         hover: {
-          backgroundColor: '#FFFFFF',
-          borderColor: '#FF194F',
-          textColor: '#FF194F',
+          backgroundColor: secondaryAccent,
+          borderColor: secondaryAccent,
+          textColor: '#FFFFFF',
         },
       },
     },
@@ -131,6 +131,7 @@ export const lightTheme: DefaultTheme = {
       error: '#FF0000',
       darkLink: '#055B7A',
       lightLink: '#0077A0',
+      light: '#737475',
       primaryAccent,
       secondaryAccent,
     },

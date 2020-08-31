@@ -24,7 +24,7 @@
     "@types/react-scroll": "^1.5.4",
     "@types/react-select": "^3.0.10",
     "@types/react-tooltip": "^3.11.0",
-    "@types/styled-components": "^4.4.3",
+    "@types/styled-components": "^5.1.2",
     "axios": "^0.19.2",
     "cldr-data": "^36.0.0",
     "formik": "^2.1.4",

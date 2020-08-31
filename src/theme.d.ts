@@ -87,6 +87,7 @@ declare module 'styled-components' {
         inactive: string;
         error: string;
         lightLink: string;
+        light: string;
         darkLink: string;
         primaryAccent: string;
         secondaryAccent: string;

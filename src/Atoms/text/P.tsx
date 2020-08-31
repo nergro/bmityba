@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react';
 import styled, { DefaultTheme } from 'styled-components/macro';
 import { FontSizeCollection } from 'types/fontSizeCollection';
 
-type Size = 'small' | 'normal' | 'medium' | 'big' | 'veryBig';
+type Size = 'small' | 'normal' | 'intermedium' | 'medium' | 'big' | 'veryBig';
 const sizes: FontSizeCollection<Size> = {
   small: {
     desktop: '15px',
@@ -11,6 +11,10 @@ const sizes: FontSizeCollection<Size> = {
   normal: {
     desktop: '16px',
     mobile: '14px',
+  },
+  intermedium: {
+    desktop: '18px',
+    mobile: '18px',
   },
   medium: {
     desktop: '24px',

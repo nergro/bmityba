@@ -1,4 +1,3 @@
-import { ActionButtonFilled } from 'Atoms/buttons/ActionButton';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
@@ -27,12 +26,12 @@ const Description = styled(P)`
   line-height: 25px;
 `;
 
-const StyledButton = styled(ActionButtonFilled)`
-  width: 150px;
-  height: 45px;
-  font: ${props => props.theme.fonts.normalTextBold};
-  margin-top: 20px;
-`;
+// const StyledButton = styled(ActionButtonFilled)`
+//   width: 150px;
+//   height: 45px;
+//   font: ${props => props.theme.fonts.normalTextBold};
+//   margin-top: 20px;
+// `;
 
 const Container = styled.button`
   width: 400px;
@@ -48,10 +47,6 @@ const Container = styled.button`
   &:hover {
     ${Title} {
       color: ${props => props.theme.colors.text.tertiary};
-    }
-    ${StyledButton} {
-      color: ${props => props.theme.colors.button.filled.hover.textColor};
-      background: ${props => props.theme.colors.button.filled.hover.backgroundColor};
     }
   }
 `;
@@ -76,7 +71,7 @@ export const Service: FC<Props> = ({ className, description, image, subtitle, ti
           {subtitle}
         </Subtitle>
         <Description color="inactive">{description}</Description>
-        <StyledButton>Learn more</StyledButton>
+        {/* <StyledButton>Learn more</StyledButton> */}
       </Content>
     </Container>
   );

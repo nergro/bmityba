@@ -2,7 +2,11 @@ import { Link } from 'Atoms/links/Link';
 import { MenuBurger } from 'Atoms/MenuBurger';
 import { P } from 'Atoms/text';
 import { MobileMenu } from 'Molecules/MobileMenu';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
+import {
+  useDispatch as useMenuDispatch,
+  useState as useMenuState,
+} from 'store/mobileMenuStore/hooks';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -79,12 +83,17 @@ const StyledMenuBurger = styled(MenuBurger)`
 const StyledMobileMenu = styled(MobileMenu)``;
 
 export const Header: FC = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  console.log(menuOpen);
+  const menuDispatch = useMenuDispatch();
+  const menuState = useMenuState();
+  // const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  // console.log(menuOpen);
   return (
     <>
       <Container>
-        <StyledMenuBurger onClick={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
+        <StyledMenuBurger
+          onClick={() => menuDispatch({ type: 'Menu/Set', payload: !menuState })}
+          isOpen={menuState}
+        />
         <LogoButton>
           <Logo size="big" font="Caveat" color="secondaryAccent">
             Brigita Meiglaitė
@@ -100,7 +109,10 @@ export const Header: FC = () => {
           <StyledLink to="/">Contacts</StyledLink>
         </Links>
       </Container>
-      <StyledMobileMenu isOpen={menuOpen} />
+      <StyledMobileMenu
+        isOpen={menuState}
+        onClose={() => menuDispatch({ type: 'Menu/Set', payload: false })}
+      />
     </>
   );
 };

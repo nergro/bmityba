@@ -38,7 +38,22 @@ const createMenuDelays = (): FlattenSimpleInterpolation => {
   `;
 };
 
-const Menu = styled.ul<Props>`
+const Shadow = styled.div`
+  background: rgba(0, 0, 0, 0.5);
+  content: '';
+  height: 100%;
+  /* height: 10000vh; */
+  left: 0;
+  top: 0;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  transition: all 0.3s;
+  z-index: 1;
+`;
+
+const Menu = styled.ul<MenuProps>`
   display: block;
   position: absolute;
   list-style-type: none;
@@ -49,25 +64,12 @@ const Menu = styled.ul<Props>`
   width: 100%;
   z-index: -1;
 
-  &::before {
-    background: rgba(0, 0, 0, 0.5);
-    content: '';
-    height: 100vh;
-    left: 0;
-    top: 0;
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-    width: 100%;
-    transition: all 0.3s;
-  }
-
   ${props =>
     props.isOpen &&
     css`
       z-index: 2;
 
-      &::before {
+      && ~ ${Shadow} {
         opacity: 1;
         visibility: visible;
       }
@@ -81,39 +83,46 @@ const Menu = styled.ul<Props>`
     `};
 `;
 
-interface Props {
+interface MenuProps {
   className?: string;
   isOpen?: boolean;
 }
 
-export const MobileMenu: FC<Props> = ({ className, isOpen }) => {
+interface Props extends MenuProps {
+  onClose: () => void;
+}
+
+export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
   return (
-    <Menu className={className} isOpen={isOpen}>
-      <Item>
-        <StyledLink to="#" size="big">
-          Home
-        </StyledLink>
-      </Item>
-      <Item>
-        <StyledLink to="#" size="big">
-          Services
-        </StyledLink>
-      </Item>
-      <Item>
-        <StyledLink to="#" size="big">
-          Portfolio
-        </StyledLink>
-      </Item>
-      <Item>
-        <StyledLink to="#" size="big">
-          Blog
-        </StyledLink>
-      </Item>
-      <Item>
-        <StyledLink to="#" size="big">
-          Contacts
-        </StyledLink>
-      </Item>
-    </Menu>
+    <>
+      <Menu className={className} isOpen={isOpen}>
+        <Item>
+          <StyledLink to="#" size="big">
+            Home
+          </StyledLink>
+        </Item>
+        <Item>
+          <StyledLink to="#" size="big">
+            Services
+          </StyledLink>
+        </Item>
+        <Item>
+          <StyledLink to="#" size="big">
+            Portfolio
+          </StyledLink>
+        </Item>
+        <Item>
+          <StyledLink to="#" size="big">
+            Blog
+          </StyledLink>
+        </Item>
+        <Item>
+          <StyledLink to="#" size="big">
+            Contacts
+          </StyledLink>
+        </Item>
+      </Menu>
+      <Shadow onClick={onClose} />
+    </>
   );
 };

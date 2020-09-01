@@ -15,7 +15,7 @@ const sizes: FontSizeCollection<Size> = {
   },
   normal: {
     desktop: '16px',
-    mobile: '14px',
+    mobile: '16px',
   },
   big: {
     desktop: '20px',

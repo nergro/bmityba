@@ -10,7 +10,7 @@ const sizes: FontSizeCollection<Size> = {
   },
   normal: {
     desktop: '16px',
-    mobile: '14px',
+    mobile: '16px',
   },
   intermedium: {
     desktop: '18px',

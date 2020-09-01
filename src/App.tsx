@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { Route, Switch } from 'react-router-dom';
 import { getLocale, setLocale } from 'services/localStorage';
 
+import { GlobalStyle } from './globalStyle';
+
 export const App: FC = () => {
   const { i18n } = useTranslation();
   useEffect(() => {
@@ -20,6 +22,8 @@ export const App: FC = () => {
 
   return (
     <AppLayout>
+      <GlobalStyle />
+
       <Switch>
         <Route path="/" exact component={Home} />
         <Route component={NotFound} />

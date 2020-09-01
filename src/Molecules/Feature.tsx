@@ -23,7 +23,9 @@ const StyledIcon = styled(Icon)`
 `;
 
 const Title = styled(P)`
-  font-size: 21px;
+  && {
+    font-size: 21px;
+  }
 `;
 
 const Description = styled(P)`

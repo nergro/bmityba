@@ -22,21 +22,6 @@ const StyledLink = styled(Link)`
   width: 100%;
 `;
 
-// const Link = styled.a`
-//   background: ${props => props.theme.colors.background.primary};
-//   color: #404040;
-//   display: block;
-//   font-size: 18px;
-//   font-weight: 700;
-//   padding: 12px 20px;
-//   text-align: left;
-//   width: 100%;
-//   transition: all 0.3s;
-//   &:hover {
-//     color: coral;
-//   }
-// `;
-
 const createMenuDelays = (): FlattenSimpleInterpolation => {
   let styles = '';
 
@@ -62,6 +47,7 @@ const Menu = styled.ul<Props>`
   top: 60px;
   left: 0;
   width: 100%;
+  z-index: -1;
 
   &::before {
     background: rgba(0, 0, 0, 0.5);
@@ -79,6 +65,8 @@ const Menu = styled.ul<Props>`
   ${props =>
     props.isOpen &&
     css`
+      z-index: 2;
+
       &::before {
         opacity: 1;
         visibility: visible;

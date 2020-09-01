@@ -76,34 +76,31 @@ const StyledMenuBurger = styled(MenuBurger)`
   }
 `;
 
-const StyledMobileMenu = styled(MobileMenu)`
-  display: none;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
-    display: block;
-  }
-`;
+const StyledMobileMenu = styled(MobileMenu)``;
 
 export const Header: FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   console.log(menuOpen);
   return (
-    <Container>
-      <StyledMenuBurger onClick={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
+    <>
+      <Container>
+        <StyledMenuBurger onClick={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
+        <LogoButton>
+          <Logo size="big" font="Caveat" color="secondaryAccent">
+            Brigita Meiglaitė
+          </Logo>
+        </LogoButton>
+        <Links>
+          <StyledLink to="/" isActive>
+            Home
+          </StyledLink>
+          <StyledLink to="/">Services</StyledLink>
+          <StyledLink to="/">Portfolio</StyledLink>
+          <StyledLink to="/">Blog</StyledLink>
+          <StyledLink to="/">Contacts</StyledLink>
+        </Links>
+      </Container>
       <StyledMobileMenu isOpen={menuOpen} />
-      <LogoButton>
-        <Logo size="big" font="Caveat" color="secondaryAccent">
-          Brigita Meiglaitė
-        </Logo>
-      </LogoButton>
-      <Links>
-        <StyledLink to="/" isActive>
-          Home
-        </StyledLink>
-        <StyledLink to="/">Services</StyledLink>
-        <StyledLink to="/">Portfolio</StyledLink>
-        <StyledLink to="/">Blog</StyledLink>
-        <StyledLink to="/">Contacts</StyledLink>
-      </Links>
-    </Container>
+    </>
   );
 };

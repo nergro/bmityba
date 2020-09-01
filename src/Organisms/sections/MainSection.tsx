@@ -27,16 +27,25 @@ const TextSection = styled.div`
   flex-direction: column;
   width: 70%;
   margin: 0 auto;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    width: 90%;
+  }
 `;
 
 const CaptionWrapper = styled.div`
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    display: none;
+  }
 `;
 
 const Caption = styled(P)`
   letter-spacing: 1px;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    font-size: 16px;
+  }
 `;
 
 const Line = styled.hr`
@@ -49,10 +58,21 @@ const Line = styled.hr`
 const Title = styled(H1)`
   text-align: left;
   margin: 20px 0;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    font-size: 35px;
+    margin: 10px 0;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    font-size: 25px;
+    margin: 4px 0;
+  }
 `;
 
 const HighlightedTitle = styled(Span)`
-  font-size: inherit;
+  && {
+    font-size: inherit;
+  }
   color: ${props => props.theme.colors.accents.primary};
 `;
 
@@ -60,10 +80,17 @@ const Description = styled(P)`
   margin-top: 20px;
   max-width: 590px;
   line-height: 25px;
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    display: none;
+  }
 `;
 
 const Buttons = styled.div`
   margin-top: 50px;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    margin-top: 30px;
+  }
 `;
 
 const StyledPrimaryButton = styled(PrimaryButton)`
@@ -93,7 +120,9 @@ export const MainSection: FC<Props> = () => {
           options whenever you&#39;re at one of our locations.
         </Description>
         <Buttons>
-          <StyledPrimaryButton>Contact me</StyledPrimaryButton>
+          <StyledPrimaryButton onClick={() => console.log('Contact')}>
+            Contact me
+          </StyledPrimaryButton>
           <SecondaryButton>About</SecondaryButton>
         </Buttons>
       </TextSection>

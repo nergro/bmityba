@@ -3,23 +3,34 @@ import styled from 'styled-components/macro';
 
 interface Props {
   className?: string;
+  onClick?: () => void;
 }
 
-const Button: FC<Props> = ({ className, children }) => {
-  return <button className={className}>{children}</button>;
+const Button: FC<Props> = ({ className, children, ...rest }) => {
+  return (
+    <button className={className} {...rest}>
+      {children}
+    </button>
+  );
 };
 
 const ButtonBase = styled(Button)`
   width: 160px;
   height: 50px;
   border: none;
-  border-radius: 30px;
+  border-radius: 5px;
   font-size: 16px;
   font-weight: 700;
-  font-family: ${props => props.theme.fontFamily.Lato}
+  font-family: ${props => props.theme.fontFamily.Lato};
   box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    font-size: 14px;
+    width: 120px;
+    height: 40px;
+  }
 `;
 
 export const ActionButton = styled(ButtonBase)`

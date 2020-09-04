@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react';
 import styled, { DefaultTheme } from 'styled-components/macro';
 import { FontSizeCollection } from 'types/fontSizeCollection';
 
-export type Size = 'small' | 'normal' | 'intermedium' | 'medium' | 'big' | 'veryBig';
+export type Size = 'small' | 'normal' | 'feature' | 'intermedium' | 'medium' | 'big' | 'veryBig';
 const sizes: FontSizeCollection<Size> = {
   small: {
     desktop: '15px',
@@ -11,6 +11,10 @@ const sizes: FontSizeCollection<Size> = {
   normal: {
     desktop: '16px',
     mobile: '16px',
+  },
+  feature: {
+    desktop: '17px',
+    mobile: '17px',
   },
   intermedium: {
     desktop: '18px',
@@ -44,7 +48,7 @@ const PComp: FC<Props> = ({ className, children }) => <p className={className}>{
 
 export const P = styled(PComp)`
   color: ${props => props.theme.colors.text[props.color || 'main']};
-  font-family: ${props => props.theme.fontFamily[props.font || 'Roboto']};
+  font-family: ${props => props.theme.fontFamily[props.font || 'Lato']};
   font-weight: ${props => props.weight || '400'};
   font-size: ${props => sizes[props.size || 'normal'].desktop};
   text-align: ${props => props.textAlign || 'unset'};

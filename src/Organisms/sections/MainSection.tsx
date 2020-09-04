@@ -33,6 +33,12 @@ const TextSection = styled.div`
   }
 `;
 
+const StyledCaption = styled(Caption)`
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    display: none;
+  }
+`;
+
 const Title = styled(H1)`
   text-align: left;
   margin: 20px 0;
@@ -83,7 +89,7 @@ export const MainSection: FC<Props> = () => {
   return (
     <Container>
       <TextSection>
-        <Caption content="It's not a diet, It's a lifestyle" lineLeft />
+        <StyledCaption content="It's not a diet, It's a lifestyle" lineLeft />
         <Title font="Prata">
           Healthier <HighlightedTitle font="Prata">Choices</HighlightedTitle>
         </Title>

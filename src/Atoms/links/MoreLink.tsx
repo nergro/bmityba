@@ -89,11 +89,15 @@ export const MoreLink = styled(BasicLink)`
   font-weight: ${props => props.weight || '700'};
   font-size: ${props => sizes[props.size || 'normal'].desktop};
   margin: 0;
+
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     font-size: ${props => sizes[props.size || 'normal'].mobile};
   }
-  ${props => (props.noUnderline ? 'text-decoration: none;' : '')}
+
+  text-decoration: none;
+
   &:hover {
     color: ${props => props.theme.colors.accents.primary};
+    opacity: 0.9;
   }
 `;

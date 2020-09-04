@@ -20,8 +20,7 @@ const Container = styled.div`
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     flex-wrap: wrap;
-    ${StyledFeature} {
-    }
+    margin-bottom: 30px;
   }
 `;
 

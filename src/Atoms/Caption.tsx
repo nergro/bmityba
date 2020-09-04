@@ -1,14 +1,11 @@
+import { P, Size } from 'Atoms/text/P';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
-import { P, Size } from 'Atoms/text/P';
 
 const CaptionWrapper = styled.div`
   margin-bottom: 10px;
   display: flex;
   align-items: center;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
-    display: none;
-  }
 `;
 
 const Content = styled(P)`

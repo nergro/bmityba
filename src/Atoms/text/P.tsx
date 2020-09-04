@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from 'react';
 import styled, { DefaultTheme } from 'styled-components/macro';
 import { FontSizeCollection } from 'types/fontSizeCollection';
 
-type Size = 'small' | 'normal' | 'intermedium' | 'medium' | 'big' | 'veryBig';
+export type Size = 'small' | 'normal' | 'intermedium' | 'medium' | 'big' | 'veryBig';
 const sizes: FontSizeCollection<Size> = {
   small: {
     desktop: '15px',

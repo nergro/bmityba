@@ -1,3 +1,4 @@
+import { AboutSection } from 'Organisms/sections/AboutSection';
 import { FeaturedSection } from 'Organisms/sections/FeaturedSection';
 import { MainSection } from 'Organisms/sections/MainSection';
 import React, { FC } from 'react';
@@ -7,6 +8,7 @@ export const Home: FC = () => {
     <>
       <MainSection />
       <FeaturedSection />
+      <AboutSection />
     </>
   );
 };

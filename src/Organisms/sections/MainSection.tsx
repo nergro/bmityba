@@ -1,5 +1,6 @@
 import coverImg from 'assets/cover.jpg';
 import { PrimaryButton, SecondaryButton } from 'Atoms/buttons/ActionButton';
+import { Caption } from 'Atoms/Caption';
 import { H1, P, Span } from 'Atoms/text';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
@@ -30,29 +31,6 @@ const TextSection = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     width: 90%;
   }
-`;
-
-const CaptionWrapper = styled.div`
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
-    display: none;
-  }
-`;
-
-const Caption = styled(P)`
-  letter-spacing: 1px;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
-    font-size: 16px;
-  }
-`;
-
-const Line = styled.hr`
-  width: 40px;
-  margin: 0;
-  border: 1px solid ${props => props.theme.colors.accents.primary};
-  margin-right: 20px;
 `;
 
 const Title = styled(H1)`
@@ -105,12 +83,7 @@ export const MainSection: FC<Props> = () => {
   return (
     <Container>
       <TextSection>
-        <CaptionWrapper>
-          <Line />
-          <Caption color="primaryAccent" font="Lato" size="intermedium" weight="600">
-            It&#39;s not a diet, It&#39;s a lifestyle
-          </Caption>
-        </CaptionWrapper>
+        <Caption content="It's not a diet, It's a lifestyle" lineLeft />
         <Title font="Prata">
           Healthier <HighlightedTitle font="Prata">Choices</HighlightedTitle>
         </Title>

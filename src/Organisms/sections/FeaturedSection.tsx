@@ -12,16 +12,13 @@ const StyledFeature = styled(Feature)`
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: -100px;
-  /* TODO - REMOVE THIS */
-  margin-bottom: 1000px;
+  margin: -100px 0 100px;
 
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     margin-top: 0;
   }
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    /* flex-direction: column; */
     flex-wrap: wrap;
     ${StyledFeature} {
     }

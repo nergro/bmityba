@@ -98,6 +98,8 @@ declare module 'styled-components' {
         borderFocus: string;
         text: string;
         background: string;
+        placeholder: string;
+        error: string;
       };
       tab: {
         background: string;

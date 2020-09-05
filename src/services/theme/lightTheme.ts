@@ -137,10 +137,12 @@ export const lightTheme: DefaultTheme = {
     },
     loader: '#F8B600',
     input: {
-      border: '#EEEEEE',
-      borderFocus: '#8c8c8c',
-      text: '#495057',
-      background: 'transparent',
+      border: '#F2F2F2',
+      borderFocus: '#2B343B',
+      text: '#141412',
+      background: '#F5F5F5',
+      placeholder: '#606060',
+      error: '#FF0000',
     },
     tab: {
       background: rgba(255, 255, 255, 0.25),

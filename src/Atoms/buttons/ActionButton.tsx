@@ -1,7 +1,8 @@
+import { ButtonProps } from 'Atoms/buttons/Button';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
 
-interface Props {
+interface Props extends ButtonProps {
   className?: string;
   onClick?: () => void;
 }

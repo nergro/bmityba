@@ -6,7 +6,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components/macro';
 
 const EmptySection = styled.div`
-  height: 500px;
+  height: 100px;
 `;
 export const Home: FC = () => {
   return (

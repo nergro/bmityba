@@ -9,11 +9,22 @@ const Box = styled.div`
   width: 600px;
   height: 450px;
   padding: 35px 15px 0 15px;
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 const BoxTitle = styled(P)`
   font-size: 28px;
   text-align: center;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    font-size: 24px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 22px;
+  }
 `;
 
 const Form = styled.form`
@@ -25,37 +36,54 @@ const Form = styled.form`
 const Inputs = styled.div`
   display: flex;
   justify-content: center;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    flex-direction: column;
+  }
 `;
 
 const InputsLeft = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    width: 100%;
+  }
 `;
 
-const InputsRight = styled.div``;
+const InputsRight = styled.div`
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    margin-top: 20px;
+  }
+`;
 
 const StyledInput = styled(Input)`
   width: 240px;
   &:not(:last-child) {
     margin-bottom: 20px;
   }
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    width: 100%;
+  }
 `;
 
-const StyledTextArea = styled(TextArea)``;
+const StyledTextArea = styled(TextArea)`
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    height: 150px;
+  }
+`;
 
 const StyledButton = styled(PrimaryButton)`
   align-self: center;
-  margin-top: 30px;
+  margin: 30px 0;
 `;
 
 interface Props {
   className?: string;
 }
 
-export const ContactForm: FC<Props> = () => {
+export const ContactForm: FC<Props> = ({ className }) => {
   return (
-    <Box>
+    <Box className={className}>
       <BoxTitle font="Roboto" weight="400" color="secondaryAccent">
         Make an Appointment
       </BoxTitle>

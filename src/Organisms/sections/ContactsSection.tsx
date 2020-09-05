@@ -5,9 +5,18 @@ import React, { FC } from 'react';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
-  width: 80%;
+  width: 82%;
   margin: 100px auto 0;
   display: flex;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    flex-direction: column;
+    padding: 0;
+  }
 `;
 
 const LeftSection = styled.div`
@@ -15,10 +24,22 @@ const LeftSection = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50%;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    width: 40%;
+    margin-right: 20px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 100%;
+    margin-bottom: 50px;
+  }
 `;
 
 const Title = styled(P)`
+  text-align: center;
   font-size: 36px;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    font-size: 30px;
+  }
 `;
 
 const Questions = styled.div`
@@ -36,7 +57,21 @@ const Question = styled(QuestionToggle)`
 `;
 
 const RightSection = styled.div`
+  display: flex;
+  justify-content: center;
   width: 50%;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    width: 60%;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 100%;
+  }
+`;
+
+const StyledContactForm = styled(ContactForm)`
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    margin: 0 20px;
+  }
 `;
 
 export const ContactsSection: FC = () => {
@@ -66,7 +101,7 @@ export const ContactsSection: FC = () => {
         </Questions>
       </LeftSection>
       <RightSection>
-        <ContactForm />
+        <StyledContactForm />
       </RightSection>
     </Container>
   );

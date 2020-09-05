@@ -12,6 +12,7 @@ const StyledPlus = styled(AnimatedPlus)`
 `;
 
 const Button = styled.button`
+  text-align: left;
   border: 1px solid ${props => props.theme.colors.input.border};
   display: flex;
   align-items: center;
@@ -53,6 +54,9 @@ const TextWrapper = styled.div<TextProps>`
           opacity: 1;
           height: 80px;
           margin-top: 20px;
+          @media (max-width: ${props => props.theme.breakpoints.m}) {
+            height: 120px;
+          }
         `
       : css`
           opacity: 0;

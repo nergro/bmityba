@@ -17,9 +17,7 @@ export const Horizontal = styled.div`
   width: 13px;
   height: 2px;
   left: 50%;
-  margin-left: -6px;
   top: 50%;
-  margin-top: -1.5px;
 `;
 
 export const Vertical = styled.div`
@@ -27,11 +25,9 @@ export const Vertical = styled.div`
   position: absolute;
   background: #666;
   width: 2px;
-  height: 14px;
+  height: 13px;
   left: 50%;
-  margin-left: -1.5px;
   top: 50%;
-  margin-top: -8px;
 `;
 
 const Wrapper = styled.div<Props>`
@@ -45,22 +41,22 @@ const Wrapper = styled.div<Props>`
             border-color: ${props => props.theme.colors.accents.primary};
           }
           ${Horizontal} {
-            transform: rotate(90deg);
+            transform: translate(-50%, -50%) rotate(90deg);
             opacity: 0;
             background: ${props => props.theme.colors.accents.primary};
           }
           ${Vertical} {
-            transform: rotate(90deg);
+            transform: translate(-50%, -50%) rotate(90deg);
             background: ${props => props.theme.colors.accents.primary};
           }
         `
       : css`
           ${Horizontal} {
-            transform: rotate(-90deg);
+            transform: translate(-50%, -50%) rotate(-90deg);
             opacity: 1;
           }
           ${Vertical} {
-            transform: rotate(-90deg);
+            transform: translate(-50%, -50%) rotate(-90deg);
           }
         `}
 `;

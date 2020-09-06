@@ -1,5 +1,6 @@
 import { AppLayout } from 'layouts/AppLayout';
 import { NotFound } from 'pages/404';
+import { Contacts } from 'pages/Contacts';
 import { Home } from 'pages/Home';
 import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -26,6 +27,7 @@ export const App: FC = () => {
 
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/contacts" exact component={Contacts} />
         <Route component={NotFound} />
       </Switch>
     </AppLayout>

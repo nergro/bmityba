@@ -97,7 +97,7 @@ export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
     <>
       <Menu className={className} isOpen={isOpen}>
         <Item>
-          <StyledLink to="#" size="big">
+          <StyledLink to="/" size="big">
             Home
           </StyledLink>
         </Item>
@@ -117,7 +117,7 @@ export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
           </StyledLink>
         </Item>
         <Item>
-          <StyledLink to="#" size="big">
+          <StyledLink to="/contacts" size="big">
             Contacts
           </StyledLink>
         </Item>

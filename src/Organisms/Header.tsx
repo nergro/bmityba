@@ -80,8 +80,6 @@ const StyledMenuBurger = styled(MenuBurger)`
   }
 `;
 
-const StyledMobileMenu = styled(MobileMenu)``;
-
 export const Header: FC = () => {
   const menuDispatch = useMenuDispatch();
   const menuState = useMenuState();
@@ -104,10 +102,10 @@ export const Header: FC = () => {
           <StyledLink to="/">Services</StyledLink>
           <StyledLink to="/">Portfolio</StyledLink>
           <StyledLink to="/">Blog</StyledLink>
-          <StyledLink to="/">Contacts</StyledLink>
+          <StyledLink to="/contacts">Contacts</StyledLink>
         </Links>
       </Container>
-      <StyledMobileMenu
+      <MobileMenu
         isOpen={menuState}
         onClose={() => menuDispatch({ type: 'Menu/Set', payload: false })}
       />

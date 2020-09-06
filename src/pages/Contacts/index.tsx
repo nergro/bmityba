@@ -8,6 +8,7 @@ import { ContactForm } from 'Molecules/ContactForm';
 import { Questions } from 'Molecules/Questions';
 import { SocialsSection } from 'Organisms/sections/SocialsSection';
 import React, { FC } from 'react';
+import { allQuestions } from 'services/questions';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -139,7 +140,7 @@ export const Contacts: FC = () => {
         </RightSection>
       </Container>
       <QuestionsContainer>
-        <StyledQuestions />
+        <StyledQuestions questions={allQuestions} />
       </QuestionsContainer>
 
       <SocialsSection />

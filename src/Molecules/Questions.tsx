@@ -2,6 +2,7 @@ import { P } from 'Atoms/text';
 import { QuestionToggle } from 'Molecules/QuestionToggle';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
+import { Question } from 'types/question';
 
 const Title = styled(P)`
   text-align: center;
@@ -18,7 +19,7 @@ const QuestionsWrapper = styled.div`
   margin-top: 20px;
 `;
 
-const Question = styled(QuestionToggle)`
+const StyledQuestion = styled(QuestionToggle)`
   width: 80%;
   &:not(:last-child) {
     margin-bottom: 30px;
@@ -27,31 +28,19 @@ const Question = styled(QuestionToggle)`
 
 interface Props {
   className?: string;
+  questions: Question[];
 }
 
-export const Questions: FC<Props> = ({ className }) => {
+export const Questions: FC<Props> = ({ className, questions }) => {
   return (
     <>
       <Title font="Roboto" weight="400" color="secondaryAccent">
         Frequently Asked Questions
       </Title>
       <QuestionsWrapper className={className}>
-        <Question
-          question="How to start a food blog?"
-          answer="We’ve been fortunate enough to run a food blog business for 3+ years fully employing two people. Even if self-employment isn’t your dream, we’ve learned a lot through our journey and think we can offer some killer advice to help you along the way, too."
-        />
-        <Question
-          question="How to make a dynamic logo for your food blog"
-          answer="Next, you need to make your site look good. Thankfully, adding a theme makes this a snap. A framework + child theme setup is ideal (for reasons of security, seo, efficiency, etc.) and how we have our site currently setup."
-        />
-        <Question
-          question="How to start a food blog?"
-          answer="We’ve been fortunate enough to run a food blog business for 3+ years fully employing two people. Even if self-employment isn’t your dream, we’ve learned a lot through our journey and think we can offer some killer advice to help you along the way, too."
-        />
-        <Question
-          question="How to start a food blog?"
-          answer="We’ve been fortunate enough to run a food blog business for 3+ years fully employing two people. Even if self-employment isn’t your dream, we’ve learned a lot through our journey and think we can offer some killer advice to help you along the way, too."
-        />
+        {questions.map((x, i) => (
+          <StyledQuestion key={i} question={x.question} answer={x.answer} />
+        ))}
       </QuestionsWrapper>
     </>
   );

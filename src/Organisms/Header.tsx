@@ -3,6 +3,7 @@ import { MenuBurger } from 'Atoms/MenuBurger';
 import { P } from 'Atoms/text';
 import { MobileMenu } from 'Molecules/MobileMenu';
 import React, { FC } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import {
   useDispatch as useMenuDispatch,
   useState as useMenuState,
@@ -83,6 +84,9 @@ const StyledMenuBurger = styled(MenuBurger)`
 export const Header: FC = () => {
   const menuDispatch = useMenuDispatch();
   const menuState = useMenuState();
+  const { push } = useHistory();
+  const { pathname } = useLocation();
+
   return (
     <>
       <Container>
@@ -90,19 +94,27 @@ export const Header: FC = () => {
           onClick={() => menuDispatch({ type: 'Menu/Set', payload: !menuState })}
           isOpen={menuState}
         />
-        <LogoButton>
+        <LogoButton onClick={() => push('/')}>
           <Logo size="big" font="Caveat" color="secondaryAccent">
             Brigita Meiglaitė
           </Logo>
         </LogoButton>
         <Links>
-          <StyledLink to="/" isActive>
+          <StyledLink to="/" isActive={pathname === '/'}>
             Home
           </StyledLink>
-          <StyledLink to="/">Services</StyledLink>
-          <StyledLink to="/">Portfolio</StyledLink>
-          <StyledLink to="/">Blog</StyledLink>
-          <StyledLink to="/contacts">Contacts</StyledLink>
+          <StyledLink to="/" isActive={pathname === '/services'}>
+            Services
+          </StyledLink>
+          <StyledLink to="/" isActive={pathname === '/portfolio'}>
+            Portfolio
+          </StyledLink>
+          <StyledLink to="/" isActive={pathname === '/blog'}>
+            Blog
+          </StyledLink>
+          <StyledLink to="/contacts" isActive={pathname === '/contacts'}>
+            Contacts
+          </StyledLink>
         </Links>
       </Container>
       <MobileMenu

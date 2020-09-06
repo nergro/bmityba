@@ -1,5 +1,5 @@
-import { Link } from 'Atoms/links/Link';
 import React, { FC } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components/macro';
 
 const Item = styled.li`
@@ -13,13 +13,25 @@ const Item = styled.li`
   width: 100%;
 `;
 
-const StyledLink = styled(Link)`
+interface LinkProps {
+  isActive?: boolean;
+}
+
+const StyledLink = styled.button<LinkProps>`
   text-decoration: none;
   padding: 2px 0;
   text-align: center;
   display: block;
   transition: all 0.3s;
   width: 100%;
+  font-size: 20px;
+  color: ${props => props.theme.colors.accents[props.isActive ? 'primary' : 'secondary']};
+  background: none;
+  border: none;
+  font-family: ${props => props.theme.fontFamily.Lato};
+  &:hover {
+    color: ${props => props.theme.colors.accents.primary};
+  }
 `;
 
 const createMenuDelays = (): FlattenSimpleInterpolation => {
@@ -38,24 +50,9 @@ const createMenuDelays = (): FlattenSimpleInterpolation => {
   `;
 };
 
-const Shadow = styled.div`
-  background: rgba(0, 0, 0, 0.5);
-  content: '';
-  height: 100%;
-  /* height: 10000vh; */
-  left: 0;
-  top: 0;
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  width: 100%;
-  transition: all 0.3s;
-  z-index: 1;
-`;
-
 const Menu = styled.ul<MenuProps>`
   display: block;
-  position: absolute;
+  position: fixed;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -67,12 +64,8 @@ const Menu = styled.ul<MenuProps>`
   ${props =>
     props.isOpen &&
     css`
-      z-index: 2;
+      z-index: 10;
 
-      && ~ ${Shadow} {
-        opacity: 1;
-        visibility: visible;
-      }
       ${Item} {
         opacity: 1;
         visibility: visible;
@@ -93,36 +86,43 @@ interface Props extends MenuProps {
 }
 
 export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
+  const { push } = useHistory();
+  const { pathname } = useLocation();
+
+  const onLinkClick = (to: string): void => {
+    push(to);
+    onClose();
+  };
+
   return (
     <>
       <Menu className={className} isOpen={isOpen}>
         <Item>
-          <StyledLink to="/" size="big">
+          <StyledLink onClick={() => onLinkClick('/')} isActive={pathname === '/'}>
             Home
           </StyledLink>
         </Item>
         <Item>
-          <StyledLink to="#" size="big">
+          <StyledLink onClick={() => onLinkClick('/')} isActive={pathname === '/services'}>
             Services
           </StyledLink>
         </Item>
         <Item>
-          <StyledLink to="#" size="big">
+          <StyledLink onClick={() => onLinkClick('/')} isActive={pathname === '/portfolio'}>
             Portfolio
           </StyledLink>
         </Item>
         <Item>
-          <StyledLink to="#" size="big">
+          <StyledLink onClick={() => onLinkClick('/')} isActive={pathname === '/blog'}>
             Blog
           </StyledLink>
         </Item>
         <Item>
-          <StyledLink to="/contacts" size="big">
+          <StyledLink onClick={() => onLinkClick('/contacts')} isActive={pathname === '/contacts'}>
             Contacts
           </StyledLink>
         </Item>
       </Menu>
-      <Shadow onClick={onClose} />
     </>
   );
 };

@@ -33,5 +33,3 @@ export const App: FC = () => {
     </AppLayout>
   );
 };
-
-// Caveat and Open sans serif fonts

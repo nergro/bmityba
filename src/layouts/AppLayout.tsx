@@ -1,4 +1,5 @@
 import { ErrorBoundary } from 'errorBoundary';
+import { Footer } from 'Organisms/Footer';
 import { Header } from 'Organisms/Header';
 import { ErrorPage } from 'pages/Error';
 import React, { FC, ReactNode } from 'react';
@@ -36,6 +37,7 @@ export const AppLayout: FC<AppLayoutProps> = ({ children, className }) => {
       <ErrorBoundary error={<ErrorPage />}>
         <Header />
         <Content>{children}</Content>
+        <Footer />
       </ErrorBoundary>
     </LayoutStyled>
   );

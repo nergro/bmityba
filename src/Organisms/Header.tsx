@@ -85,8 +85,6 @@ const StyledMobileMenu = styled(MobileMenu)``;
 export const Header: FC = () => {
   const menuDispatch = useMenuDispatch();
   const menuState = useMenuState();
-  // const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  // console.log(menuOpen);
   return (
     <>
       <Container>

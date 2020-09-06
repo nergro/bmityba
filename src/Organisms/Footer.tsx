@@ -72,7 +72,6 @@ const Socials = styled.div`
   display: flex;
   align-items: center;
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    /* padding-right: 15px; */
     display: none;
   }
 `;

@@ -22,7 +22,7 @@ const sizes: FontSizeCollection<Size> = {
   },
   medium: {
     desktop: '24px',
-    mobile: '16px',
+    mobile: '24px',
   },
   big: {
     desktop: '30px',

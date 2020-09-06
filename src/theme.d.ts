@@ -91,6 +91,7 @@ declare module 'styled-components' {
         darkLink: string;
         primaryAccent: string;
         secondaryAccent: string;
+        social: string;
       };
       loader: string;
       input: {

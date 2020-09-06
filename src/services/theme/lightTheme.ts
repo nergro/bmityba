@@ -132,6 +132,7 @@ export const lightTheme: DefaultTheme = {
       darkLink: '#055B7A',
       lightLink: '#0077A0',
       light: '#737475',
+      social: '#999999',
       primaryAccent,
       secondaryAccent,
     },

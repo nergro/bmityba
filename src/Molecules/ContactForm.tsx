@@ -1,5 +1,5 @@
 import { PrimaryButton } from 'Atoms/buttons/ActionButton';
-import { Input, TextArea } from 'Atoms/Input';
+import { Input, TextArea } from 'Atoms/Input/Input';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';

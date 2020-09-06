@@ -1,5 +1,6 @@
 import { AppLayout } from 'layouts/AppLayout';
 import { NotFound } from 'pages/404';
+import { Blog } from 'pages/Blog';
 import { Contacts } from 'pages/Contacts';
 import { Home } from 'pages/Home';
 import React, { FC, useEffect } from 'react';
@@ -24,10 +25,10 @@ export const App: FC = () => {
   return (
     <AppLayout>
       <GlobalStyle />
-
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/contacts" exact component={Contacts} />
+        <Route path="/blog" exact component={Blog} />
         <Route component={NotFound} />
       </Switch>
     </AppLayout>

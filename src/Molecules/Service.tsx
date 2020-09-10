@@ -15,21 +15,52 @@ const Content = styled.div`
   align-items: center;
   height: 100%;
   padding: 10%;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    padding: 6% 8%;
+  }
 `;
 
 const Title = styled(P)`
   transition: all 0.2s ease-in-out;
+  && {
+    font-size: 30px;
+    @media (max-width: ${props => props.theme.breakpoints.l}) {
+      font-size: 22px;
+    }
+    @media (max-width: ${props => props.theme.breakpoints.m}) {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+  }
 `;
 
-const Subtitle = styled(P)``;
+const Subtitle = styled(P)`
+  && {
+    font-size: 24px;
+    @media (max-width: ${props => props.theme.breakpoints.l}) {
+      margin: 5px 0;
+      font-size: 19px;
+    }
+  }
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    display: none;
+  }
+`;
 
 const Description = styled(P)`
   margin-top: 20px;
   line-height: 25px;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    margin-top: 5px;
+    line-height: 20px;
+  }
 `;
 
 const StyledLink = styled(Link)`
   margin-top: 20px;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    margin-top: 5px;
+  }
 `;
 
 const Container = styled.button`
@@ -54,6 +85,11 @@ const Container = styled.button`
       box-shadow: inset 100px 0 0 0 ${props => props.theme.colors.accents.primary};
     }
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    width: 300px;
+    height: 400px;
+  }
 `;
 
 interface Props {
@@ -72,10 +108,8 @@ export const Service: FC<Props> = ({ className, description, image, subtitle, ti
     <Container className={className} onClick={() => push(to)}>
       <Image src={image} />
       <Content>
-        <Title size="big" color="inactive">
-          {title}
-        </Title>
-        <Subtitle size="medium" font="Caveat" color="special">
+        <Title color="inactive">{title}</Title>
+        <Subtitle font="Caveat" color="special">
           {subtitle}
         </Subtitle>
         <Description color="inactive">{description}</Description>

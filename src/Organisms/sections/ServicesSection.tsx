@@ -9,27 +9,22 @@ import styled from 'styled-components/macro';
 const Container = styled.div`
   position: relative;
   width: 100%;
-  /* height: 100vh; */
-  height: 1500px;
-  background: linear-gradient(
-    to right bottom,
-    rgba(254, 169, 115, 1) 0%,
-    rgba(251, 170, 113, 1) 12%,
-    rgba(254, 199, 108, 1) 100%,
-    rgba(141, 220, 191, 1) 100%
-  );
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 20px 0 0;
+  padding: 50px 0;
 `;
 
-const Title = styled(H1)``;
+const Title = styled(H1)`
+  && {
+    font-size: 38px;
+  }
+`;
 
 const Services = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 70%;
   margin: 50px auto 0;
 `;
 
@@ -40,7 +35,7 @@ interface Props {
 export const ServicesSection: FC<Props> = () => {
   return (
     <Container>
-      <Title size="normal" color="secondary" weight="300">
+      <Title color="secondaryAccent" font="Prata">
         A Fresh Approach To Health &amp; Life
       </Title>
       <Services>
@@ -49,18 +44,21 @@ export const ServicesSection: FC<Props> = () => {
           title="1:1 Consultation"
           subtitle="What You Get.."
           description="Monthly sessions where we uncover the habits &amp; thoughts in the way of a healthy relationship with food &amp; your body."
+          to="/services"
         />
         <Service
           image={service2Image}
           title="30 day Challenge"
           subtitle="Perfect for you if.."
           description="You want to curb your cravings and discover a healthier lifestyle during a fun + simple 30 day online challenge."
+          to="/services"
         />
         <Service
           image={service3Image}
           title="Group Couching"
           subtitle="Get all the benefits"
           description="You're ready to explore a life that loves you as much as you love it through bi-weekly one on one coaching sessions."
+          to="/services"
         />
       </Services>
     </Container>

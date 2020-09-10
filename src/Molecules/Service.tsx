@@ -1,5 +1,7 @@
+import { Link } from 'Atoms/links/AnimatedLink';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const Image = styled.img`
@@ -26,12 +28,9 @@ const Description = styled(P)`
   line-height: 25px;
 `;
 
-// const StyledButton = styled(ActionButtonFilled)`
-//   width: 150px;
-//   height: 45px;
-//   font: ${props => props.theme.fonts.normalTextBold};
-//   margin-top: 20px;
-// `;
+const StyledLink = styled(Link)`
+  margin-top: 20px;
+`;
 
 const Container = styled.button`
   width: 400px;
@@ -46,7 +45,13 @@ const Container = styled.button`
   transition: all 0.3s ease-in-out;
   &:hover {
     ${Title} {
-      color: ${props => props.theme.colors.text.tertiary};
+      color: ${props => props.theme.colors.text.primaryAccent};
+    }
+    ${StyledLink} {
+      color: ${props => props.theme.colors.accents.primary};
+    }
+    ${StyledLink}:after {
+      box-shadow: inset 100px 0 0 0 ${props => props.theme.colors.accents.primary};
     }
   }
 `;
@@ -57,11 +62,14 @@ interface Props {
   title: string;
   subtitle: string;
   description: string;
+  to: string;
 }
 
-export const Service: FC<Props> = ({ className, description, image, subtitle, title }) => {
+export const Service: FC<Props> = ({ className, description, image, subtitle, title, to }) => {
+  const { push } = useHistory();
+
   return (
-    <Container className={className}>
+    <Container className={className} onClick={() => push(to)}>
       <Image src={image} />
       <Content>
         <Title size="big" color="inactive">
@@ -71,7 +79,7 @@ export const Service: FC<Props> = ({ className, description, image, subtitle, ti
           {subtitle}
         </Subtitle>
         <Description color="inactive">{description}</Description>
-        {/* <StyledButton>Learn more</StyledButton> */}
+        <StyledLink to="#">Learn more</StyledLink>
       </Content>
     </Container>
   );

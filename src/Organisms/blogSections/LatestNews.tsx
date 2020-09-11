@@ -21,7 +21,7 @@ export const LatestNews: FC = () => {
     <SideSection title="Latest News">
       <Posts>
         {latestPosts.map(x => (
-          <StyledLatestPost key={x.id} latestPost={x} />
+          <StyledLatestPost key={x.id} post={x} />
         ))}
       </Posts>
     </SideSection>

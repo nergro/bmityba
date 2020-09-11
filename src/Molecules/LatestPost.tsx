@@ -4,7 +4,7 @@ import { P } from 'Atoms/text';
 import moment from 'moment';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
-import { LatestPost as LatestPostInfo } from 'types/blog';
+import { Post } from 'types/blog';
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,12 +13,18 @@ const Wrapper = styled.div`
 const Image = styled.img`
   width: 70px;
   height: 70px;
+  margin-right: 20px;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    display: none;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    display: block;
+  }
 `;
 
 const Info = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
 `;
 
 const DateWrapper = styled.div`
@@ -45,20 +51,20 @@ const Title = styled(P)`
 
 interface Props {
   className?: string;
-  latestPost: LatestPostInfo;
+  post: Post;
 }
 
-export const LatestPost: FC<Props> = ({ className, latestPost: latestBlog }) => {
-  const date = moment(latestBlog.date).format('DD MMMM, YYYY');
+export const LatestPost: FC<Props> = ({ className, post }) => {
+  const date = moment(post.date).format('DD MMMM, YYYY');
   return (
     <Wrapper className={className}>
-      <Image src={latestBlog.image} />
+      <Image src={post.image} />
       <Info>
         <DateWrapper>
           <StyledIcon svgComponent={CalendarSvg} />
           <Date>{date}</Date>
         </DateWrapper>
-        <Title>{latestBlog.title}</Title>
+        <Title>{post.title}</Title>
       </Info>
     </Wrapper>
   );

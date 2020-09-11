@@ -79,6 +79,7 @@ export const Link = styled(BasicLink)`
   font-weight: ${props => props.weight || '700'};
   font-size: ${props => sizes[props.size || 'normal'].desktop};
   margin: 0;
+  transition: all 0.2s ease-out;
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     font-size: ${props => sizes[props.size || 'normal'].mobile};

@@ -1,7 +1,6 @@
 import { SearchInput } from 'Atoms/Input/SearchInput';
 import { PageLayout } from 'layouts/PageLayout';
 import { Categories } from 'Organisms/blogSections/Categories';
-import { InstagramPosts } from 'Organisms/blogSections/InstagramPosts';
 import { LatestNews } from 'Organisms/blogSections/LatestNews';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
@@ -13,6 +12,9 @@ const Container = styled.div`
 const Aside = styled.aside`
   width: 30%;
   background: #f8f9fa;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    display: none;
+  }
 `;
 
 const AsideContent = styled.div`
@@ -23,17 +25,32 @@ const AsideContent = styled.div`
 `;
 
 const StyledSearchInput = styled(SearchInput)`
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
+  min-width: 175px;
   height: 50px;
 `;
 
 const Content = styled.div`
-  width: 70%;
+  width: 50%;
+  margin: 0 50px 0 auto;
+  padding: 80px 0;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 60%;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    width: 90%;
+    margin-right: auto;
+  }
 `;
 
-export const BlogLayout: FC = ({ children }) => {
+interface Props {
+  title?: string;
+}
+
+export const BlogLayout: FC<Props> = ({ children, title = 'Blog' }) => {
   return (
-    <PageLayout title="Blog">
+    <PageLayout title={title}>
       <Container>
         <Content>{children}</Content>
         <Aside>
@@ -41,7 +58,6 @@ export const BlogLayout: FC = ({ children }) => {
             <StyledSearchInput />
             <LatestNews />
             <Categories />
-            <InstagramPosts />
           </AsideContent>
         </Aside>
       </Container>

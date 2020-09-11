@@ -1,6 +1,6 @@
-import { LatestPost } from 'types/blog';
+import { Post } from 'types/blog';
 
-export const latestPosts: LatestPost[] = [
+export const latestPosts: Post[] = [
   {
     id: '1',
     image: 'http://themetechmount.com/html/nutricare/images/blog/post-5.jpg',

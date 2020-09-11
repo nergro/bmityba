@@ -18,6 +18,12 @@ const Container = styled.div`
 const Title = styled(H1)`
   && {
     font-size: 38px;
+    @media (max-width: ${props => props.theme.breakpoints.m}) {
+      font-size: 32px;
+    }
+    @media (max-width: ${props => props.theme.breakpoints.s}) {
+      font-size: 28px;
+    }
   }
 `;
 
@@ -26,16 +32,26 @@ const Services = styled.div`
   justify-content: space-between;
   width: 100%;
   max-width: 1300px;
-  margin: 50px auto 0;
+  margin: 40px auto 0;
 
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     max-width: 1000px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    flex-direction: column;
+    margin-top: 20px;
   }
 `;
 
 const StyledService = styled(Service)`
   &:not(:last-child) {
     margin-right: 20px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    &:not(:last-child) {
+      margin: 0 0 20px;
+    }
   }
 `;
 

@@ -7,6 +7,15 @@ import styled from 'styled-components/macro';
 const Image = styled.img`
   width: 100%;
   height: 45%;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    width: 35%;
+    height: 100%;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    width: 100%;
+    height: 48%;
+  }
 `;
 
 const Content = styled.div`
@@ -67,7 +76,7 @@ const Container = styled.button`
   width: 400px;
   height: 600px;
   background: ${props => props.theme.colors.background.primary};
-  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.25);
   border: none;
   display: flex;
   flex-direction: column;
@@ -89,6 +98,17 @@ const Container = styled.button`
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     width: 300px;
     height: 400px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    flex-direction: row;
+    height: unset;
+    width: 100%;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    flex-direction: column;
+    height: 380px;
   }
 `;
 

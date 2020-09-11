@@ -1,5 +1,4 @@
 import { Icon, SvgComponent } from 'Atoms/Icon';
-import { Link } from 'Atoms/links/AnimatedLink';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
@@ -38,10 +37,9 @@ interface Props {
   icon: SvgComponent;
   title: string;
   description: string;
-  to: string;
 }
 
-export const Feature: FC<Props> = ({ className, icon, title, description, to }) => {
+export const Feature: FC<Props> = ({ className, icon, title, description }) => {
   return (
     <Box className={className}>
       <StyledIcon svgComponent={icon} />
@@ -51,7 +49,6 @@ export const Feature: FC<Props> = ({ className, icon, title, description, to }) 
       <Description font="Lato" color="light">
         {description}
       </Description>
-      <Link to={to}>View more</Link>
     </Box>
   );
 };

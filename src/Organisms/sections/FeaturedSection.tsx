@@ -7,6 +7,9 @@ const StyledFeature = styled(Feature)`
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     height: 320px;
   }
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    height: 250px;
+  }
 `;
 
 const Container = styled.div`
@@ -35,19 +38,16 @@ export const FeaturedSection: FC<Props> = ({ className }) => {
         icon={FoodSvg}
         title="Top Rated"
         description="With so many choices of the food-diet advisory out there, we’re at top-rated cause of homely services."
-        to="/"
       />
       <StyledFeature
         icon={FoodSvg}
         title="Top Rated"
         description="With so many choices of the food-diet advisory out there, we’re at top-rated cause of homely services."
-        to="/"
       />
       <StyledFeature
         icon={FoodSvg}
         title="Top Rated"
         description="With so many choices of the food-diet advisory out there, we’re at top-rated cause of homely services."
-        to="/"
       />
     </Container>
   );

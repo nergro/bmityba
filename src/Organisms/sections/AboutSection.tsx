@@ -85,6 +85,9 @@ const RightSection = styled.div`
     display: flex;
     justify-content: center;
   }
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    margin-top: 70px;
+  }
 `;
 
 const ImageWrapper = styled.div`

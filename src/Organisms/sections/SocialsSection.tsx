@@ -25,6 +25,7 @@ const Content = styled.div`
 const Title = styled(P)`
   && {
     font-size: 20px;
+    letter-spacing: 1.5px;
   }
 `;
 

@@ -6,7 +6,7 @@ import styled from 'styled-components/macro';
 
 const Container = styled.div`
   width: 82%;
-  margin: 100px auto 0;
+  margin: 80px auto 0;
   display: flex;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     width: 100%;
@@ -16,6 +16,7 @@ const Container = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     flex-direction: column;
     padding: 0;
+    margin-top: 20px;
   }
 `;
 

@@ -1,5 +1,6 @@
 import { Link as AnimatedLink } from 'Atoms/links/AnimatedLink';
 import { Link } from 'Atoms/links/Link';
+import { PostImage } from 'Atoms/PostImage';
 import { H1, P } from 'Atoms/text';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
@@ -12,25 +13,8 @@ const Container = styled.div`
   box-shadow: 0 0 10px 0 rgba(43, 52, 59, 0.1);
 `;
 
-const Image = styled.img`
-  max-width: 100%;
+const StyledImage = styled(PostImage)`
   max-height: 500px;
-  transition: all 0.5s ease-in-out 0s;
-  display: block;
-  width: 100%;
-  height: auto;
-`;
-
-const ImageBox = styled.div`
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-
-  &:hover {
-    ${Image} {
-      transform: scale3d(1.05, 1.05, 1.05);
-    }
-  }
 `;
 
 const Info = styled.div`
@@ -81,11 +65,9 @@ interface Props {
 export const Post: FC<Props> = ({ className, post }) => {
   return (
     <Container className={className}>
-      <ImageBox>
-        <Image src={post.image} />
-      </ImageBox>
+      <StyledImage imageUrl={post.image} />
       <Info>
-        <StyledLink to="/">
+        <StyledLink to={`/blog/${post.id}`}>
           <Title font="Prata" color="secondaryAccent">
             {post.title}
           </Title>
@@ -93,7 +75,7 @@ export const Post: FC<Props> = ({ className, post }) => {
         <Description font="Lato" color="light">
           {post.description}
         </Description>
-        <StyledAnimatedLink to="#">Read more</StyledAnimatedLink>
+        <StyledAnimatedLink to={`/blog/${post.id}`}>Read more</StyledAnimatedLink>
       </Info>
     </Container>
   );

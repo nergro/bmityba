@@ -44,9 +44,13 @@ const Content = styled.div`
   }
 `;
 
-export const BlogLayout: FC = ({ children }) => {
+interface Props {
+  title?: string;
+}
+
+export const BlogLayout: FC<Props> = ({ children, title = 'Blog' }) => {
   return (
-    <PageLayout title="Blog">
+    <PageLayout title={title}>
       <Container>
         <Content>{children}</Content>
         <Aside>

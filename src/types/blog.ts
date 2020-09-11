@@ -1,4 +1,4 @@
-export interface LatestPost {
+export interface Post {
   id: string;
   image: string;
   date: string;

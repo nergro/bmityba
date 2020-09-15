@@ -38,7 +38,6 @@ const HeroTitle = styled(H1)`
     }
   }
 `;
-
 interface Props {
   title?: string;
 }

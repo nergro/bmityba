@@ -103,11 +103,11 @@ export const Header: FC = () => {
           <StyledLink to="/" isActive={pathname === '/'}>
             Home
           </StyledLink>
-          <StyledLink to="/" isActive={pathname === '/services'}>
-            Services
+          <StyledLink to="/about" isActive={pathname === '/about'}>
+            About
           </StyledLink>
-          <StyledLink to="/" isActive={pathname === '/portfolio'}>
-            Portfolio
+          <StyledLink to="/services" isActive={pathname === '/services'}>
+            Services
           </StyledLink>
           <StyledLink to="/blog" isActive={pathname === '/blog'}>
             Blog

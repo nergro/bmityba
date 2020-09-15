@@ -1,6 +1,7 @@
 import 'services/http';
 import './i18n';
 
+import { ScrollToTop } from 'Molecules/ScrollToTop';
 import { ErrorPage } from 'pages/Error';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -21,6 +22,7 @@ ReactDOM.render(
   <ErrorBoundary error={<ErrorPage />}>
     <Router>
       <ProvidersInjector providers={[MobileMenuStoreProvider]}>
+        <ScrollToTop />
         <ThemeProvider theme={lightTheme}>
           <App />
           <ToastContainer />

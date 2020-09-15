@@ -1,8 +1,9 @@
 import coverImg from 'assets/cover.jpg';
-import { PrimaryButton, SecondaryButton } from 'Atoms/buttons/ActionButton';
+import { PrimaryButtonFilled, SecondaryButtonFilled } from 'Atoms/buttons/ActionButton';
 import { Caption } from 'Atoms/Caption';
 import { H1, P, Span } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -77,7 +78,7 @@ const Buttons = styled.div`
   }
 `;
 
-const StyledPrimaryButton = styled(PrimaryButton)`
+const StyledPrimaryButton = styled(PrimaryButtonFilled)`
   margin-right: 20px;
 `;
 
@@ -86,6 +87,8 @@ interface Props {
 }
 
 export const MainSection: FC<Props> = () => {
+  const { push } = useHistory();
+
   return (
     <Container>
       <TextSection>
@@ -99,10 +102,8 @@ export const MainSection: FC<Props> = () => {
           options whenever you&#39;re at one of our locations.
         </Description>
         <Buttons>
-          <StyledPrimaryButton onClick={() => console.log('Contact')}>
-            Contact me
-          </StyledPrimaryButton>
-          <SecondaryButton>About</SecondaryButton>
+          <StyledPrimaryButton onClick={() => push('/contacts')}>Contact me</StyledPrimaryButton>
+          <SecondaryButtonFilled onClick={() => push('/about')}>About</SecondaryButtonFilled>
         </Buttons>
       </TextSection>
     </Container>

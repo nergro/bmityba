@@ -1,4 +1,4 @@
-import { PrimaryButton } from 'Atoms/buttons/ActionButton';
+import { PrimaryButtonFilled } from 'Atoms/buttons/ActionButton';
 import { Input, TextArea } from 'Atoms/Input/Input';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
@@ -72,7 +72,7 @@ const StyledTextArea = styled(TextArea)`
   }
 `;
 
-const StyledButton = styled(PrimaryButton)`
+const StyledButton = styled(PrimaryButtonFilled)`
   align-self: center;
   margin: 30px 0;
 `;

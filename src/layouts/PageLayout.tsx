@@ -39,8 +39,6 @@ const HeroTitle = styled(H1)`
   }
 `;
 
-const Content = styled.div``;
-
 interface Props {
   title?: string;
 }
@@ -57,7 +55,7 @@ export const PageLayout: FC<Props> = ({ title, children }) => {
           )}
         </Hero>
       </HeroWrapper>
-      <Content>{children}</Content>
+      {children}
     </Container>
   );
 };

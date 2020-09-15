@@ -1,5 +1,5 @@
 import coverImg from 'assets/cover.jpg';
-import { PrimaryButton, SecondaryButton } from 'Atoms/buttons/ActionButton';
+import { PrimaryButtonFilled, SecondaryButtonFilled } from 'Atoms/buttons/ActionButton';
 import { Caption } from 'Atoms/Caption';
 import { H1, P, Span } from 'Atoms/text';
 import React, { FC } from 'react';
@@ -77,7 +77,7 @@ const Buttons = styled.div`
   }
 `;
 
-const StyledPrimaryButton = styled(PrimaryButton)`
+const StyledPrimaryButton = styled(PrimaryButtonFilled)`
   margin-right: 20px;
 `;
 
@@ -102,7 +102,7 @@ export const MainSection: FC<Props> = () => {
           <StyledPrimaryButton onClick={() => console.log('Contact')}>
             Contact me
           </StyledPrimaryButton>
-          <SecondaryButton>About</SecondaryButton>
+          <SecondaryButtonFilled>About</SecondaryButtonFilled>
         </Buttons>
       </TextSection>
     </Container>

@@ -43,7 +43,7 @@ export const ActionButton = styled(ButtonBase)`
   }
 `;
 
-export const PrimaryButton = styled(ButtonBase)`
+export const PrimaryButtonFilled = styled(ButtonBase)`
   color: ${props => props.theme.colors.button.filled.default.textColor};
   background: ${props => props.theme.colors.button.filled.default.backgroundColor};
 
@@ -53,12 +53,35 @@ export const PrimaryButton = styled(ButtonBase)`
   }
 `;
 
-export const SecondaryButton = styled(ButtonBase)`
+export const PrimaryButton = styled(ButtonBase)`
+  border-radius: 10px;
+  border: 3px solid ${props => props.theme.colors.button.filled.default.backgroundColor};
+  color: ${props => props.theme.colors.button.filled.default.textColor};
+  background: transparent;
+
+  &:hover {
+    color: ${props => props.theme.colors.button.filled.default.backgroundColor};
+  }
+`;
+
+export const SecondaryButtonFilled = styled(ButtonBase)`
   color: ${props => props.theme.colors.button.filled.hover.textColor};
   background: ${props => props.theme.colors.button.filled.hover.backgroundColor};
 
   &:hover {
     color: ${props => props.theme.colors.button.filled.default.textColor};
     background: ${props => props.theme.colors.button.filled.default.backgroundColor};
+  }
+`;
+
+export const SecondaryButton = styled(ButtonBase)`
+  border: 4px solid ${props => props.theme.colors.button.filled.hover.backgroundColor};
+  color: ${props => props.theme.colors.accents.secondary};
+
+  background: transparent;
+
+  &:hover {
+    color: ${props => props.theme.colors.button.filled.hover.textColor};
+    background: ${props => props.theme.colors.button.filled.hover.backgroundColor};
   }
 `;

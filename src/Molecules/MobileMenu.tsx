@@ -103,13 +103,13 @@ export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
           </StyledLink>
         </Item>
         <Item>
-          <StyledLink onClick={() => onLinkClick('/')} isActive={pathname === '/services'}>
-            Services
+          <StyledLink onClick={() => onLinkClick('/about')} isActive={pathname === '/about'}>
+            About
           </StyledLink>
         </Item>
         <Item>
-          <StyledLink onClick={() => onLinkClick('/')} isActive={pathname === '/portfolio'}>
-            Portfolio
+          <StyledLink onClick={() => onLinkClick('/services')} isActive={pathname === '/services'}>
+            Services
           </StyledLink>
         </Item>
         <Item>

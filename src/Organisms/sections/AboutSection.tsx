@@ -218,7 +218,7 @@ export const AboutSection: FC<Props> = ({ className }) => {
           Dietitian Nutritionists. We emerged to maintain our reputation in a society which took a
           long time to be what today we are! NGO for ruler people.
         </Description>
-        <StyledMoreLink to="/">More About</StyledMoreLink>
+        <StyledMoreLink to="/about">More About</StyledMoreLink>
         <Features>
           <Feature>
             <StyledIcon svgComponent={ClockSvg} />

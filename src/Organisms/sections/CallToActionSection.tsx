@@ -2,6 +2,7 @@ import callActionImage from 'assets/callToAction.jpg';
 import { PrimaryButton } from 'Atoms/buttons/ActionButton';
 import { H1 } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -50,13 +51,14 @@ const Title = styled(H1)`
 `;
 
 export const CallToActionSection: FC = () => {
+  const { push } = useHistory();
   return (
     <Container>
       <Content>
         <Title color="secondary" font="Prata">
           Ready to get started? Book a consultation
         </Title>
-        <PrimaryButton onClick={() => console.log('Contact')}>Contact me</PrimaryButton>
+        <PrimaryButton onClick={() => push('/contacts')}>Contact me</PrimaryButton>
       </Content>
     </Container>
   );

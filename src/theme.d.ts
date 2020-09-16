@@ -92,6 +92,7 @@ declare module 'styled-components' {
         primaryAccent: string;
         secondaryAccent: string;
         social: string;
+        disabled: string;
       };
       loader: string;
       input: {

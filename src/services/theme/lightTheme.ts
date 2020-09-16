@@ -135,6 +135,7 @@ export const lightTheme: DefaultTheme = {
       social: '#999999',
       primaryAccent,
       secondaryAccent,
+      disabled: rgba(73, 80, 87, 0.4),
     },
     loader: '#F8B600',
     input: {

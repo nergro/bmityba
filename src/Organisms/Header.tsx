@@ -1,9 +1,12 @@
+import { LanguageButton } from 'Atoms/buttons/LanguageButton';
 import { Link } from 'Atoms/links/Link';
 import { MenuBurger } from 'Atoms/MenuBurger';
 import { P } from 'Atoms/text';
 import { MobileMenu } from 'Molecules/MobileMenu';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
+import { getLocale, setLocale } from 'services/localStorage';
 import {
   useDispatch as useMenuDispatch,
   useState as useMenuState,
@@ -81,11 +84,30 @@ const StyledMenuBurger = styled(MenuBurger)`
   }
 `;
 
+const Languages = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+`;
+
+const StyledLanguageButton = styled(LanguageButton)`
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+`;
+
+interface LocaleOption {
+  value: string;
+  label: string;
+}
+
 export const Header: FC = () => {
+  const { i18n, t } = useTranslation();
   const menuDispatch = useMenuDispatch();
   const menuState = useMenuState();
   const { push } = useHistory();
   const { pathname } = useLocation();
+  const [language, setLanguage] = useState<string | undefined>(getLocale()?.value);
 
   return (
     <>
@@ -104,7 +126,7 @@ export const Header: FC = () => {
             Home
           </StyledLink>
           <StyledLink to="/about" isActive={pathname === '/about'}>
-            About
+            {t('About')}
           </StyledLink>
           <StyledLink to="/services" isActive={pathname === '/services'}>
             Services
@@ -116,6 +138,28 @@ export const Header: FC = () => {
             Contacts
           </StyledLink>
         </Links>
+        <Languages>
+          <StyledLanguageButton
+            onClick={() => {
+              setLocale({ value: 'lt', label: 'LT' });
+              setLanguage('lt');
+              i18n.changeLanguage('lt');
+            }}
+            disabled={language === 'lt'}
+          >
+            LT
+          </StyledLanguageButton>
+          <StyledLanguageButton
+            onClick={() => {
+              setLocale({ value: 'en', label: 'EN' });
+              setLanguage('en');
+              i18n.changeLanguage('en');
+            }}
+            disabled={language === 'en'}
+          >
+            EN
+          </StyledLanguageButton>
+        </Languages>
       </Container>
       <MobileMenu
         isOpen={menuState}

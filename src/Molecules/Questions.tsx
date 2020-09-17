@@ -1,6 +1,8 @@
 import { P } from 'Atoms/text';
 import { QuestionToggle } from 'Molecules/QuestionToggle';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { getLocale } from 'services/localStorage';
 import styled from 'styled-components/macro';
 import { Question } from 'types/question';
 
@@ -32,14 +34,21 @@ interface Props {
 }
 
 export const Questions: FC<Props> = ({ className, questions }) => {
+  const locale = getLocale();
+  const { t } = useTranslation();
+
   return (
     <>
       <Title font="Roboto" weight="400" color="secondaryAccent">
-        Frequently Asked Questions
+        {t('Frequently Asked Questions')}
       </Title>
       <QuestionsWrapper className={className}>
         {questions.map((x, i) => (
-          <StyledQuestion key={i} question={x.question} answer={x.answer} />
+          <StyledQuestion
+            key={i}
+            question={locale === 'en' ? x.questionEN : x.questionLT}
+            answer={locale === 'en' ? x.answerEN : x.answerLT}
+          />
         ))}
       </QuestionsWrapper>
     </>

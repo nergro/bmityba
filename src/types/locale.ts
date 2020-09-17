@@ -1,4 +1,1 @@
-export interface Locale {
-  label: string;
-  value: string;
-}
+export type Locale = 'lt' | 'en';

@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
+import { getLocale, setLocale } from 'services/localStorage';
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components/macro';
 
 const Item = styled.li`
@@ -37,7 +39,7 @@ const StyledLink = styled.button<LinkProps>`
 const createMenuDelays = (): FlattenSimpleInterpolation => {
   let styles = '';
 
-  for (let i = 0; i < 6; i += 1) {
+  for (let i = 0; i < 7; i += 1) {
     styles += `
         &:nth-child(${i}) {
           transition-delay: ${(i - 1) / 10}s;
@@ -86,11 +88,21 @@ interface Props extends MenuProps {
 }
 
 export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
+  const { i18n, t } = useTranslation();
+
   const { push } = useHistory();
   const { pathname } = useLocation();
 
   const onLinkClick = (to: string): void => {
     push(to);
+    onClose();
+  };
+  const currentLocale = getLocale();
+
+  const onLanguageClick = (): void => {
+    const newLanguage = currentLocale === 'lt' ? 'en' : 'lt';
+    setLocale(newLanguage);
+    i18n.changeLanguage(newLanguage);
     onClose();
   };
 
@@ -99,27 +111,32 @@ export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
       <Menu className={className} isOpen={isOpen}>
         <Item>
           <StyledLink onClick={() => onLinkClick('/')} isActive={pathname === '/'}>
-            Home
+            {t('Home')}
           </StyledLink>
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/about')} isActive={pathname === '/about'}>
-            About
+            {t('About')}
           </StyledLink>
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/services')} isActive={pathname === '/services'}>
-            Services
+            {t('Services')}
           </StyledLink>
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/blog')} isActive={pathname === '/blog'}>
-            Blog
+            {t('Blog')}
           </StyledLink>
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/contacts')} isActive={pathname === '/contacts'}>
-            Contacts
+            {t('Contact me')}
+          </StyledLink>
+        </Item>
+        <Item>
+          <StyledLink onClick={onLanguageClick} isActive={false}>
+            {currentLocale === 'lt' ? 'EN' : 'LT'}
           </StyledLink>
         </Item>
       </Menu>

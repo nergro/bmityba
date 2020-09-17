@@ -3,6 +3,7 @@ import { PrimaryButtonFilled, SecondaryButtonFilled } from 'Atoms/buttons/Action
 import { Caption } from 'Atoms/Caption';
 import { H1, P, Span } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -87,6 +88,8 @@ interface Props {
 }
 
 export const MainSection: FC<Props> = () => {
+  const { t } = useTranslation();
+
   const { push } = useHistory();
 
   return (

@@ -18,10 +18,10 @@ export const App: FC = () => {
   useEffect(() => {
     const locale = getLocale();
     if (locale !== null) {
-      i18n.changeLanguage(locale.value);
+      i18n.changeLanguage(locale);
     } else {
       i18n.changeLanguage('lt');
-      setLocale({ value: 'lt', label: 'LT' });
+      setLocale('lt');
     }
   }, [i18n]);
 

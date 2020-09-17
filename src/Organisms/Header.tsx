@@ -88,6 +88,9 @@ const Languages = styled.div`
   display: flex;
   align-items: center;
   margin-right: 30px;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    display: none;
+  }
 `;
 
 const StyledLanguageButton = styled(LanguageButton)`
@@ -96,18 +99,13 @@ const StyledLanguageButton = styled(LanguageButton)`
   }
 `;
 
-interface LocaleOption {
-  value: string;
-  label: string;
-}
-
 export const Header: FC = () => {
   const { i18n, t } = useTranslation();
   const menuDispatch = useMenuDispatch();
   const menuState = useMenuState();
   const { push } = useHistory();
   const { pathname } = useLocation();
-  const [language, setLanguage] = useState<string | undefined>(getLocale()?.value);
+  const [language, setLanguage] = useState<string | null>(getLocale());
 
   return (
     <>
@@ -123,25 +121,25 @@ export const Header: FC = () => {
         </LogoButton>
         <Links>
           <StyledLink to="/" isActive={pathname === '/'}>
-            Home
+            {t('Home')}
           </StyledLink>
           <StyledLink to="/about" isActive={pathname === '/about'}>
             {t('About')}
           </StyledLink>
           <StyledLink to="/services" isActive={pathname === '/services'}>
-            Services
+            {t('Services')}
           </StyledLink>
           <StyledLink to="/blog" isActive={pathname === '/blog'}>
-            Blog
+            {t('Blog')}
           </StyledLink>
           <StyledLink to="/contacts" isActive={pathname === '/contacts'}>
-            Contacts
+            {t('Contact me')}
           </StyledLink>
         </Links>
         <Languages>
           <StyledLanguageButton
             onClick={() => {
-              setLocale({ value: 'lt', label: 'LT' });
+              setLocale('lt');
               setLanguage('lt');
               i18n.changeLanguage('lt');
             }}
@@ -151,7 +149,7 @@ export const Header: FC = () => {
           </StyledLanguageButton>
           <StyledLanguageButton
             onClick={() => {
-              setLocale({ value: 'en', label: 'EN' });
+              setLocale('en');
               setLanguage('en');
               i18n.changeLanguage('en');
             }}

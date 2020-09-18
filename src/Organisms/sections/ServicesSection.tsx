@@ -62,7 +62,7 @@ interface Props {
 export const ServicesSection: FC<Props> = () => {
   return (
     <Container>
-      <Title color="secondaryAccent" font="Prata">
+      <Title color="secondaryAccent" font="Spectral">
         A Fresh Approach To Health &amp; Life
       </Title>
       <Services>

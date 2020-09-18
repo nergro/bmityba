@@ -30,7 +30,7 @@ const StyledLink = styled.button<LinkProps>`
   color: ${props => props.theme.colors.accents[props.isActive ? 'primary' : 'secondary']};
   background: none;
   border: none;
-  font-family: ${props => props.theme.fontFamily.Lato};
+  font-family: ${props => props.theme.fontFamily.Main};
   &:hover {
     color: ${props => props.theme.colors.accents.primary};
   }
@@ -131,7 +131,7 @@ export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/contacts')} isActive={pathname === '/contacts'}>
-            {t('Contact me')}
+            {t('Contacts')}
           </StyledLink>
         </Item>
         <Item>

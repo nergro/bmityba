@@ -6,6 +6,7 @@ import { Icon } from 'Atoms/Icon';
 import { MoreLink } from 'Atoms/links/MoreLink';
 import { H1, P } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -45,7 +46,7 @@ const Title = styled(H1)`
   text-align: left;
   margin: 20px 0;
   font-size: 38px;
-  max-width: 365px;
+  max-width: 450px;
   line-height: 45px;
   margin: 10px 0 0;
 
@@ -205,37 +206,33 @@ interface Props {
 }
 
 export const AboutSection: FC<Props> = ({ className }) => {
+  const { t } = useTranslation();
   return (
     <Container className={className}>
       <LeftSection>
-        <StyledCaption content="About Nutrition" lineLeft size="normal" lineWidth="30px" />
-        <Title font="Prata" color="secondaryAccent">
-          Welcome To Health Care Nutrition
+        <StyledCaption content={t('About me')} lineLeft size="normal" lineWidth="30px" />
+        <Title font="Spectral" color="secondaryAccent">
+          {t('Healthy Lifestyle Coach and Qualified Nutritionist')}
         </Title>
-        <Description font="Lato" color="light">
-          We have been the most trusted “Health care Nutrition” manual for 25 years, and We are
-          proud of our rich history of providing evidence based nutrition resources from Registered
-          Dietitian Nutritionists. We emerged to maintain our reputation in a society which took a
-          long time to be what today we are! NGO for ruler people.
-        </Description>
-        <StyledMoreLink to="/about">More About</StyledMoreLink>
+        <Description color="light">{t('AboutShort')}</Description>
+        <StyledMoreLink to="/about">{t('More About')}</StyledMoreLink>
         <Features>
           <Feature>
             <StyledIcon svgComponent={ClockSvg} />
-            <P size="feature" weight="600" color="secondaryAccent">
-              Ontime at Services
+            <P size="feature" color="secondaryAccent">
+              {t('Ontime at Services')}
             </P>
           </Feature>
           <Feature>
             <StyledIcon svgComponent={ClockSvg} />
-            <P size="feature" weight="600" color="secondaryAccent">
-              24/7 Help Services
+            <P size="feature" color="secondaryAccent">
+              {t('Ready to Help 24/7')}
             </P>
           </Feature>
           <Feature>
             <StyledIcon svgComponent={ClockSvg} />
-            <P size="feature" weight="600" color="secondaryAccent">
-              Verified Professionals
+            <P size="feature" color="secondaryAccent">
+              {t('Verified Professional')}
             </P>
           </Feature>
         </Features>

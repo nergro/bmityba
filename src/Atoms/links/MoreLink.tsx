@@ -85,7 +85,7 @@ const BasicLink: FC<Props> = ({
 
 export const MoreLink = styled(BasicLink)`
   color: ${props => props.theme.colors.accents.primary};
-  font-family: ${props => props.theme.fontFamily.Lato};
+  font-family: ${props => props.theme.fontFamily.Main};
   font-weight: ${props => props.weight || '700'};
   font-size: ${props => sizes[props.size || 'normal'].desktop};
   margin: 0;

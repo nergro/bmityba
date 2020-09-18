@@ -61,7 +61,7 @@ export const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     <BlogLayout>
       <Container>
         <StyledImage imageUrl={post.image} />
-        <Title font="Prata">{post.title}</Title>
+        <Title font="Spectral">{post.title}</Title>
         <Content>
           <Text>
             There are many variations of passages of Lorem Ipsum available, but the majority have

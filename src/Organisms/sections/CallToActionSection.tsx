@@ -55,7 +55,7 @@ export const CallToActionSection: FC = () => {
   return (
     <Container>
       <Content>
-        <Title color="secondary" font="Prata">
+        <Title color="secondary" font="Spectral">
           Ready to get started? Book a consultation
         </Title>
         <PrimaryButton onClick={() => push('/contacts')}>Contact me</PrimaryButton>

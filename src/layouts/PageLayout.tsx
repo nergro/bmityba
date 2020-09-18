@@ -48,7 +48,7 @@ export const PageLayout: FC<Props> = ({ title, children }) => {
       <HeroWrapper>
         <Hero>
           {title && (
-            <HeroTitle color="secondary" font="Prata">
+            <HeroTitle color="secondary" font="Spectral">
               {title}
             </HeroTitle>
           )}

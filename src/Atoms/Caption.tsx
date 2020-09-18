@@ -55,7 +55,7 @@ export const Caption: FC<Props> = ({
   return (
     <CaptionWrapper className={className}>
       {lineLeft && <LineLeft width={lineWidth} />}
-      <Content color="primaryAccent" font="Lato" size={size} weight="600">
+      <Content color="primaryAccent" size={size} weight="600">
         {content}
       </Content>
       {lineright && <LineRight width={lineWidth} />}

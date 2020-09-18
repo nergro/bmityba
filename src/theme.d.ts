@@ -134,8 +134,9 @@ declare module 'styled-components' {
       OpenSans: string;
       Rowdies: string;
       Roboto: string;
-      Lato: string;
-      Prata: string;
+      Main: string;
+      Montserrat: string;
+      Spectral: string;
     };
     fonts: {
       bigText: string;

@@ -102,27 +102,19 @@ export const Footer: FC = () => {
   return (
     <Container>
       <Content>
-        <P color="secondary" font="Lato">
-          GET IN TOUCH
-        </P>
+        <P color="secondary">GET IN TOUCH</P>
         <Contacts>
           <Contact>
             <StyledIcon svgComponent={PhoneSvg} />
-            <P color="secondary" font="Lato">
-              +370 662 38367
-            </P>
+            <P color="secondary">+370 662 38367</P>
           </Contact>
           <Contact>
             <StyledIcon svgComponent={MailSvg} />
-            <P color="secondary" font="Lato">
-              bmityba@outlook.com
-            </P>
+            <P color="secondary">bmityba@outlook.com</P>
           </Contact>
           <Contact>
             <StyledIcon svgComponent={LocationSvg} />
-            <P color="secondary" font="Lato">
-              Kaunas, Lietuva
-            </P>
+            <P color="secondary">Kaunas, Lietuva</P>
           </Contact>
         </Contacts>
       </Content>

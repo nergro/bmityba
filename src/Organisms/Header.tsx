@@ -133,7 +133,7 @@ export const Header: FC = () => {
             {t('Blog')}
           </StyledLink>
           <StyledLink to="/contacts" isActive={pathname === '/contacts'}>
-            {t('Contact me')}
+            {t('Contacts')}
           </StyledLink>
         </Links>
         <Languages>

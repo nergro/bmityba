@@ -48,7 +48,7 @@ const PComp: FC<Props> = ({ className, children }) => <p className={className}>{
 
 export const P = styled(PComp)`
   color: ${props => props.theme.colors.text[props.color || 'main']};
-  font-family: ${props => props.theme.fontFamily[props.font || 'Lato']};
+  font-family: ${props => props.theme.fontFamily[props.font || 'Main']};
   font-weight: ${props => props.weight || '400'};
   font-size: ${props => sizes[props.size || 'normal'].desktop};
   text-align: ${props => props.textAlign || 'unset'};

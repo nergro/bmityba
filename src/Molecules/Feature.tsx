@@ -11,7 +11,7 @@ const Box = styled.div`
   height: 300px;
   box-shadow: 0 0 10px 0 rgba(43, 52, 59, 0.05);
   background: ${props => props.theme.colors.background.primary};
-  padding: 35px 27px 31px;
+  padding: 25px 27px 20px;
 `;
 
 const StyledIcon = styled(Icon)`
@@ -23,7 +23,8 @@ const StyledIcon = styled(Icon)`
 
 const Title = styled(P)`
   && {
-    font-size: 21px;
+    font-size: 22px;
+    font-weight: 500;
   }
 `;
 
@@ -43,12 +44,10 @@ export const Feature: FC<Props> = ({ className, icon, title, description }) => {
   return (
     <Box className={className}>
       <StyledIcon svgComponent={icon} />
-      <Title font="Prata" color="secondaryAccent">
+      <Title font="Spectral" color="secondaryAccent">
         {title}
       </Title>
-      <Description font="Lato" color="light">
-        {description}
-      </Description>
+      <Description color="light">{description}</Description>
     </Box>
   );
 };

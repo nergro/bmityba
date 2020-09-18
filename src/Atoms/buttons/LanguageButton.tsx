@@ -21,7 +21,7 @@ export const LanguageButton = styled(LanguageButtonBase)`
   color: ${props => props.theme.colors.accents.secondary};
   font-size: 20px;
   cursor: pointer;
-  font-family: ${props => props.theme.fontFamily.Lato};
+  font-family: ${props => props.theme.fontFamily.Main};
   font-weight: 600;
   &:hover {
     color: ${props => props.theme.colors.accents.primary};

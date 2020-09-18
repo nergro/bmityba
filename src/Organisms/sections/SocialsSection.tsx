@@ -61,7 +61,7 @@ export const SocialsSection: FC = () => {
   return (
     <Container>
       <Content>
-        <Title font="Lato" weight="600" color="secondaryAccent">
+        <Title weight="600" color="secondaryAccent">
           LET&apos;S CONNECT
         </Title>
         <Socials>

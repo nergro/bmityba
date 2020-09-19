@@ -115,7 +115,7 @@ export const Footer: FC = () => {
   return (
     <Container>
       <Content>
-        <StyledP color="secondary">{t('get in touch')}</StyledP>
+        <StyledP color="secondary">{t('Get in touch')}</StyledP>
         <Contacts>
           <Contact>
             <StyledIcon svgComponent={PhoneSvg} />

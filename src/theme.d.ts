@@ -73,6 +73,7 @@ declare module 'styled-components' {
         link: string;
         linkHover: string;
       };
+      aside: string;
       separator: {
         light: string;
         dark: string;

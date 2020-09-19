@@ -135,7 +135,7 @@ export const Contacts: FC = () => {
           </LeftTitle>
           <Contact icon={PhoneSvg} name={t('Phone')} value="+370 662 38367" />
           <Contact icon={MailSvg} name={t('Email')} value="bmityba@outlook.com" />
-          <Contact icon={LocationSvg} name={t('Location')} value="Kaunas, Lietuva" />
+          <Contact icon={LocationSvg} name={t('Location')} value={t('Kaunas, Lithuania')} />
         </LeftSection>
         <RightSection>
           <StyledContactForm />

@@ -5,6 +5,7 @@ import { Blog } from 'pages/Blog';
 import { Contacts } from 'pages/Contacts';
 import { Home } from 'pages/Home';
 import { Post } from 'pages/Post';
+import { Service } from 'pages/Service';
 import { Services } from 'pages/Services';
 import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -33,6 +34,7 @@ export const App: FC = () => {
         <Route path="/contacts" exact component={Contacts} />
         <Route path="/about" exact component={About} />
         <Route path="/services" exact component={Services} />
+        <Route path="/services/:id" exact component={Service} />
         <Route path="/blog" exact component={Blog} />
         <Route path="/blog/:id" exact component={Post} />
         <Route component={NotFound} />

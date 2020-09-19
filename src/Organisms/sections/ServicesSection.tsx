@@ -71,21 +71,21 @@ export const ServicesSection: FC<Props> = () => {
           title="1:1 Consultation"
           subtitle="What You Get.."
           description="Monthly sessions where we uncover the habits &amp; thoughts in the way of a healthy relationship with food &amp; your body."
-          to="/services"
+          to="/services/1"
         />
         <StyledService
           image={service2Image}
           title="30 day Challenge"
           subtitle="Perfect for you if.."
           description="You want to curb your cravings and discover a healthier lifestyle during a fun + simple 30 day online challenge."
-          to="/services"
+          to="/services/2"
         />
         <StyledService
           image={service3Image}
           title="Group Couching"
           subtitle="Get all the benefits"
           description="You're ready to explore a life that loves you as much as you love it through bi-weekly one on one coaching sessions."
-          to="/services"
+          to="/services/3"
         />
       </Services>
     </Container>

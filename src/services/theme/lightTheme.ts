@@ -121,6 +121,7 @@ export const lightTheme: DefaultTheme = {
       light: '#DDDDDD',
       dark: '#4F4F4F',
     },
+    aside: '#F8F9FA',
     text: {
       main: '#000000',
       secondary: '#FFFFFF',

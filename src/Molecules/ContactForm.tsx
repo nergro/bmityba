@@ -2,6 +2,7 @@ import { PrimaryButtonFilled } from 'Atoms/buttons/ActionButton';
 import { Input, TextArea } from 'Atoms/Input/Input';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 const Box = styled.div`
@@ -82,24 +83,26 @@ interface Props {
 }
 
 export const ContactForm: FC<Props> = ({ className }) => {
+  const { t } = useTranslation();
+
   return (
     <Box className={className}>
       <BoxTitle font="Roboto" weight="400" color="secondaryAccent">
-        Make an Appointment
+        {t('Make an Appointment')}
       </BoxTitle>
       <Form>
         <Inputs>
           <InputsLeft>
-            <StyledInput placeholder="Name" required />
-            <StyledInput placeholder="Email" type="email" required />
-            <StyledInput placeholder="Subject" />
+            <StyledInput placeholder={t('Name')} required />
+            <StyledInput placeholder={t('Email')} type="email" required />
+            <StyledInput placeholder={t('Subject')} />
           </InputsLeft>
           <InputsRight>
-            <StyledTextArea placeholder="Message" required />
+            <StyledTextArea placeholder={t('Message')} required />
           </InputsRight>
         </Inputs>
 
-        <StyledButton type="submit">Submit</StyledButton>
+        <StyledButton type="submit">{t('Submit')}</StyledButton>
       </Form>
     </Box>
   );

@@ -20,7 +20,7 @@ const Button = styled.button`
   background: none;
   outline: none;
   padding: 10px 15px;
-  font-family: ${props => props.theme.fontFamily.Lato};
+  font-family: ${props => props.theme.fontFamily.Main};
   color: ${props => props.theme.colors.accents.secondary};
   font-size: 17px;
   cursor: pointer;
@@ -92,9 +92,7 @@ export const QuestionToggle: FC<Props> = ({
       </Button>
       {isOpen}
       <TextWrapper isOpen={isOpen}>
-        <Text font="Lato" color="inactive">
-          {answer}
-        </Text>
+        <Text color="inactive">{answer}</Text>
       </TextWrapper>
     </Container>
   );

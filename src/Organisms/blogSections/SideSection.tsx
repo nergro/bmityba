@@ -40,7 +40,7 @@ interface Props {
 export const SideSection: FC<Props> = ({ className, title, children }) => {
   return (
     <Container className={className}>
-      <Title font="Prata">{title}</Title>
+      <Title font="Spectral">{title}</Title>
       <Content>{children}</Content>
     </Container>
   );

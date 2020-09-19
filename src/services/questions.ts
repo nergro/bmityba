@@ -2,37 +2,35 @@ import { Question } from 'types/question';
 
 export const homeQuestions: Question[] = [
   {
-    question: 'How to start a food blog',
-    answer:
-      'We’ve been fortunate enough to run a food blog business for 3+ years fully employing two people. Even if self-employment isn’t your dream, we’ve learned a lot through our journey and think we can offer some killer advice to help you along the way, too.',
+    questionLT: 'Kaip pasiruošti konsultacijai?',
+    answerLT:
+      '4-7 dienas rašyti maisto dienoraštį, jei naudojami maisto papildai, užsirašyti jų pavadinimus arba turėti jų nuotraukas.',
+    questionEN: 'How to get ready for the consultation?',
+    answerEN:
+      'Write a food diary for 4-7 days. If you use any medications or supplements, write them down or have their photos.',
   },
   {
-    question: 'How to make a dynamic logo for your food blog?',
-    answer:
-      'Next, you need to make your site look good. Thankfully, adding a theme makes this a snap. A framework + child theme setup is ideal (for reasons of security, seo, efficiency, etc.) and how we have our site currently setup.',
+    questionLT: 'Kaip rašyti mitybos dienoraštį?',
+    answerLT:
+      'Kaskart valgant rašyti tikslų laiką ir kuo tikslesnį produktų kiekį ir produktų aprašymą, t.y. Kaip buvo gaminami, kokios firmos gaminys, jeigu tai vaisius ar daržovė, tai mažas, vidutinis ar didelis, jei tai pienas, tai kokio riebumo ir pan.',
+    questionEN: 'How to write a dietary plan?',
+    answerEN:
+      'The aim is to describe your meal as accurately as possible. Try to put what you eat down as you eat. I recommend to describe the cooking style, portion size, even product brand, this should help me to calculate your caloric intake more accurately.',
   },
   {
-    question: 'How to start a food blog?',
-    answer:
-      'We’ve been fortunate enough to run a food blog business for 3+ years fully employing two people. Even if self-employment isn’t your dream, we’ve learned a lot through our journey and think we can offer some killer advice to help you along the way, too.',
+    questionLT: 'Ar galėtume užsirašyti konsultacijai su antra puse?',
+    answerLT: 'Žinoma! Tai siūlau poroms gyvenančioms ir valgančioms kartu.',
+    questionEN: 'Can I get a consultation for a couple?',
+    answerEN: "Sure! It's best for couples who live and eat together.",
   },
   {
-    question: 'How to start a food blog?',
-    answer:
-      'We’ve been fortunate enough to run a food blog business for 3+ years fully employing two people. Even if self-employment isn’t your dream, we’ve learned a lot through our journey and think we can offer some killer advice to help you along the way, too.',
+    questionLT: 'Ar galiu sulieknėti tik sveikai maitinantis, nesportuojant?',
+    answerLT:
+      'Taip, tol kol esate kalorijų deficite. Tačiau rekomenduočiau derinti subalansuotą mitybą kartu su fizine veikla. Tai svarbu ne tik svorio metimo efektyvumui, bet ir Jūsų sveikatai.',
+    questionEN: 'Can I lose weight by eating healthy food without exercising?',
+    answerEN:
+      "Yes, as long as you are in caloric deficit. Although I would recomend to increase physical activity levels too. It's important for not only losing weight, but also for your health.",
   },
 ];
 
-export const allQuestions: Question[] = [
-  ...homeQuestions,
-  {
-    question: 'Extra question?',
-    answer:
-      'We’ve been fortunate enough to run a food blog business for 3+ years fully employing two people. Even if self-employment isn’t your dream, we’ve learned a lot through our journey and think we can offer some killer advice to help you along the way, too.',
-  },
-  {
-    question: 'Extra question 2?',
-    answer:
-      'We’ve been fortunate enough to run a food blog business for 3+ years fully employing two people. Even if self-employment isn’t your dream, we’ve learned a lot through our journey and think we can offer some killer advice to help you along the way, too.',
-  },
-];
+export const allQuestions: Question[] = [...homeQuestions];

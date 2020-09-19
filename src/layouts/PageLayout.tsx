@@ -33,8 +33,11 @@ const HeroTitle = styled(H1)`
   margin: 0;
   && {
     font-size: 50px;
+    @media (max-width: ${props => props.theme.breakpoints.m}) {
+      font-size: 35px;
+    }
     @media (max-width: ${props => props.theme.breakpoints.sm}) {
-      font-size: 30px;
+      font-size: 25px;
     }
   }
 `;
@@ -48,7 +51,7 @@ export const PageLayout: FC<Props> = ({ title, children }) => {
       <HeroWrapper>
         <Hero>
           {title && (
-            <HeroTitle color="secondary" font="Prata">
+            <HeroTitle color="secondary" font="Spectral">
               {title}
             </HeroTitle>
           )}

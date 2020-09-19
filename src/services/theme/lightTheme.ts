@@ -10,8 +10,9 @@ export const lightTheme: DefaultTheme = {
     OpenSans: '"Open Sans", Sans-serif',
     Rowdies: '"Rowdies", Sans-serif',
     Roboto: '"Roboto", Sans-serif',
-    Lato: '"Lato", Sans-serif',
-    Prata: '"Prata", Sans-serif',
+    Montserrat: '"Montserrat", Sans-serif',
+    Main: '"Roboto", Sans-serif',
+    Spectral: '"Spectral", Sans-serif',
   },
   fonts: {
     bigTextBold: '700 20px Roboto, Sans-serif',
@@ -120,6 +121,7 @@ export const lightTheme: DefaultTheme = {
       light: '#DDDDDD',
       dark: '#4F4F4F',
     },
+    aside: '#F8F9FA',
     text: {
       main: '#000000',
       secondary: '#FFFFFF',
@@ -135,6 +137,7 @@ export const lightTheme: DefaultTheme = {
       social: '#999999',
       primaryAccent,
       secondaryAccent,
+      disabled: rgba(73, 80, 87, 0.4),
     },
     loader: '#F8B600',
     input: {

@@ -22,7 +22,7 @@ const ButtonBase = styled(Button)`
   border-radius: 5px;
   font-size: 16px;
   font-weight: 700;
-  font-family: ${props => props.theme.fontFamily.Lato};
+  font-family: ${props => props.theme.fontFamily.Main};
   box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease-in-out;

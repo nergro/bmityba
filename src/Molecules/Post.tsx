@@ -68,13 +68,11 @@ export const Post: FC<Props> = ({ className, post }) => {
       <StyledImage imageUrl={post.image} />
       <Info>
         <StyledLink to={`/blog/${post.id}`}>
-          <Title font="Prata" color="secondaryAccent">
+          <Title font="Spectral" color="secondaryAccent">
             {post.title}
           </Title>
         </StyledLink>
-        <Description font="Lato" color="light">
-          {post.description}
-        </Description>
+        <Description color="light">{post.description}</Description>
         <StyledAnimatedLink to={`/blog/${post.id}`}>Read more</StyledAnimatedLink>
       </Info>
     </Container>

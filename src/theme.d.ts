@@ -73,6 +73,7 @@ declare module 'styled-components' {
         link: string;
         linkHover: string;
       };
+      aside: string;
       separator: {
         light: string;
         dark: string;
@@ -92,6 +93,7 @@ declare module 'styled-components' {
         primaryAccent: string;
         secondaryAccent: string;
         social: string;
+        disabled: string;
       };
       loader: string;
       input: {
@@ -133,8 +135,9 @@ declare module 'styled-components' {
       OpenSans: string;
       Rowdies: string;
       Roboto: string;
-      Lato: string;
-      Prata: string;
+      Main: string;
+      Montserrat: string;
+      Spectral: string;
     };
     fonts: {
       bigText: string;

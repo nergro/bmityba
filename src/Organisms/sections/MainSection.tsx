@@ -3,6 +3,7 @@ import { PrimaryButtonFilled, SecondaryButtonFilled } from 'Atoms/buttons/Action
 import { Caption } from 'Atoms/Caption';
 import { H1, P, Span } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -87,23 +88,29 @@ interface Props {
 }
 
 export const MainSection: FC<Props> = () => {
+  const { t } = useTranslation();
+
   const { push } = useHistory();
 
   return (
     <Container>
       <TextSection>
-        <StyledCaption content="It's not a diet, It's a lifestyle" lineLeft />
-        <Title font="Prata">
-          Healthier <HighlightedTitle font="Prata">Choices</HighlightedTitle>
+        <StyledCaption content={t('It’s not a diet, It’s a lifestyle')} lineLeft />
+        <Title font="Spectral">{t('Looking good - great,')}</Title>
+        <Title font="Spectral">
+          {t('Feeling great -')}{' '}
+          <HighlightedTitle font="Spectral">{t('Fantastic!')}</HighlightedTitle>
         </Title>
-        <Title font="Prata">For a Healthier You.</Title>
-        <Description font="Lato" color="light" size="intermedium">
-          Nutrition Services is dedicated to bringing you and your family healthy, delicious food
-          options whenever you&#39;re at one of our locations.
+        <Description color="light" size="intermedium">
+          {t(
+            "Does it seem like you've tried everything you could but there is no result whatsoever? Don't worry, with my science-based knowledge and YOUR effort we can achieve everything you like!"
+          )}
         </Description>
         <Buttons>
-          <StyledPrimaryButton onClick={() => push('/contacts')}>Contact me</StyledPrimaryButton>
-          <SecondaryButtonFilled onClick={() => push('/about')}>About</SecondaryButtonFilled>
+          <StyledPrimaryButton onClick={() => push('/contacts')}>
+            {t('Team up with me')}
+          </StyledPrimaryButton>
+          <SecondaryButtonFilled onClick={() => push('/about')}>{t('About')}</SecondaryButtonFilled>
         </Buttons>
       </TextSection>
     </Container>

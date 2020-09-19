@@ -1,6 +1,9 @@
 import { ReactComponent as FoodSvg } from 'assets/UI/food.svg';
+import { ReactComponent as MedalSvg } from 'assets/UI/medal.svg';
+import { ReactComponent as WinnerSvg } from 'assets/UI/winner.svg';
 import { Feature } from 'Molecules/Feature';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 const StyledFeature = styled(Feature)`
@@ -32,23 +35,20 @@ interface Props {
 }
 
 export const FeaturedSection: FC<Props> = ({ className }) => {
+  const { t } = useTranslation();
   return (
     <Container className={className}>
       <StyledFeature
-        icon={FoodSvg}
-        title="Top Rated"
-        description="With so many choices of the food-diet advisory out there, we’re at top-rated cause of homely services."
+        icon={MedalSvg}
+        title={t('FeatureTitle1')}
+        description={t('FeatureContent1')}
       />
       <StyledFeature
-        icon={FoodSvg}
-        title="Top Rated"
-        description="With so many choices of the food-diet advisory out there, we’re at top-rated cause of homely services."
+        icon={WinnerSvg}
+        title={t('FeatureTitle2')}
+        description={t('FeatureContent2')}
       />
-      <StyledFeature
-        icon={FoodSvg}
-        title="Top Rated"
-        description="With so many choices of the food-diet advisory out there, we’re at top-rated cause of homely services."
-      />
+      <StyledFeature icon={FoodSvg} title={t('FeatureTitle3')} description={t('FeatureContent3')} />
     </Container>
   );
 };

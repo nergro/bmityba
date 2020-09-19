@@ -1,9 +1,8 @@
-import { SearchInput } from 'Atoms/Input/SearchInput';
 import { PageLayout } from 'layouts/PageLayout';
-import { Categories } from 'Organisms/blogSections/Categories';
 import { LatestNews } from 'Organisms/blogSections/LatestNews';
+import { ContactsSection } from 'Organisms/serviceSections/ContactsSection';
+import { ServicesNavSection } from 'Organisms/serviceSections/ServicesNavSection';
 import React, { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -11,7 +10,9 @@ const Container = styled.div`
 `;
 
 const Aside = styled.aside`
-  width: 30%;
+  padding-bottom: 20px;
+  max-width: 33%;
+  width: 100%;
   background: ${props => props.theme.colors.aside};
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     display: none;
@@ -19,17 +20,14 @@ const Aside = styled.aside`
 `;
 
 const AsideContent = styled.div`
+  margin: 0 20px 0 auto;
   max-width: 350px;
   display: flex;
   flex-direction: column;
   padding: 20px 30px;
-`;
-
-const StyledSearchInput = styled(SearchInput)`
-  width: 100%;
-  max-width: 250px;
-  min-width: 175px;
-  height: 50px;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    padding: 20px 15px;
+  }
 `;
 
 const Content = styled.div`
@@ -47,22 +45,21 @@ const Content = styled.div`
 
 interface Props {
   title?: string;
+  serviceId: string;
 }
 
-export const BlogLayout: FC<Props> = ({ children, title }) => {
-  const { t } = useTranslation();
-
+export const ServiceLayout: FC<Props> = ({ children, title, serviceId }) => {
   return (
-    <PageLayout title={title || t('Blog')}>
+    <PageLayout title={title}>
       <Container>
-        <Content>{children}</Content>
         <Aside>
           <AsideContent>
-            <StyledSearchInput />
+            <ServicesNavSection serviceId={serviceId} />
+            <ContactsSection />
             <LatestNews />
-            <Categories />
           </AsideContent>
         </Aside>
+        <Content>{children}</Content>
       </Container>
     </PageLayout>
   );

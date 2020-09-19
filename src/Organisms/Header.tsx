@@ -1,9 +1,12 @@
+import { LanguageButton } from 'Atoms/buttons/LanguageButton';
 import { Link } from 'Atoms/links/Link';
 import { MenuBurger } from 'Atoms/MenuBurger';
 import { P } from 'Atoms/text';
 import { MobileMenu } from 'Molecules/MobileMenu';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
+import { getLocale, setLocale } from 'services/localStorage';
 import {
   useDispatch as useMenuDispatch,
   useState as useMenuState,
@@ -45,8 +48,7 @@ const LogoButton = styled.button`
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     display: block;
-    right: 20px;
-    left: unset;
+    left: 20px;
     top: 17px;
   }
 `;
@@ -77,15 +79,39 @@ const StyledMenuBurger = styled(MenuBurger)`
     display: block;
     position: absolute;
     top: 18px;
-    left: 30px;
+    right: 30px;
+  }
+`;
+
+const Languages = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    position: absolute;
+    top: 23px;
+    right: 60px;
+  }
+`;
+
+const StyledLanguageButton = styled(LanguageButton)`
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
   }
 `;
 
 export const Header: FC = () => {
+  const { i18n, t } = useTranslation();
   const menuDispatch = useMenuDispatch();
   const menuState = useMenuState();
   const { push } = useHistory();
   const { pathname } = useLocation();
+  const [language, setLanguage] = useState<string | null>(getLocale());
 
   return (
     <>
@@ -101,21 +127,43 @@ export const Header: FC = () => {
         </LogoButton>
         <Links>
           <StyledLink to="/" isActive={pathname === '/'}>
-            Home
+            {t('Home')}
           </StyledLink>
           <StyledLink to="/about" isActive={pathname === '/about'}>
-            About
+            {t('About')}
           </StyledLink>
           <StyledLink to="/services" isActive={pathname === '/services'}>
-            Services
+            {t('Services')}
           </StyledLink>
           <StyledLink to="/blog" isActive={pathname === '/blog'}>
-            Blog
+            {t('Blog')}
           </StyledLink>
           <StyledLink to="/contacts" isActive={pathname === '/contacts'}>
-            Contacts
+            {t('Contacts')}
           </StyledLink>
         </Links>
+        <Languages>
+          <StyledLanguageButton
+            onClick={() => {
+              setLocale('lt');
+              setLanguage('lt');
+              i18n.changeLanguage('lt');
+            }}
+            disabled={language === 'lt'}
+          >
+            LT
+          </StyledLanguageButton>
+          <StyledLanguageButton
+            onClick={() => {
+              setLocale('en');
+              setLanguage('en');
+              i18n.changeLanguage('en');
+            }}
+            disabled={language === 'en'}
+          >
+            EN
+          </StyledLanguageButton>
+        </Languages>
       </Container>
       <MobileMenu
         isOpen={menuState}

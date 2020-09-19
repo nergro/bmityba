@@ -8,6 +8,7 @@ import { ContactForm } from 'Molecules/ContactForm';
 import { Questions } from 'Molecules/Questions';
 import { SocialsSection } from 'Organisms/sections/SocialsSection';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { allQuestions } from 'services/questions';
 import styled from 'styled-components/macro';
 
@@ -124,16 +125,17 @@ const Contact: FC<ContactProps> = ({ className, icon, name, value }) => {
 };
 
 export const Contacts: FC = () => {
+  const { t } = useTranslation();
   return (
-    <PageLayout title="Contacts">
+    <PageLayout title={t('Contacts')}>
       <Container>
         <LeftSection>
           <LeftTitle size="medium" weight="600">
-            I&apos;d love to hear from you
+            {t("I'd love to hear from you")}
           </LeftTitle>
-          <Contact icon={PhoneSvg} name="Phone" value="+370 662 38367" />
-          <Contact icon={MailSvg} name="Email" value="bmityba@outlook.com" />
-          <Contact icon={LocationSvg} name="Location" value="Kaunas, Lietuva" />
+          <Contact icon={PhoneSvg} name={t('Phone')} value="+370 662 38367" />
+          <Contact icon={MailSvg} name={t('Email')} value="bmityba@outlook.com" />
+          <Contact icon={LocationSvg} name={t('Location')} value={t('Kaunas, Lithuania')} />
         </LeftSection>
         <RightSection>
           <StyledContactForm />

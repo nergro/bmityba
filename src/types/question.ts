@@ -1,4 +1,6 @@
 export type Question = {
-  question: string;
-  answer: string;
+  questionLT: string;
+  answerLT: string;
+  questionEN: string;
+  answerEN: string;
 };

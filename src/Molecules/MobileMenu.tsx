@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components/macro';
 
@@ -28,7 +29,7 @@ const StyledLink = styled.button<LinkProps>`
   color: ${props => props.theme.colors.accents[props.isActive ? 'primary' : 'secondary']};
   background: none;
   border: none;
-  font-family: ${props => props.theme.fontFamily.Lato};
+  font-family: ${props => props.theme.fontFamily.Main};
   &:hover {
     color: ${props => props.theme.colors.accents.primary};
   }
@@ -86,6 +87,8 @@ interface Props extends MenuProps {
 }
 
 export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
+  const { t } = useTranslation();
+
   const { push } = useHistory();
   const { pathname } = useLocation();
 
@@ -99,27 +102,27 @@ export const MobileMenu: FC<Props> = ({ className, isOpen, onClose }) => {
       <Menu className={className} isOpen={isOpen}>
         <Item>
           <StyledLink onClick={() => onLinkClick('/')} isActive={pathname === '/'}>
-            Home
+            {t('Home')}
           </StyledLink>
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/about')} isActive={pathname === '/about'}>
-            About
+            {t('About')}
           </StyledLink>
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/services')} isActive={pathname === '/services'}>
-            Services
+            {t('Services')}
           </StyledLink>
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/blog')} isActive={pathname === '/blog'}>
-            Blog
+            {t('Blog')}
           </StyledLink>
         </Item>
         <Item>
           <StyledLink onClick={() => onLinkClick('/contacts')} isActive={pathname === '/contacts'}>
-            Contacts
+            {t('Contacts')}
           </StyledLink>
         </Item>
       </Menu>

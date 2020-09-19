@@ -5,6 +5,7 @@ import { P } from 'Atoms/text';
 import { PageLayout } from 'layouts/PageLayout';
 import { CallToActionSection } from 'Organisms/sections/CallToActionSection';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -47,13 +48,15 @@ const RightContent = styled.div`
 
 const StyledP = styled(P)`
   font-size: 20px;
+  text-align: center;
   &:not(:last-child) {
     margin-bottom: 20px;
   }
 `;
 
 const LogosImage = styled.img`
-  width: 80%;
+  margin-top: 15px;
+  width: 65%;
 `;
 
 const CornerImage = styled.img`
@@ -66,42 +69,22 @@ const CornerImage = styled.img`
 `;
 
 export const About: FC = () => {
+  const { t } = useTranslation();
+
   return (
-    <PageLayout title="About">
+    <PageLayout title={t('About')}>
       <Container>
         <CornerImage src={fruitsImage} />
         <LeftContent>
           <Image src={aboutFullImage} />
         </LeftContent>
         <RightContent>
-          <StyledP>Hi,</StyledP>
-          <StyledP>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-          </StyledP>
-          <StyledP>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Placerat orci nulla pellentesque dignissim
-            enim sit amet venenatis. Ut ornare lectus sit amet est placerat in egestas erat. Risus
-            sed vulputate odio ut enim. Tellus molestie nunc non blandit massa enim nec. Lectus sit
-            amet est placerat in egestas erat. Sapien faucibus et molestie ac. Tincidunt arcu non
-            sodales neque sodales ut etiam sit.
-          </StyledP>
-          <StyledP>
-            Aliquam sem fringilla ut morbi tincidunt augue interdum. Ultricies tristique nulla
-            aliquet enim tortor. Dolor sit amet consectetur adipiscing. Erat velit scelerisque in
-            dictum non consectetur. Massa ultricies mi quis hendrerit. Sit amet purus gravida quis
-            blandit turpis cursus in.
-          </StyledP>
-          <StyledP>
-            Urna cursus eget nunc scelerisque viverra mauris in. Tristique senectus et netus et
-            malesuada fames. Nulla pellentesque dignissim enim sit amet venenatis urna cursus eget.
-            Et magnis dis parturient montes nascetur ridiculus mus mauris vitae.
-          </StyledP>
+          <StyledP>{t('AboutTitle1')}</StyledP>
+          <StyledP>{t('AboutColumn1')}</StyledP>
+          <StyledP>{t('AboutTitle2')}</StyledP>
+          <StyledP>{t('AboutColumn2')}</StyledP>
+          <StyledP>{t('AboutTitle3')}</StyledP>
+          <StyledP>{t('AboutColumn3')}</StyledP>
           <LogosImage src={logosImage} />
         </RightContent>
       </Container>

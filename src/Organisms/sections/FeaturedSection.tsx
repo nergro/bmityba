@@ -1,4 +1,6 @@
 import { ReactComponent as FoodSvg } from 'assets/UI/food.svg';
+import { ReactComponent as MedalSvg } from 'assets/UI/medal.svg';
+import { ReactComponent as WinnerSvg } from 'assets/UI/winner.svg';
 import { Feature } from 'Molecules/Feature';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -36,8 +38,16 @@ export const FeaturedSection: FC<Props> = ({ className }) => {
   const { t } = useTranslation();
   return (
     <Container className={className}>
-      <StyledFeature icon={FoodSvg} title={t('FeatureTitle1')} description={t('FeatureContent1')} />
-      <StyledFeature icon={FoodSvg} title={t('FeatureTitle2')} description={t('FeatureContent2')} />
+      <StyledFeature
+        icon={MedalSvg}
+        title={t('FeatureTitle1')}
+        description={t('FeatureContent1')}
+      />
+      <StyledFeature
+        icon={WinnerSvg}
+        title={t('FeatureTitle2')}
+        description={t('FeatureContent2')}
+      />
       <StyledFeature icon={FoodSvg} title={t('FeatureTitle3')} description={t('FeatureContent3')} />
     </Container>
   );

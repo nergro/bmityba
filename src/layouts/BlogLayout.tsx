@@ -3,6 +3,7 @@ import { PageLayout } from 'layouts/PageLayout';
 import { Categories } from 'Organisms/blogSections/Categories';
 import { LatestNews } from 'Organisms/blogSections/LatestNews';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -48,9 +49,11 @@ interface Props {
   title?: string;
 }
 
-export const BlogLayout: FC<Props> = ({ children, title = 'Blog' }) => {
+export const BlogLayout: FC<Props> = ({ children, title }) => {
+  const { t } = useTranslation();
+
   return (
-    <PageLayout title={title}>
+    <PageLayout title={title || t('Blog')}>
       <Container>
         <Content>{children}</Content>
         <Aside>

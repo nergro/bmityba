@@ -48,13 +48,15 @@ const RightContent = styled.div`
 
 const StyledP = styled(P)`
   font-size: 20px;
+  text-align: center;
   &:not(:last-child) {
     margin-bottom: 20px;
   }
 `;
 
 const LogosImage = styled.img`
-  width: 80%;
+  margin-top: 15px;
+  width: 65%;
 `;
 
 const CornerImage = styled.img`
@@ -70,7 +72,7 @@ export const About: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <PageLayout title="About">
+    <PageLayout title={t('About')}>
       <Container>
         <CornerImage src={fruitsImage} />
         <LeftContent>

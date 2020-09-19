@@ -7,6 +7,7 @@ import { ReactComponent as LinkedInSvg } from 'assets/social/linkedin.svg';
 import { Icon } from 'Atoms/Icon';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useMobile } from 'services/useMobile';
 import styled from 'styled-components/macro';
 
@@ -48,6 +49,14 @@ const Contacts = styled.div`
   }
 `;
 
+const StyledIcon = styled(Icon)`
+  width: 15px;
+  height: 15px;
+  margin-right: 20px;
+  fill: ${props => props.theme.colors.text.secondary};
+  transition: all 0.2s ease-out;
+`;
+
 const Contact = styled.div`
   display: flex;
   align-items: center;
@@ -59,13 +68,12 @@ const Contact = styled.div`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     margin-left: 15px;
   }
-`;
 
-const StyledIcon = styled(Icon)`
-  width: 15px;
-  height: 15px;
-  margin-right: 20px;
-  fill: ${props => props.theme.colors.text.secondary};
+  &:hover {
+    ${StyledIcon} {
+      fill: ${props => props.theme.colors.accents.primary};
+    }
+  }
 `;
 
 const Socials = styled.div`
@@ -87,6 +95,10 @@ const Social = styled.a`
   }
 `;
 
+const StyledP = styled(P)`
+  text-transform: uppercase;
+`;
+
 const StyledSocialIcon = styled(Icon)`
   width: 20px;
   height: 20px;
@@ -99,10 +111,11 @@ const StyledSocialIcon = styled(Icon)`
 
 export const Footer: FC = () => {
   const isMobile = useMobile('sm');
+  const { t } = useTranslation();
   return (
     <Container>
       <Content>
-        <P color="secondary">GET IN TOUCH</P>
+        <StyledP color="secondary">{t('get in touch')}</StyledP>
         <Contacts>
           <Contact>
             <StyledIcon svgComponent={PhoneSvg} />
@@ -114,7 +127,7 @@ export const Footer: FC = () => {
           </Contact>
           <Contact>
             <StyledIcon svgComponent={LocationSvg} />
-            <P color="secondary">Kaunas, Lietuva</P>
+            <P color="secondary">{t('Kaunas, Lithuania')}</P>
           </Contact>
         </Contacts>
       </Content>

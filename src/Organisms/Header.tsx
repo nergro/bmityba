@@ -48,8 +48,7 @@ const LogoButton = styled.button`
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     display: block;
-    right: 20px;
-    left: unset;
+    left: 20px;
     top: 17px;
   }
 `;
@@ -80,7 +79,7 @@ const StyledMenuBurger = styled(MenuBurger)`
     display: block;
     position: absolute;
     top: 18px;
-    left: 30px;
+    right: 30px;
   }
 `;
 
@@ -89,13 +88,20 @@ const Languages = styled.div`
   align-items: center;
   margin-right: 30px;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    display: none;
+    position: absolute;
+    top: 23px;
+    right: 60px;
   }
 `;
 
 const StyledLanguageButton = styled(LanguageButton)`
   &:not(:last-child) {
     margin-right: 15px;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
   }
 `;
 

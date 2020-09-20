@@ -31,6 +31,7 @@ declare module 'styled-components' {
       accents: {
         primary: string;
         secondary: string;
+        tertiary: string;
       };
       button: ButtonTheme;
       select: {
@@ -92,6 +93,7 @@ declare module 'styled-components' {
         darkLink: string;
         primaryAccent: string;
         secondaryAccent: string;
+        tertiaryAccent: string;
         social: string;
         disabled: string;
       };
@@ -133,11 +135,10 @@ declare module 'styled-components' {
     fontFamily: {
       Caveat: string;
       OpenSans: string;
-      Rowdies: string;
       Roboto: string;
       Main: string;
-      Montserrat: string;
       Spectral: string;
+      Oregano: string;
     };
     fonts: {
       bigText: string;

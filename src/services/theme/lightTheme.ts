@@ -3,6 +3,7 @@ import { DefaultTheme } from 'styled-components/macro';
 
 const primaryAccent = '#9DCA00';
 const secondaryAccent = '#2B343B';
+const tertiaryAccent = '#2ACD35';
 
 export const lightTheme: DefaultTheme = {
   fontFamily: {
@@ -13,6 +14,7 @@ export const lightTheme: DefaultTheme = {
     Montserrat: '"Montserrat", Sans-serif',
     Main: '"Roboto", Sans-serif',
     Spectral: '"Spectral", Sans-serif',
+    Oregano: '"Oregano", Sans-serif',
   },
   fonts: {
     bigTextBold: '700 20px Roboto, Sans-serif',
@@ -50,6 +52,7 @@ export const lightTheme: DefaultTheme = {
     accents: {
       primary: primaryAccent,
       secondary: secondaryAccent,
+      tertiary: tertiaryAccent,
     },
     button: {
       main: {
@@ -137,6 +140,7 @@ export const lightTheme: DefaultTheme = {
       social: '#999999',
       primaryAccent,
       secondaryAccent,
+      tertiaryAccent,
       disabled: rgba(73, 80, 87, 0.4),
     },
     loader: '#F8B600',

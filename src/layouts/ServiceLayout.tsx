@@ -31,15 +31,23 @@ const AsideContent = styled.div`
 `;
 
 const Content = styled.div`
-  width: 50%;
-  margin: 0 50px 0 auto;
+  width: 45%;
+  margin-left: 50px;
   padding: 80px 0;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${props => props.theme.breakpoints.xl}) {
+    width: 55%;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
     width: 60%;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 64%;
+    margin-left: 15px;
   }
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     width: 90%;
-    margin-right: auto;
+    margin: 0 auto;
   }
 `;
 

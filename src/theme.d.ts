@@ -135,10 +135,8 @@ declare module 'styled-components' {
     fontFamily: {
       Caveat: string;
       OpenSans: string;
-      Rowdies: string;
       Roboto: string;
       Main: string;
-      Montserrat: string;
       Spectral: string;
       Oregano: string;
     };

@@ -9,9 +9,7 @@ export const lightTheme: DefaultTheme = {
   fontFamily: {
     Caveat: '"Caveat", Sans-serif',
     OpenSans: '"Open Sans", Sans-serif',
-    Rowdies: '"Rowdies", Sans-serif',
     Roboto: '"Roboto", Sans-serif',
-    Montserrat: '"Montserrat", Sans-serif',
     Main: '"Roboto", Sans-serif',
     Spectral: '"Spectral", Sans-serif',
     Oregano: '"Oregano", Sans-serif',

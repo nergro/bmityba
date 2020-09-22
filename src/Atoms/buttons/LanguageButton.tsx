@@ -16,6 +16,7 @@ export const LanguageButton = styled(LanguageButtonBase)`
   background: none;
   border: none;
   box-shadow: none;
+  outline: none;
   transition: all 0.1s ease-in;
   padding: 0;
   color: ${props => props.theme.colors.accents.secondary};
@@ -23,7 +24,8 @@ export const LanguageButton = styled(LanguageButtonBase)`
   cursor: pointer;
   font-family: ${props => props.theme.fontFamily.Main};
   font-weight: 600;
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${props => props.theme.colors.accents.primary};
   }
 

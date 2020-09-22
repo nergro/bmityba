@@ -10,21 +10,25 @@ import { Services } from 'pages/Services';
 import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Route, Switch } from 'react-router-dom';
-import { getLocale, setLocale } from 'services/localStorage';
+import { getLocale } from 'services/localStorage';
+import { useDispatch as useLocaleDispatch } from 'store/localeStore/hooks';
 
 import { GlobalStyle } from './globalStyle';
 
 export const App: FC = () => {
+  const localeDispatch = useLocaleDispatch();
   const { i18n } = useTranslation();
+
   useEffect(() => {
     const locale = getLocale();
     if (locale !== null) {
+      localeDispatch({ type: 'Locale/Set', payload: locale });
       i18n.changeLanguage(locale);
     } else {
       i18n.changeLanguage('lt');
-      setLocale('lt');
+      localeDispatch({ type: 'Locale/Set', payload: 'lt' });
     }
-  }, [i18n]);
+  }, [i18n, localeDispatch]);
 
   return (
     <AppLayout>

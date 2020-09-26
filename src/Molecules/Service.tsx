@@ -116,7 +116,7 @@ interface Props {
   className?: string;
   image: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   description: string;
   to: string;
 }
@@ -129,9 +129,11 @@ export const Service: FC<Props> = ({ className, description, image, subtitle, ti
       <Image src={image} />
       <Content>
         <Title color="inactive">{title}</Title>
-        <Subtitle font="Caveat" color="special">
-          {subtitle}
-        </Subtitle>
+        {subtitle && (
+          <Subtitle font="Caveat" color="special">
+            {subtitle}
+          </Subtitle>
+        )}
         <Description color="inactive">{description}</Description>
         <StyledLink to="#">Learn more</StyledLink>
       </Content>

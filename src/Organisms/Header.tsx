@@ -3,10 +3,13 @@ import { Link } from 'Atoms/links/Link';
 import { MenuBurger } from 'Atoms/MenuBurger';
 import { P } from 'Atoms/text';
 import { MobileMenu } from 'Molecules/MobileMenu';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router-dom';
-import { getLocale, setLocale } from 'services/localStorage';
+import {
+  useDispatch as useLocaleDispatch,
+  useState as useLocaleState,
+} from 'store/localeStore/hooks';
 import {
   useDispatch as useMenuDispatch,
   useState as useMenuState,
@@ -107,11 +110,12 @@ const StyledLanguageButton = styled(LanguageButton)`
 
 export const Header: FC = () => {
   const { i18n, t } = useTranslation();
+  const localeDispatch = useLocaleDispatch();
+  const localeState = useLocaleState();
   const menuDispatch = useMenuDispatch();
   const menuState = useMenuState();
   const { push } = useHistory();
   const { pathname } = useLocation();
-  const [language, setLanguage] = useState<string | null>(getLocale());
 
   return (
     <>
@@ -145,21 +149,19 @@ export const Header: FC = () => {
         <Languages>
           <StyledLanguageButton
             onClick={() => {
-              setLocale('lt');
-              setLanguage('lt');
+              localeDispatch({ type: 'Locale/Set', payload: 'lt' });
               i18n.changeLanguage('lt');
             }}
-            disabled={language === 'lt'}
+            disabled={localeState === 'lt'}
           >
             LT
           </StyledLanguageButton>
           <StyledLanguageButton
             onClick={() => {
-              setLocale('en');
-              setLanguage('en');
+              localeDispatch({ type: 'Locale/Set', payload: 'en' });
               i18n.changeLanguage('en');
             }}
-            disabled={language === 'en'}
+            disabled={localeState === 'en'}
           >
             EN
           </StyledLanguageButton>

@@ -83,7 +83,10 @@ export const Link = styled(BasicLink)`
     font-size: ${props => sizes[props.size || 'normal'].mobile};
   }
   ${props => (props.noUnderline ? 'text-decoration: none;' : '')}
-  &:hover {
+  outline: none;
+
+  &:hover,
+  &:focus {
     color: ${props => props.theme.colors.accents.primary};
   }
 `;

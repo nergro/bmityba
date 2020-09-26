@@ -1,10 +1,9 @@
-import service1Image from 'assets/services/service1.jpg';
-import service2Image from 'assets/services/service2.jpg';
-import service3Image from 'assets/services/service3.jpg';
 import { H1 } from 'Atoms/text';
 import { Service } from 'Molecules/Service';
 import React, { FC } from 'react';
+import { getLocale } from 'services/localStorage';
 import styled from 'styled-components/macro';
+import { Service as ServiceInfo } from 'types/service';
 
 const Container = styled.div`
   position: relative;
@@ -57,16 +56,30 @@ const StyledService = styled(Service)`
 
 interface Props {
   className?: string;
+  services: ServiceInfo[];
 }
 
-export const ServicesSection: FC<Props> = () => {
+export const ServicesSection: FC<Props> = ({ className, services }) => {
+  const locale = getLocale();
+  const isLT = locale === 'lt';
+
   return (
-    <Container>
+    <Container className={className}>
       <Title color="secondaryAccent" font="Spectral">
         A Fresh Approach To Health &amp; Life
       </Title>
       <Services>
-        <StyledService
+        {services.map(x => (
+          <StyledService
+            key={x.id}
+            image={x.image.imageUrl}
+            title={isLT ? x.nameLT : x.nameEN}
+            subtitle={isLT ? x.labelLT : x.labelEN}
+            description={isLT ? x.shortDescriptionLT : x.shortDescriptionEN}
+            to={`/services/${x.id}`}
+          />
+        ))}
+        {/* <StyledService
           image={service1Image}
           title="1:1 Consultation"
           subtitle="What You Get.."
@@ -86,7 +99,7 @@ export const ServicesSection: FC<Props> = () => {
           subtitle="Get all the benefits"
           description="You're ready to explore a life that loves you as much as you love it through bi-weekly one on one coaching sessions."
           to="/services/3"
-        />
+        /> */}
       </Services>
     </Container>
   );

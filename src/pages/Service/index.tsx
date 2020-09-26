@@ -4,7 +4,9 @@ import { H2, P } from 'Atoms/text';
 import { ServiceLayout } from 'layouts/ServiceLayout';
 import React, { FC } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { services } from 'services/services';
+import { getLocale } from 'services/localStorage';
+import { useServicesResource } from 'store/servicesStore/hooks';
+import { isLoading } from 'store/types';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -103,34 +105,55 @@ const StyledP = styled(P)`
 const StyledRoundButton = styled(RoundButton)``;
 
 export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) => {
+  const services = useServicesResource();
+
+  if (isLoading(services)) {
+    return <p>Loading...</p>;
+  }
+
   const serviceId = match.params.id;
-  const service = services.find(x => x.id === match.params.id);
+  const service = services.dict[match.params.id];
+
+  const locale = getLocale();
+  const isLT = locale === 'lt';
 
   if (!service) {
     return (
-      <ServiceLayout title="Not Found" serviceId={serviceId}>
+      <ServiceLayout title="Not Found" serviceId={serviceId} services={services.list}>
         <p>Service not found</p>
       </ServiceLayout>
     );
   }
   return (
-    <ServiceLayout title={service.name} serviceId={serviceId}>
+    <ServiceLayout
+      title={isLT ? service.nameLT : service.nameEN}
+      serviceId={serviceId}
+      services={services.list}
+    >
       <Container>
-        <Image src={service.image} />
+        <Image src={service.image.imageUrl} />
         <DescriptionSection>
           <Title font="Spectral" color="secondaryAccent">
-            {service.name}
+            {isLT ? service.nameLT : service.nameEN}
           </Title>
-          <Description color="inactive">{service.description}</Description>
+          <Description color="inactive">
+            {isLT ? service.descriptionLT : service.descriptionEN}
+          </Description>
         </DescriptionSection>
         <BenefitsSection>
           <Title font="Spectral" color="secondaryAccent">
-            {service.benefitsTitle}
+            {isLT ? service.benefitsTitleLT : service.benefitsTitleEN}
           </Title>
-          <Description color="inactive">{service.benefitsDescription}</Description>
+          <Description color="inactive">
+            {isLT ? service.benefitsDescriptionLT : service.benefitsDescriptionEN}
+          </Description>
           <Benefits>
-            {service.benefits.map(x => (
-              <StyledBenefit key={x.name} name={x.name} description={x.description} />
+            {service.benefits.map(benefit => (
+              <StyledBenefit
+                key={isLT ? benefit.id : benefit.id}
+                name={isLT ? benefit.nameLT : benefit.nameEN}
+                description={isLT ? benefit.descriptionLT : benefit.descriptionEN}
+              />
             ))}
           </Benefits>
         </BenefitsSection>
@@ -140,11 +163,13 @@ export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, histor
               €{service.price}
             </Price>
             <PriceDescription>
-              {service.priceDescription.split('/').map((x, i) => (
-                <StyledP key={i} color="inactive" size="intermedium">
-                  {x}
-                </StyledP>
-              ))}
+              {(isLT ? service.priceDescriptionLT : service.priceDescriptionEN)
+                .split('/')
+                .map((x, i) => (
+                  <StyledP key={i} color="inactive" size="intermedium">
+                    {x}
+                  </StyledP>
+                ))}
             </PriceDescription>
             <StyledRoundButton onClick={() => history.push('/contacts')}>
               Book now

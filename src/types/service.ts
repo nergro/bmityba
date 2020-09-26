@@ -1,16 +1,24 @@
-interface Benefit {
-  name: string;
-  description: string;
-}
-
+import { Benefit } from 'types/benefit';
+import { Image } from 'types/image';
 export interface Service {
   id: string;
-  name: string;
-  description: string;
-  image: string;
-  benefitsTitle: string;
-  benefitsDescription: string;
-  benefits: Benefit[];
+  image: Image;
+  nameLT: string;
+  nameEN: string;
+  labelLT?: string;
+  labelEN?: string;
+  shortDescriptionLT: string;
+  shortDescriptionEN: string;
+  descriptionLT: string;
+  descriptionEN: string;
   price: number;
-  priceDescription: string;
+  priceDescriptionLT: string;
+  priceDescriptionEN: string;
+  benefitsTitleLT: string;
+  benefitsTitleEN: string;
+  benefitsDescriptionLT: string;
+  benefitsDescriptionEN: string;
+  benefits: Benefit[];
 }
+
+export type Services = Record<string, Service>;

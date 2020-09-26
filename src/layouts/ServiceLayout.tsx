@@ -4,6 +4,7 @@ import { ContactsSection } from 'Organisms/serviceSections/ContactsSection';
 import { ServicesNavSection } from 'Organisms/serviceSections/ServicesNavSection';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';
+import { Service as ServiceInfo } from 'types/service';
 
 const Container = styled.div`
   display: flex;
@@ -54,15 +55,16 @@ const Content = styled.div`
 interface Props {
   title?: string;
   serviceId: string;
+  services: ServiceInfo[];
 }
 
-export const ServiceLayout: FC<Props> = ({ children, title, serviceId }) => {
+export const ServiceLayout: FC<Props> = ({ children, title, services, serviceId }) => {
   return (
     <PageLayout title={title}>
       <Container>
         <Aside>
           <AsideContent>
-            <ServicesNavSection serviceId={serviceId} />
+            <ServicesNavSection serviceId={serviceId} services={services} />
             <ContactsSection />
             <LatestNews />
           </AsideContent>

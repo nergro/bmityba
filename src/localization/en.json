@@ -58,5 +58,8 @@
   "Not Found": "Not Found",
 
   "Book now": "Book now",
-  "From": "From"
+  "From": "From",
+
+  "Error. Check if all fields were filled correctly.": "Error. Check if all fields were filled correctly.",
+  "Thank You!": "Thank You!"
 }

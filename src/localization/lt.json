@@ -58,5 +58,8 @@
   "Not Found": "Nerasta",
 
   "Book now": "Užsisakykite",
-  "From": "Nuo"
+  "From": "Nuo",
+
+  "Error. Check if all fields were filled correctly.": "Klaida. Patikrinkite ar visi laukai užpildyti teisingai.",
+  "Thank You!": "Ačiū!"
 }

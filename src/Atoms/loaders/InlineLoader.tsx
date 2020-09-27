@@ -16,7 +16,7 @@ const rhombusAnim = keyframes`
 const Rhombus = styled.div`
   height: 15px;
   width: 15px;
-  background-color: #ff1d5e;
+  background-color: ${props => props.theme.colors.accents.primary};
   left: calc(15px * 4);
   position: absolute;
   margin: 0 auto;

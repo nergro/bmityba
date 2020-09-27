@@ -1,6 +1,6 @@
 export type Question = {
   questionLT: string;
-  answerLT: string;
   questionEN: string;
+  answerLT: string;
   answerEN: string;
 };

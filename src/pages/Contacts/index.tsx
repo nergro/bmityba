@@ -9,7 +9,6 @@ import { Questions } from 'Molecules/Questions';
 import { SocialsSection } from 'Organisms/sections/SocialsSection';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { allQuestions } from 'services/questions';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -142,7 +141,7 @@ export const Contacts: FC = () => {
         </RightSection>
       </Container>
       <QuestionsContainer>
-        <StyledQuestions questions={allQuestions} />
+        <StyledQuestions />
       </QuestionsContainer>
 
       <SocialsSection />

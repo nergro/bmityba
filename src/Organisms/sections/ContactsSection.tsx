@@ -1,7 +1,6 @@
 import { ContactForm } from 'Molecules/ContactForm';
 import { Questions } from 'Molecules/Questions';
 import React, { FC } from 'react';
-import { homeQuestions } from 'services/questions';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -57,7 +56,7 @@ export const ContactsSection: FC = () => {
   return (
     <Container>
       <LeftSection>
-        <Questions questions={homeQuestions} />
+        <Questions count={4} />
       </LeftSection>
       <RightSection>
         <StyledContactForm />

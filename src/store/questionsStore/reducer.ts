@@ -4,17 +4,13 @@ import { Action, State } from './provider';
 
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'Services/LoadInitiated': {
+    case 'Questions/LoadInitiated': {
       return Loading;
     }
-    case 'Services/Loaded': {
-      const dict = action.payload.reduce((acc, value) => ({ ...acc, [value.id]: value }), {});
-      return {
-        list: action.payload,
-        dict,
-      };
+    case 'Questions/Loaded': {
+      return action.payload;
     }
-    case 'Services/LoadFailed': {
+    case 'Questions/LoadFailed': {
       return action.payload;
     }
     default: {

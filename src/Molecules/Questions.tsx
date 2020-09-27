@@ -3,8 +3,10 @@ import { QuestionToggle } from 'Molecules/QuestionToggle';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getLocale } from 'services/localStorage';
+import { dummyQuestions } from 'services/questions';
+import { useQuestionsResource } from 'store/questionsStore/hooks';
+import { isLoading } from 'store/types';
 import styled from 'styled-components/macro';
-import { Question } from 'types/question';
 
 const Title = styled(P)`
   text-align: center;
@@ -19,6 +21,7 @@ const QuestionsWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  width: 100%;
 `;
 
 const StyledQuestion = styled(QuestionToggle)`
@@ -30,20 +33,22 @@ const StyledQuestion = styled(QuestionToggle)`
 
 interface Props {
   className?: string;
-  questions: Question[];
+  count?: number;
 }
 
-export const Questions: FC<Props> = ({ className, questions }) => {
+export const Questions: FC<Props> = ({ className, count }) => {
+  const questions = useQuestionsResource();
   const locale = getLocale();
   const { t } = useTranslation();
 
+  const questionsToShow = isLoading(questions) ? dummyQuestions : questions;
   return (
     <>
       <Title font="Roboto" weight="400" color="secondaryAccent">
         {t('Frequently Asked Questions')}
       </Title>
       <QuestionsWrapper className={className}>
-        {questions.map((x, i) => (
+        {(count !== undefined ? questionsToShow.slice(0, count) : questionsToShow).map((x, i) => (
           <StyledQuestion
             key={i}
             question={locale === 'en' ? x.questionEN : x.questionLT}

@@ -1,7 +1,7 @@
 import { H1 } from 'Atoms/text';
 import { Service } from 'Molecules/Service';
 import React, { FC } from 'react';
-import { dummyServices } from 'services/dummyServices';
+import { dummyServices } from 'services/dummyData/dummyServices';
 import { getLocale } from 'services/localStorage';
 import { useServicesResource } from 'store/servicesStore/hooks';
 import { isLoading } from 'store/types';

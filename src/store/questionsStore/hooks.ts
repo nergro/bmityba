@@ -1,7 +1,8 @@
 import { getQuestions } from 'apiServices/questions/questions';
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
+import { dummyQuestions } from 'services/dummyData/dummyQuestions';
 import { assetIsNotStoreError, newStoreError } from 'store/storeError';
-import { Dispatch, Loading } from 'store/types';
+import { Dispatch, isLoading, Loading } from 'store/types';
 import { Question } from 'types/question';
 
 import { Action, QuestionsDispatchContext, QuestionsStateContext, State } from './provider';
@@ -42,4 +43,10 @@ export const useQuestionsResource = (): 'Loading' | Question[] => {
   assetIsNotStoreError(state);
 
   return state || Loading;
+};
+
+export const useQuestions = (): Question[] => {
+  const questions = useQuestionsResource();
+
+  return useMemo(() => (isLoading(questions) ? dummyQuestions : questions), [questions]);
 };

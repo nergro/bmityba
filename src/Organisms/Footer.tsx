@@ -8,7 +8,9 @@ import { Icon } from 'Atoms/Icon';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getLocale } from 'services/localStorage';
 import { useMobile } from 'services/useMobile';
+import { useContacts } from 'store/contactsStore/hooks';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -110,8 +112,11 @@ const StyledSocialIcon = styled(Icon)`
 `;
 
 export const Footer: FC = () => {
+  const contacts = useContacts();
   const isMobile = useMobile('sm');
   const { t } = useTranslation();
+
+  const isLT = getLocale() === 'lt';
   return (
     <Container>
       <Content>
@@ -119,15 +124,15 @@ export const Footer: FC = () => {
         <Contacts>
           <Contact>
             <StyledIcon svgComponent={PhoneSvg} />
-            <P color="secondary">+370 662 38367</P>
+            <P color="secondary">{contacts.phone}</P>
           </Contact>
           <Contact>
             <StyledIcon svgComponent={MailSvg} />
-            <P color="secondary">bmityba@outlook.com</P>
+            <P color="secondary">{contacts.email}</P>
           </Contact>
           <Contact>
             <StyledIcon svgComponent={LocationSvg} />
-            <P color="secondary">{t('Kaunas, Lithuania')}</P>
+            <P color="secondary">{isLT ? contacts.locationLT : contacts.locationEN}</P>
           </Contact>
         </Contacts>
       </Content>

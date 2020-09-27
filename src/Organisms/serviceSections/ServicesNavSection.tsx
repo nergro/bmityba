@@ -1,7 +1,7 @@
 import { ServiceButton } from 'Atoms/buttons/ServiceButton';
 import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
-import { dummyServices } from 'services/dummyServices';
+import { dummyServices } from 'services/dummyData/dummyServices';
 import { getLocale } from 'services/localStorage';
 import styled from 'styled-components/macro';
 import { Service as ServiceInfo } from 'types/service';

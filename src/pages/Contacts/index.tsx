@@ -9,6 +9,8 @@ import { Questions } from 'Molecules/Questions';
 import { SocialsSection } from 'Organisms/sections/SocialsSection';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getLocale } from 'services/localStorage';
+import { useContacts } from 'store/contactsStore/hooks';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
@@ -124,7 +126,10 @@ const Contact: FC<ContactProps> = ({ className, icon, name, value }) => {
 };
 
 export const Contacts: FC = () => {
+  const contacts = useContacts();
   const { t } = useTranslation();
+
+  const isLT = getLocale() === 'lt';
   return (
     <PageLayout title={t('Contacts')}>
       <Container>
@@ -132,9 +137,13 @@ export const Contacts: FC = () => {
           <LeftTitle size="medium" weight="600">
             {t("I'd love to hear from you")}
           </LeftTitle>
-          <Contact icon={PhoneSvg} name={t('Phone')} value="+370 662 38367" />
-          <Contact icon={MailSvg} name={t('Email')} value="bmityba@outlook.com" />
-          <Contact icon={LocationSvg} name={t('Location')} value={t('Kaunas, Lithuania')} />
+          <Contact icon={PhoneSvg} name={t('Phone')} value={contacts.phone} />
+          <Contact icon={MailSvg} name={t('Email')} value={contacts.email} />
+          <Contact
+            icon={LocationSvg}
+            name={t('Location')}
+            value={isLT ? contacts.locationLT : contacts.locationEN}
+          />
         </LeftSection>
         <RightSection>
           <StyledContactForm />

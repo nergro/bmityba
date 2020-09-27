@@ -3,9 +3,7 @@ import { QuestionToggle } from 'Molecules/QuestionToggle';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getLocale } from 'services/localStorage';
-import { dummyQuestions } from 'services/questions';
-import { useQuestionsResource } from 'store/questionsStore/hooks';
-import { isLoading } from 'store/types';
+import { useQuestions } from 'store/questionsStore/hooks';
 import styled from 'styled-components/macro';
 
 const Title = styled(P)`
@@ -37,18 +35,17 @@ interface Props {
 }
 
 export const Questions: FC<Props> = ({ className, count }) => {
-  const questions = useQuestionsResource();
+  const questions = useQuestions();
   const locale = getLocale();
   const { t } = useTranslation();
 
-  const questionsToShow = isLoading(questions) ? dummyQuestions : questions;
   return (
     <>
       <Title font="Roboto" weight="400" color="secondaryAccent">
         {t('Frequently Asked Questions')}
       </Title>
       <QuestionsWrapper className={className}>
-        {(count !== undefined ? questionsToShow.slice(0, count) : questionsToShow).map((x, i) => (
+        {(count !== undefined ? questions.slice(0, count) : questions).map((x, i) => (
           <StyledQuestion
             key={i}
             question={locale === 'en' ? x.questionEN : x.questionLT}

@@ -1,7 +1,7 @@
 import { Benefit } from 'Atoms/Benefit';
 import { RoundButton } from 'Atoms/buttons/RoundButton';
 import { MainLoader } from 'Atoms/loaders/MainLoader';
-import { H2, P } from 'Atoms/text';
+import { H2, P, Span } from 'Atoms/text';
 import { ServiceLayout } from 'layouts/ServiceLayout';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -77,6 +77,15 @@ const PriceBox = styled.div`
   align-items: center;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     width: 320px;
+  }
+`;
+
+const From = styled(Span)`
+  font-size: 40px;
+  margin-right: 3px;
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    font-size: 35px;
   }
 `;
 
@@ -169,6 +178,9 @@ export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, histor
         <PriceSection>
           <PriceBox>
             <Price color="tertiaryAccent" font="Oregano">
+              <From color="tertiaryAccent" font="Oregano">
+                {t('From')}
+              </From>{' '}
               €{service.price}
             </Price>
             <PriceDescription>

@@ -50,5 +50,16 @@
 
   "I'd love to hear from you": "I'd love to hear from you",
   "Phone": "Phone",
-  "Location": "Location"
+  "Location": "Location",
+
+  "Learn more": "Learn more",
+
+  "Loading": "Loading",
+  "Not Found": "Not Found",
+
+  "Book now": "Book now",
+  "From": "From",
+
+  "Error. Check if all fields were filled correctly.": "Error. Check if all fields were filled correctly.",
+  "Thank You!": "Thank You!"
 }

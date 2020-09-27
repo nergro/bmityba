@@ -1,6 +1,7 @@
 import { Link } from 'Atoms/links/AnimatedLink';
 import { P } from 'Atoms/text';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -23,6 +24,7 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
+  width: 100%;
   padding: 10%;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     padding: 6% 8%;
@@ -59,6 +61,7 @@ const Subtitle = styled(P)`
 const Description = styled(P)`
   margin-top: 20px;
   line-height: 25px;
+  flex-grow: 1;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     margin-top: 5px;
     line-height: 20px;
@@ -123,6 +126,7 @@ interface Props {
 
 export const Service: FC<Props> = ({ className, description, image, subtitle, title, to }) => {
   const { push } = useHistory();
+  const { t } = useTranslation();
 
   return (
     <Container className={className} onClick={() => push(to)}>
@@ -135,7 +139,7 @@ export const Service: FC<Props> = ({ className, description, image, subtitle, ti
           </Subtitle>
         )}
         <Description color="inactive">{description}</Description>
-        <StyledLink to="#">Learn more</StyledLink>
+        <StyledLink to="#">{t('Learn more')}</StyledLink>
       </Content>
     </Container>
   );

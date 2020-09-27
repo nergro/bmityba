@@ -1,6 +1,7 @@
 import { ServiceButton } from 'Atoms/buttons/ServiceButton';
 import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
+import { dummyServices } from 'services/dummyData/dummyServices';
 import { getLocale } from 'services/localStorage';
 import styled from 'styled-components/macro';
 import { Service as ServiceInfo } from 'types/service';
@@ -16,8 +17,8 @@ const StyledServiceButton = styled(ServiceButton)`
 
 interface Props {
   className?: string;
-  serviceId: string;
-  services: ServiceInfo[];
+  serviceId?: string;
+  services?: ServiceInfo[];
 }
 
 export const ServicesNavSection: FC<Props> = ({ className, services, serviceId }) => {
@@ -25,7 +26,7 @@ export const ServicesNavSection: FC<Props> = ({ className, services, serviceId }
   const locale = getLocale();
   return (
     <Container className={className}>
-      {services.map(x => (
+      {(services || dummyServices).map(x => (
         <StyledServiceButton
           key={x.id}
           onClick={() => push(`/services/${x.id}`)}

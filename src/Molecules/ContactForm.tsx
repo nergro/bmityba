@@ -1,7 +1,9 @@
+import { sendMail } from 'apiServices/mail/mail';
 import { PrimaryButtonFilled } from 'Atoms/buttons/ActionButton';
 import { Input, TextArea } from 'Atoms/Input/Input';
+import { InlineLoader } from 'Atoms/loaders/InlineLoader';
 import { P } from 'Atoms/text';
-import React, { FC } from 'react';
+import React, { FC, MouseEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
@@ -73,7 +75,12 @@ const StyledTextArea = styled(TextArea)`
   }
 `;
 
-const StyledButton = styled(PrimaryButtonFilled)`
+const Error = styled(P)`
+  align-self: center;
+  margin: 10px 0 0;
+`;
+
+const ButtonWrapper = styled.div`
   align-self: center;
   margin: 30px 0;
 `;
@@ -82,27 +89,94 @@ interface Props {
   className?: string;
 }
 
+type InputType = 'name' | 'email' | 'subject' | 'message';
+
+type FormData = Record<InputType, string>;
+
 export const ContactForm: FC<Props> = ({ className }) => {
   const { t } = useTranslation();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [messageSent, setMessageSent] = useState<boolean>(false);
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [hasError, setHasError] = useState<boolean>(false);
+
+  const onChangeInput = (type: InputType, value?: string): void => {
+    if (value) {
+      setFormData({
+        ...formData,
+        [type]: value,
+      });
+    }
+  };
+
+  const onSubmit = async (e: MouseEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      setHasError(true);
+    }
+    setLoading(true);
+    try {
+      await sendMail(formData.name, formData.email, formData.message, formData.subject);
+      setLoading(false);
+      setMessageSent(true);
+    } catch (error) {
+      setLoading(false);
+      setMessageSent(false);
+      setHasError(true);
+    }
+  };
 
   return (
     <Box className={className}>
       <BoxTitle font="Roboto" weight="400" color="secondaryAccent">
         {t('Make an Appointment')}
       </BoxTitle>
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Inputs>
           <InputsLeft>
-            <StyledInput placeholder={t('Name')} required />
-            <StyledInput placeholder={t('Email')} type="email" required />
-            <StyledInput placeholder={t('Subject')} />
+            <StyledInput
+              placeholder={t('Name')}
+              required
+              onChange={event => onChangeInput('name', event.target.value)}
+            />
+            <StyledInput
+              placeholder={t('Email')}
+              type="email"
+              required
+              onChange={event => onChangeInput('email', event.target.value)}
+            />
+            <StyledInput
+              placeholder={t('Subject')}
+              onChange={event => onChangeInput('subject', event.target.value)}
+            />
           </InputsLeft>
           <InputsRight>
-            <StyledTextArea placeholder={t('Message')} required />
+            <StyledTextArea
+              placeholder={t('Message')}
+              required
+              onChange={event => onChangeInput('message', event.target.value)}
+            />
           </InputsRight>
         </Inputs>
-
-        <StyledButton type="submit">{t('Submit')}</StyledButton>
+        {hasError && (
+          <Error color="error">{t('Error. Check if all fields were filled correctly.')}</Error>
+        )}
+        <ButtonWrapper>
+          {loading ? (
+            <InlineLoader />
+          ) : messageSent ? (
+            <P size="intermedium" weight="500">
+              {t('Thank You!')}
+            </P>
+          ) : (
+            <PrimaryButtonFilled type="submit">{t('Submit')}</PrimaryButtonFilled>
+          )}
+        </ButtonWrapper>
       </Form>
     </Box>
   );

@@ -9,7 +9,9 @@ import { Span } from 'Atoms/text';
 import { SideSection } from 'Organisms/blogSections/SideSection';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getLocale } from 'services/localStorage';
 import { useMobile } from 'services/useMobile';
+import { useContacts } from 'store/contactsStore/hooks';
 import styled from 'styled-components/macro';
 
 const Contact = styled.div`
@@ -62,22 +64,24 @@ const SocialIcon = styled(Icon)`
 `;
 
 export const ContactsSection: FC = () => {
+  const contacts = useContacts();
   const isMobile = useMobile('sm');
   const { t } = useTranslation();
 
+  const isLT = getLocale() === 'lt';
   return (
     <SideSection title={t('Get in touch')}>
       <Contact>
         <StyledIcon svgComponent={PhoneSvg} />
-        <StyledSpan>+370 662 38367</StyledSpan>
+        <StyledSpan>{contacts.phone}</StyledSpan>
       </Contact>
       <Contact>
         <StyledIcon svgComponent={MailSvg} />
-        <StyledSpan>bmityba@outlook.com</StyledSpan>
+        <StyledSpan>{contacts.email}</StyledSpan>
       </Contact>
       <Contact>
         <StyledIcon svgComponent={LocationSvg} />
-        <StyledSpan>{t('Kaunas, Lithuania')}</StyledSpan>
+        <StyledSpan>{isLT ? contacts.locationLT : contacts.locationEN}</StyledSpan>
       </Contact>
       <Socials>
         <SocialLink

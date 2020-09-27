@@ -32,6 +32,7 @@ const AsideContent = styled.div`
 `;
 
 const Content = styled.div`
+  position: relative;
   width: 45%;
   margin-left: 50px;
   padding: 80px 0;
@@ -54,8 +55,8 @@ const Content = styled.div`
 
 interface Props {
   title?: string;
-  serviceId: string;
-  services: ServiceInfo[];
+  serviceId?: string;
+  services?: ServiceInfo[];
 }
 
 export const ServiceLayout: FC<Props> = ({ children, title, services, serviceId }) => {

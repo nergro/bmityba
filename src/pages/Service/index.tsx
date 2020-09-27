@@ -1,8 +1,10 @@
 import { Benefit } from 'Atoms/Benefit';
 import { RoundButton } from 'Atoms/buttons/RoundButton';
+import { MainLoader } from 'Atoms/loaders/MainLoader';
 import { H2, P } from 'Atoms/text';
 import { ServiceLayout } from 'layouts/ServiceLayout';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router-dom';
 import { getLocale } from 'services/localStorage';
 import { useServicesResource } from 'store/servicesStore/hooks';
@@ -102,13 +104,20 @@ const StyledP = styled(P)`
   }
 `;
 
-const StyledRoundButton = styled(RoundButton)``;
+const StyledLoader = styled(MainLoader)`
+  top: 100px;
+`;
 
 export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) => {
   const services = useServicesResource();
+  const { t } = useTranslation();
 
   if (isLoading(services)) {
-    return <p>Loading...</p>;
+    return (
+      <ServiceLayout title={`${t('Loading')}...`}>
+        <StyledLoader />
+      </ServiceLayout>
+    );
   }
 
   const serviceId = match.params.id;
@@ -119,7 +128,7 @@ export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, histor
 
   if (!service) {
     return (
-      <ServiceLayout title="Not Found" serviceId={serviceId} services={services.list}>
+      <ServiceLayout title={t('Not Found')} serviceId={serviceId} services={services.list}>
         <p>Service not found</p>
       </ServiceLayout>
     );
@@ -171,9 +180,7 @@ export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, histor
                   </StyledP>
                 ))}
             </PriceDescription>
-            <StyledRoundButton onClick={() => history.push('/contacts')}>
-              Book now
-            </StyledRoundButton>
+            <RoundButton onClick={() => history.push('/contacts')}>{t('Book now')}</RoundButton>
           </PriceBox>
         </PriceSection>
       </Container>

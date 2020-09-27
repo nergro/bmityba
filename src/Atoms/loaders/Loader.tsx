@@ -120,8 +120,10 @@ const RhombusBig = styled(Rhombus)`
 const Wrapper = styled.div`
   height: 65px;
   width: 65px;
-  position: relative;
-  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
   box-sizing: border-box;
 
   &:nth-child(2n + 0) {
@@ -133,7 +135,7 @@ interface Props {
   className?: string;
 }
 
-export const Spinner: FC<Props> = ({ className }) => {
+export const Loader: FC<Props> = ({ className }) => {
   return (
     <Wrapper className={className}>
       <Rhombus1 />

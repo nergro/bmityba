@@ -4,6 +4,7 @@ import { BlogLayout } from 'layouts/BlogLayout';
 import React, { FC } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { latestPosts } from 'services/posts';
+import { usePosts } from 'store/postsStore/hooks';
 import styled from 'styled-components/macro';
 
 const Title = styled(H1)`
@@ -49,6 +50,9 @@ const Text = styled(P)`
 
 export const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
   const post = latestPosts.find(x => x.id === match.params.id);
+  const posts = usePosts();
+
+  console.log(posts);
 
   if (!post) {
     return (
@@ -63,7 +67,8 @@ export const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
         <StyledImage imageUrl={post.image} />
         <Title font="Spectral">{post.title}</Title>
         <Content>
-          <Text>
+          {posts.length > 0 && <div dangerouslySetInnerHTML={{ __html: posts[0].content }} />}
+          {/* <Text>
             There are many variations of passages of Lorem Ipsum available, but the majority have
             suffered alteration in some form, by injected humour, or randomised words which don’t
             look even slightly believable. If you are going to use a passage.
@@ -122,7 +127,7 @@ export const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
           <Text>
             Westsed tincidunare tincidunt. t risuAenean consequat risus. Proin viverra nisornare,
             tincidat, se.
-          </Text>
+          </Text> */}
         </Content>
       </Container>
     </BlogLayout>

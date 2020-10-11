@@ -34,7 +34,7 @@ const Image = styled.img`
 `;
 
 const RightContent = styled.div`
-  width: 60%;
+  width: 70%;
   margin-left: 70px;
   display: flex;
   flex-direction: column;

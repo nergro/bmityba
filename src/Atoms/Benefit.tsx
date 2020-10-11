@@ -15,7 +15,6 @@ const BenefitTitle = styled(H4)`
 
 const BenefitDescription = styled(P)`
   line-height: 26px;
-  max-width: 300px;
 `;
 
 interface Props {

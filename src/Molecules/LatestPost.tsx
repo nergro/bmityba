@@ -35,6 +35,7 @@ const Info = styled.div`
 const Title = styled(P)`
   margin-top: 10px;
   align-self: flex-start;
+  text-align: left;
 `;
 
 interface Props {

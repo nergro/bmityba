@@ -61,5 +61,12 @@
   "From": "From",
 
   "Error. Check if all fields were filled correctly.": "Error. Check if all fields were filled correctly.",
-  "Thank You!": "Thank You!"
+  "Thank You!": "Thank You!",
+
+  "Post not found": "Post not found",
+  "Read more": "Read more",
+  "Search": "Search",
+  "Latest Posts": "Latest Posts",
+  "Categories": "Categories",
+  "No records": "No records"
 }

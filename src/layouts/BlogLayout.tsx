@@ -2,7 +2,7 @@ import { SearchInput } from 'Atoms/Input/SearchInput';
 import { PageLayout } from 'layouts/PageLayout';
 import { Categories } from 'Organisms/blogSections/Categories';
 import { LatestNews } from 'Organisms/blogSections/LatestNews';
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
@@ -33,6 +33,7 @@ const StyledSearchInput = styled(SearchInput)`
 `;
 
 const Content = styled.div`
+  position: relative;
   width: 50%;
   margin: 0 50px 0 auto;
   padding: 80px 0;
@@ -47,9 +48,10 @@ const Content = styled.div`
 
 interface Props {
   title?: string;
+  onSearchChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const BlogLayout: FC<Props> = ({ children, title }) => {
+export const BlogLayout: FC<Props> = ({ children, title, onSearchChange }) => {
   const { t } = useTranslation();
 
   return (
@@ -58,7 +60,7 @@ export const BlogLayout: FC<Props> = ({ children, title }) => {
         <Content>{children}</Content>
         <Aside>
           <AsideContent>
-            <StyledSearchInput />
+            {onSearchChange && <StyledSearchInput onChange={onSearchChange} />}
             <LatestNews />
             <Categories />
           </AsideContent>

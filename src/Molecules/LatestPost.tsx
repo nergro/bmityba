@@ -1,10 +1,9 @@
-import { ReactComponent as CalendarSvg } from 'assets/UI/calendar.svg';
-import { Icon } from 'Atoms/Icon';
 import { P } from 'Atoms/text';
-import moment from 'moment';
+import { DateField } from 'Molecules/DateField';
 import React, { FC } from 'react';
+import { getLocale } from 'services/localStorage';
 import styled from 'styled-components/macro';
-import { Post } from 'types/blog';
+import { Post } from 'types/post';
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,6 +13,7 @@ const Image = styled.img`
   width: 70px;
   height: 70px;
   margin-right: 20px;
+  object-fit: cover;
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     display: none;
   }
@@ -27,24 +27,6 @@ const Info = styled.div`
   flex-direction: column;
 `;
 
-const DateWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const StyledIcon = styled(Icon)`
-  width: 15px;
-  height: 15px;
-  fill: ${props => props.theme.colors.accents.primary};
-  margin-right: 10px;
-`;
-
-const Date = styled(P)`
-  && {
-    font-size: 14px;
-  }
-`;
-
 const Title = styled(P)`
   margin-top: 10px;
 `;
@@ -55,16 +37,15 @@ interface Props {
 }
 
 export const LatestPost: FC<Props> = ({ className, post }) => {
-  const date = moment(post.date).format('DD MMMM, YYYY');
+  const locale = getLocale();
+  const isLT = locale === 'lt';
+
   return (
     <Wrapper className={className}>
-      <Image src={post.image} />
+      <Image src={post.image.imageUrl} />
       <Info>
-        <DateWrapper>
-          <StyledIcon svgComponent={CalendarSvg} />
-          <Date>{date}</Date>
-        </DateWrapper>
-        <Title>{post.title}</Title>
+        <DateField date={post.date} />
+        <Title>{isLT ? post.titleLT : post.titleEN}</Title>
       </Info>
     </Wrapper>
   );

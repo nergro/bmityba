@@ -1,6 +1,7 @@
 import { ReactComponent as SearchSvg } from 'assets/UI/search.svg';
 import { Icon } from 'Atoms/Icon';
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 const Wrapper = styled.div`
@@ -38,13 +39,15 @@ const StyledIcon = styled(Icon)`
 
 interface Props {
   className?: string;
-  onChange?: () => void;
+  onChange?(e: ChangeEvent<HTMLInputElement>): void;
 }
 
 export const SearchInput: FC<Props> = ({ className, onChange }) => {
+  const { t } = useTranslation();
+
   return (
     <Wrapper className={className}>
-      <Input onChange={onChange} placeholder="Search ..." />
+      <Input onChange={onChange} placeholder={`${t('Search')} ...`} />
       <StyledIcon svgComponent={SearchSvg} />
     </Wrapper>
   );

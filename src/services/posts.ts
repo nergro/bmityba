@@ -1,36 +1,14 @@
-import { Post } from 'types/blog';
+import { Post } from 'types/post';
 
-export const latestPosts: Post[] = [
-  {
-    id: '1',
-    image: 'http://themetechmount.com/html/nutricare/images/blog/post-5.jpg',
-    date: '2020-08-04',
-    title: 'How many calories should you eat per day?',
-    description:
-      'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage',
-  },
-  {
-    id: '2',
-    image: 'http://themetechmount.com/html/nutricare/images/blog/post-5.jpg',
-    date: '2020-08-04',
-    title: 'How many calories should you eat per day?',
-    description:
-      'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage',
-  },
-  {
-    id: '3',
-    image: 'http://themetechmount.com/html/nutricare/images/blog/post-5.jpg',
-    date: '2020-08-04',
-    title: 'How many calories should you eat per day?',
-    description:
-      'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage',
-  },
-  {
-    id: '4',
-    image: 'http://themetechmount.com/html/nutricare/images/blog/post-5.jpg',
-    date: '2020-08-04',
-    title: 'How many calories should you eat per day?',
-    description:
-      'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage',
-  },
-];
+export const sortPostsByDate = (posts: Post[], asc = true): Post[] =>
+  posts.sort((a, b) => {
+    if (a.date > b.date) return asc ? -1 : 1;
+    if (a.date < b.date) return asc ? 1 : -1;
+    return 0;
+  });
+
+export const filterPostsByName = (posts: Post[], input: string | undefined, isLT = true): Post[] =>
+  input ? posts.filter(x => (isLT ? x.titleLT : x.titleEN).includes(input)) : posts;
+
+export const filterPostsByCategory = (posts: Post[], categoryId: string): Post[] =>
+  categoryId === 'all' ? posts : posts.filter(x => x.category.id === categoryId);

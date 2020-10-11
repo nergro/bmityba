@@ -2,9 +2,12 @@ import { Link as AnimatedLink } from 'Atoms/links/AnimatedLink';
 import { Link } from 'Atoms/links/Link';
 import { PostImage } from 'Atoms/PostImage';
 import { H1, P } from 'Atoms/text';
+import { DateField } from 'Molecules/DateField';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { getLocale } from 'services/localStorage';
 import styled from 'styled-components/macro';
-import { Post as PostInfo } from 'types/blog';
+import { Post as PostInfo } from 'types/post';
 
 const Container = styled.div`
   width: 100%;
@@ -47,7 +50,7 @@ const Description = styled(P)`
 `;
 
 const StyledAnimatedLink = styled(AnimatedLink)`
-  align-self: flex-start;
+  align-self: flex-end;
   margin-top: 20px;
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     margin-top: 5px;
@@ -57,23 +60,35 @@ const StyledAnimatedLink = styled(AnimatedLink)`
   }
 `;
 
+const StyledDateField = styled(DateField)`
+  align-self: flex-end;
+`;
+
 interface Props {
   className?: string;
   post: PostInfo;
 }
 
 export const Post: FC<Props> = ({ className, post }) => {
+  const { t } = useTranslation();
+
+  const locale = getLocale();
+  const isLT = locale === 'lt';
+
   return (
     <Container className={className}>
-      <StyledImage imageUrl={post.image} />
+      <StyledImage imageUrl={post.image.imageUrl} />
       <Info>
+        <StyledDateField date={post.date} />
         <StyledLink to={`/blog/${post.id}`}>
           <Title font="Spectral" color="secondaryAccent">
-            {post.title}
+            {isLT ? post.titleLT : post.titleEN}
           </Title>
         </StyledLink>
-        <Description color="light">{post.description}</Description>
-        <StyledAnimatedLink to={`/blog/${post.id}`}>Read more</StyledAnimatedLink>
+        <Description color="light">
+          {isLT ? post.shortDescriptionLT : post.shortDescriptionEN}
+        </Description>
+        <StyledAnimatedLink to={`/blog/${post.id}`}>{t('Read more')}</StyledAnimatedLink>
       </Info>
     </Container>
   );

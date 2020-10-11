@@ -1,7 +1,16 @@
+import { Image } from 'types/image';
+
+import { PostCategory } from './postCategory';
+
 export interface Post {
   id: string;
-  category: string;
-  title: string;
+  category: PostCategory;
+  titleLT: string;
+  titleEN: string;
+  shortDescriptionLT: string;
+  shortDescriptionEN: string;
   date: string;
-  content: string;
+  contentLT: string;
+  contentEN: string;
+  image: Image;
 }

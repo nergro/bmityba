@@ -1,3 +1,5 @@
+import 'moment/locale/lt';
+
 import { AppLayout } from 'layouts/AppLayout';
 import { NotFound } from 'pages/404';
 import { About } from 'pages/About';

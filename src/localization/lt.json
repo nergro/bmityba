@@ -61,5 +61,13 @@
   "From": "Nuo",
 
   "Error. Check if all fields were filled correctly.": "Klaida. Patikrinkite ar visi laukai užpildyti teisingai.",
-  "Thank You!": "Ačiū!"
+  "Thank You!": "Ačiū!",
+
+  "Post not found": "Įrašas nerastas",
+  "Read more": "Skaityti daugiau",
+  "Search": "Ieškoti",
+  "Latest Posts": "Naujausi įrašai",
+  "Categories": "Kategorijos",
+  "No records": "Įrašų nerasta",
+  "Page not found": "Puslapis nerastas"
 }

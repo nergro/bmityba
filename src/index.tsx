@@ -11,6 +11,8 @@ import { lightTheme } from 'services/theme/lightTheme';
 import { ContactsStoreProvider } from 'store/contactsStore/provider';
 import { LocaleStoreProvider } from 'store/localeStore/provider';
 import { MobileMenuStoreProvider } from 'store/mobileMenuStore/provider';
+import { PostCategoryStoreProvider } from 'store/postCategories/provider';
+import { PostsStoreProvider } from 'store/postsStore/provider';
 import { QuestionsStoreProvider } from 'store/questionsStore/provider';
 import { ServicesStoreProvider } from 'store/servicesStore/provider';
 import { ThemeProvider } from 'styled-components/macro';
@@ -28,6 +30,8 @@ const storeProviders = [
   ServicesStoreProvider,
   QuestionsStoreProvider,
   ContactsStoreProvider,
+  PostsStoreProvider,
+  PostCategoryStoreProvider,
 ];
 
 ReactDOM.render(

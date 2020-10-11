@@ -1,8 +1,16 @@
+import { P } from 'Atoms/text';
 import { BlogLayout } from 'layouts/BlogLayout';
 import { Post } from 'Molecules/Post';
-import React, { FC } from 'react';
-import { latestPosts } from 'services/posts';
+import React, { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+import { dummyPosts } from 'services/dummyData/dummyPosts';
+import { getLocale } from 'services/localStorage';
+import { filterPostsByCategory, filterPostsByName, sortPostsByDate } from 'services/posts';
+import { usePostsResource } from 'store/postsStore/hooks';
+import { isLoading } from 'store/types';
 import styled from 'styled-components/macro';
+import { Post as PostInfo } from 'types/post';
 
 const Posts = styled.div`
   display: flex;
@@ -16,14 +24,47 @@ const StyledPost = styled(Post)`
   }
 `;
 
+const getPosts = (
+  posts: PostInfo[] | 'Loading',
+  categoryId: string | undefined,
+  searchInput: string | undefined,
+  isLT: boolean
+): PostInfo[] =>
+  isLoading(posts)
+    ? dummyPosts
+    : sortPostsByDate(
+        filterPostsByName(
+          categoryId ? filterPostsByCategory(posts, categoryId) : posts,
+          searchInput,
+          isLT
+        )
+      );
+
 export const Blog: FC = () => {
+  const { t } = useTranslation();
+
+  const [searchInput, setSearchInput] = useState<string>();
+  const posts = usePostsResource();
+  const location = useLocation();
+
+  const categoryId = location.state ? location.state.categoryId : undefined;
+
+  const locale = getLocale();
+  const isLT = locale === 'lt';
+
+  const filteredPosts = getPosts(posts, categoryId, searchInput, isLT);
+
   return (
-    <BlogLayout>
-      <Posts>
-        {latestPosts.map(x => (
-          <StyledPost key={x.id} post={x} />
-        ))}
-      </Posts>
+    <BlogLayout onSearchChange={event => setSearchInput(event.target.value)}>
+      {filteredPosts.length > 0 ? (
+        <Posts>
+          {filteredPosts.map(x => (
+            <StyledPost key={x.id} post={x} />
+          ))}
+        </Posts>
+      ) : (
+        <P size="big">{t('No records')}</P>
+      )}
     </BlogLayout>
   );
 };

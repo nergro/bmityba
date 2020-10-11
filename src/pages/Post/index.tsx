@@ -1,9 +1,14 @@
+import { MainLoader } from 'Atoms/loaders/MainLoader';
 import { PostImage } from 'Atoms/PostImage';
-import { H1, P } from 'Atoms/text';
+import { H1 } from 'Atoms/text';
 import { BlogLayout } from 'layouts/BlogLayout';
+import { DateField } from 'Molecules/DateField';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router-dom';
-import { latestPosts } from 'services/posts';
+import { getLocale } from 'services/localStorage';
+import { usePostsResource } from 'store/postsStore/hooks';
+import { isLoading } from 'store/types';
 import styled from 'styled-components/macro';
 
 const Title = styled(H1)`
@@ -39,91 +44,51 @@ const Content = styled.div`
   padding: 20px 40px 50px;
 `;
 
-const Text = styled(P)`
-  color: ${props => props.theme.colors.text.secondaryAccent};
-  font-size: 18px;
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
+const StyledLoader = styled(MainLoader)`
+  top: 100px;
+`;
+
+const StyledDateField = styled(DateField)`
+  align-self: flex-end;
+  margin: 0 20px 20px 0;
 `;
 
 export const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
-  const post = latestPosts.find(x => x.id === match.params.id);
+  const { t } = useTranslation();
+
+  const posts = usePostsResource();
+
+  if (isLoading(posts)) {
+    return (
+      <BlogLayout title={`${t('Loading')}...`}>
+        <StyledLoader />
+      </BlogLayout>
+    );
+  }
+
+  const post = posts.find(x => x.id === match.params.id);
 
   if (!post) {
     return (
       <BlogLayout>
-        <p>Post not found</p>
+        <Title>{t('Post not found')}</Title>
       </BlogLayout>
     );
   }
+
+  const locale = getLocale();
+  const isLT = locale === 'lt';
+
   return (
     <BlogLayout>
       <Container>
-        <StyledImage imageUrl={post.image} />
-        <Title font="Spectral">{post.title}</Title>
+        <StyledImage imageUrl={post.image.imageUrl} />
+
+        <Title font="Spectral">{isLT ? post.titleLT : post.titleEN}</Title>
         <Content>
-          <Text>
-            There are many variations of passages of Lorem Ipsum available, but the majority have
-            suffered alteration in some form, by injected humour, or randomised words which don’t
-            look even slightly believable. If you are going to use a passage.
-          </Text>
-          <Text>
-            Donec ornare, est sed tincidunt placerat, sem mi suscipit mi, at varius enim Mauris
-            ienim id purus ornare tincidunt. Aenean vel consequat riss. Proin viverra nisi at nisl
-            imperdiet auctor. Donec ornare, esed tincidunt placerat sem mi suscipit mi, at varius
-            enim sem at sem. Fuce tempus ex nibh, eget vlputate lgula ornare eget. Nunc facilisis
-            erat at ligula blandit tempor. maecenas.
-          </Text>
-          <Text>
-            Aenean vel consequat risus. Proin viverra nisiat nisllorem diet auctnec ornare, estsed
-            tincunare tincidunt. dummy incidat, senibeget.t at ligula blandit tempor.
-          </Text>
-          <Text>
-            Westsed tincidunare tincidunt. t risuAenean consequat risus. Proin viverra nisornare,
-            tincidat, se.
-          </Text>
-          <Text>
-            There are many variations of passages of Lorem Ipsum available, but the majority have
-            suffered alteration in some form, by injected humour, or randomised words which don’t
-            look even slightly believable. If you are going to use a passage.
-          </Text>
-          <Text>
-            Donec ornare, est sed tincidunt placerat, sem mi suscipit mi, at varius enim Mauris
-            ienim id purus ornare tincidunt. Aenean vel consequat riss. Proin viverra nisi at nisl
-            imperdiet auctor. Donec ornare, esed tincidunt placerat sem mi suscipit mi, at varius
-            enim sem at sem. Fuce tempus ex nibh, eget vlputate lgula ornare eget. Nunc facilisis
-            erat at ligula blandit tempor. maecenas.
-          </Text>
-          <Text>
-            Aenean vel consequat risus. Proin viverra nisiat nisllorem diet auctnec ornare, estsed
-            tincunare tincidunt. dummy incidat, senibeget.t at ligula blandit tempor.
-          </Text>
-          <Text>
-            Westsed tincidunare tincidunt. t risuAenean consequat risus. Proin viverra nisornare,
-            tincidat, se.
-          </Text>
-          <Text>
-            There are many variations of passages of Lorem Ipsum available, but the majority have
-            suffered alteration in some form, by injected humour, or randomised words which don’t
-            look even slightly believable. If you are going to use a passage.
-          </Text>
-          <Text>
-            Donec ornare, est sed tincidunt placerat, sem mi suscipit mi, at varius enim Mauris
-            ienim id purus ornare tincidunt. Aenean vel consequat riss. Proin viverra nisi at nisl
-            imperdiet auctor. Donec ornare, esed tincidunt placerat sem mi suscipit mi, at varius
-            enim sem at sem. Fuce tempus ex nibh, eget vlputate lgula ornare eget. Nunc facilisis
-            erat at ligula blandit tempor. maecenas.
-          </Text>
-          <Text>
-            Aenean vel consequat risus. Proin viverra nisiat nisllorem diet auctnec ornare, estsed
-            tincunare tincidunt. dummy incidat, senibeget.t at ligula blandit tempor.
-          </Text>
-          <Text>
-            Westsed tincidunare tincidunt. t risuAenean consequat risus. Proin viverra nisornare,
-            tincidat, se.
-          </Text>
+          <div dangerouslySetInnerHTML={{ __html: isLT ? post.contentLT : post.contentEN }} />
         </Content>
+        <StyledDateField date={post.date} />
       </Container>
     </BlogLayout>
   );

@@ -1,12 +1,17 @@
 import { P } from 'Atoms/text';
 import { DateField } from 'Molecules/DateField';
 import React, { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 import { getLocale } from 'services/localStorage';
 import styled from 'styled-components/macro';
 import { Post } from 'types/post';
 
-const Wrapper = styled.div`
+const Wrapper = styled.button`
   display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
 `;
 
 const Image = styled.img`
@@ -29,6 +34,7 @@ const Info = styled.div`
 
 const Title = styled(P)`
   margin-top: 10px;
+  align-self: flex-start;
 `;
 
 interface Props {
@@ -37,11 +43,12 @@ interface Props {
 }
 
 export const LatestPost: FC<Props> = ({ className, post }) => {
+  const { push } = useHistory();
   const locale = getLocale();
   const isLT = locale === 'lt';
 
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} onClick={() => push(`/blog/${post.id}`)}>
       <Image src={post.image.imageUrl} />
       <Info>
         <DateField date={post.date} />

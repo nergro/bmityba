@@ -33,7 +33,7 @@ const AsideContent = styled.div`
 
 const Content = styled.div`
   position: relative;
-  width: 45%;
+  width: 50%;
   margin-left: 50px;
   padding: 80px 0;
   @media (max-width: ${props => props.theme.breakpoints.xl}) {

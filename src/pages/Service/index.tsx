@@ -50,13 +50,11 @@ const Benefits = styled.div`
 `;
 
 const StyledBenefit = styled(Benefit)`
-  width: 300px;
+  max-width: 250px;
   margin: 20px 15px 0 0;
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
-    width: 270px;
-  }
+
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    width: 300px;
+    max-width: 100%;
   }
 `;
 

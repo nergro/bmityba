@@ -1,4 +1,4 @@
-import coverImg from 'assets/cover.jpg';
+import coverImg from 'assets/cover.png';
 import { PrimaryButtonFilled, SecondaryButtonFilled } from 'Atoms/buttons/ActionButton';
 import { Caption } from 'Atoms/Caption';
 import { H1, P, Span } from 'Atoms/text';

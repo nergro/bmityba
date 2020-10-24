@@ -82,7 +82,13 @@ const Buttons = styled.div`
 `;
 
 const StyledPrimaryButton = styled(PrimaryButtonFilled)`
-  margin-right: 20px;
+  margin-right: 12px;
+`;
+
+const StyledSecondaryButton = styled(SecondaryButtonFilled)`
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    width: 100px;
+  }
 `;
 
 interface Props {
@@ -112,7 +118,7 @@ export const MainSection: FC<Props> = () => {
           <StyledPrimaryButton onClick={() => push('/contacts')}>
             {t('Team up with me')}
           </StyledPrimaryButton>
-          <SecondaryButtonFilled onClick={() => push('/about')}>{t('About')}</SecondaryButtonFilled>
+          <StyledSecondaryButton onClick={() => push('/about')}>{t('About')}</StyledSecondaryButton>
         </Buttons>
       </TextSection>
     </Container>

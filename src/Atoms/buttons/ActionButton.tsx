@@ -28,9 +28,10 @@ const ButtonBase = styled(Button)`
   transition: all 0.3s ease-in-out;
 
   @media (max-width: ${props => props.theme.breakpoints.m}) {
-    font-size: 14px;
-    width: 120px;
-    height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    width: 100px;
+    height: 36px;
   }
 `;
 

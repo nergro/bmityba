@@ -1,4 +1,5 @@
-import coverImg from 'assets/cover.png';
+import coverDesktop from 'assets/cover.png';
+import coverMobile from 'assets/coverMobile.png';
 import { PrimaryButtonFilled, SecondaryButtonFilled } from 'Atoms/buttons/ActionButton';
 import { Caption } from 'Atoms/Caption';
 import { H1, P, Span } from 'Atoms/text';
@@ -8,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 const Container = styled.div`
-  background-image: url(${coverImg});
+  background-image: url(${coverDesktop});
   height: 760px;
   background-size: cover;
   background-position: center center;
@@ -22,6 +23,7 @@ const Container = styled.div`
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     height: 282px;
+    background-image: url(${coverMobile});
   }
 `;
 
@@ -50,7 +52,7 @@ const Title = styled(H1)`
   }
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    font-size: 25px;
+    font-size: 23px;
     margin: 4px 0;
   }
 `;
@@ -75,7 +77,7 @@ const Description = styled(P)`
 const Buttons = styled.div`
   margin-top: 50px;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 `;
 

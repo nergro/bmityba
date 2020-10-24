@@ -115,7 +115,7 @@ export const Link = styled(BasicLink)`
   }
 
   &:hover:after {
-    box-shadow: inset 100px 0 0 0 ${props => props.theme.colors.accents.primary};
+    box-shadow: inset 160px 0 0 0 ${props => props.theme.colors.accents.primary};
   }
 
   &:hover {

@@ -34,13 +34,15 @@ const Content = styled.div`
 const Title = styled(P)`
   transition: all 0.2s ease-in-out;
   && {
-    font-size: 30px;
+    font-size: 28px;
+    margin-bottom: 10px;
+
     @media (max-width: ${props => props.theme.breakpoints.l}) {
-      font-size: 22px;
+      font-size: 23px;
     }
     @media (max-width: ${props => props.theme.breakpoints.m}) {
-      margin-bottom: 10px;
       font-weight: 600;
+      margin-bottom: 20px;
     }
   }
 `;
@@ -50,7 +52,7 @@ const Subtitle = styled(P)`
     font-size: 24px;
     @media (max-width: ${props => props.theme.breakpoints.l}) {
       margin: 5px 0;
-      font-size: 19px;
+      font-size: 21px;
     }
   }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
@@ -77,7 +79,7 @@ const StyledLink = styled(Link)`
 
 const Container = styled.button`
   width: 400px;
-  height: 600px;
+  height: 100%;
   background: ${props => props.theme.colors.background.primary};
   box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.25);
   border: none;
@@ -94,13 +96,12 @@ const Container = styled.button`
       color: ${props => props.theme.colors.accents.primary};
     }
     ${StyledLink}:after {
-      box-shadow: inset 100px 0 0 0 ${props => props.theme.colors.accents.primary};
+      box-shadow: inset 160px 0 0 0 ${props => props.theme.colors.accents.primary};
     }
   }
 
   @media (max-width: ${props => props.theme.breakpoints.l}) {
     width: 300px;
-    height: 400px;
   }
 
   @media (max-width: ${props => props.theme.breakpoints.s}) {
@@ -111,7 +112,7 @@ const Container = styled.button`
 
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     flex-direction: column;
-    height: 380px;
+    height: 600px;
   }
 `;
 

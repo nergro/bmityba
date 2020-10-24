@@ -33,7 +33,7 @@ const Services = styled.div`
   justify-content: space-between;
   width: 100%;
   max-width: 1300px;
-  min-height: 700px;
+  min-height: 650px;
   margin: 40px auto 0;
 
   @media (max-width: ${props => props.theme.breakpoints.l}) {

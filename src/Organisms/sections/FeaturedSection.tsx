@@ -8,10 +8,10 @@ import styled from 'styled-components/macro';
 
 const StyledFeature = styled(Feature)`
   @media (max-width: ${props => props.theme.breakpoints.m}) {
-    height: 320px;
+    height: 340px;
   }
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    height: 250px;
+    height: 280px;
   }
 `;
 

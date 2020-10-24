@@ -15,10 +15,18 @@ const Box = styled.div`
 `;
 
 const StyledIcon = styled(Icon)`
-  width: 50px;
-  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
   fill: ${props => props.theme.colors.accents.primary};
   margin-bottom: 20px;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    min-width: 45px;
+    min-height: 45px;
+    max-width: 45px;
+    max-height: 45px;
+  }
 `;
 
 const Title = styled(P)`

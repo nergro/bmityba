@@ -30,7 +30,7 @@ const ButtonBase = styled(Button)`
   @media (max-width: ${props => props.theme.breakpoints.m}) {
     font-size: 13px;
     font-weight: 500;
-    width: 100px;
+    width: 115px;
     height: 36px;
   }
 `;

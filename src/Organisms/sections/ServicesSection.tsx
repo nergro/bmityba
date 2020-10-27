@@ -1,6 +1,7 @@
 import { H1 } from 'Atoms/text';
 import { Service } from 'Molecules/Service';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { dummyServices } from 'services/dummyData/dummyServices';
 import { getLocale } from 'services/localStorage';
 import { useServicesResource } from 'store/servicesStore/hooks';
@@ -58,10 +59,12 @@ const StyledService = styled(Service)`
 `;
 
 const ServicesLayout: FC<Props> = ({ className, children }) => {
+  const { t } = useTranslation();
+
   return (
     <Container className={className}>
       <Title color="secondaryAccent" font="Spectral">
-        A Fresh Approach To Health &amp; Life
+        {t('A Fresh Approach To Health & Life')}
       </Title>
       <Services>{children}</Services>
     </Container>

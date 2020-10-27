@@ -27,13 +27,21 @@ const Container = styled.div`
   }
 `;
 
-const TextSection = styled.div`
+const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 70%;
   margin: 0 auto;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    width: 90%;
+    width: 96%;
+  }
+`;
+
+const TextSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    margin-top: 40px;
   }
 `;
 
@@ -54,6 +62,7 @@ const Title = styled(H1)`
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     font-size: 23px;
     margin: 4px 0;
+    letter-spacing: -1px;
   }
 `;
 
@@ -62,6 +71,9 @@ const HighlightedTitle = styled(Span)`
     font-size: inherit;
   }
   color: ${props => props.theme.colors.accents.primary};
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    letter-spacing: -1px;
+  }
 `;
 
 const Description = styled(P)`
@@ -77,7 +89,7 @@ const Description = styled(P)`
 const Buttons = styled.div`
   margin-top: 50px;
   @media (max-width: ${props => props.theme.breakpoints.s}) {
-    margin-top: 20px;
+    margin-top: 45px;
   }
 `;
 
@@ -102,25 +114,27 @@ export const MainSection: FC<Props> = () => {
 
   return (
     <Container>
-      <TextSection>
-        <StyledCaption content={t('It’s not a diet, It’s a lifestyle')} lineLeft />
-        <Title font="Spectral">{t('Looking good - great,')}</Title>
-        <Title font="Spectral">
-          {t('Feeling great -')}{' '}
-          <HighlightedTitle font="Spectral">{t('Fantastic!')}</HighlightedTitle>
-        </Title>
-        <Description color="light" size="intermedium">
-          {t(
-            "Does it seem like you've tried everything you could but there is no result whatsoever? Don't worry, with my science-based knowledge and YOUR effort we can achieve everything you like!"
-          )}
-        </Description>
+      <TextContainer>
+        <TextSection>
+          <StyledCaption content={t('It’s not a diet, It’s a lifestyle')} lineLeft />
+          <Title font="Spectral">{t('Looking good - great,')}</Title>
+          <Title font="Spectral">
+            {t('Feeling great -')}{' '}
+            <HighlightedTitle font="Spectral">{t('Fantastic!')}</HighlightedTitle>
+          </Title>
+          <Description color="light" size="intermedium">
+            {t(
+              "Does it seem like you've tried everything you could but there is no result whatsoever? Don't worry, with my science-based knowledge and YOUR effort we can achieve everything you like!"
+            )}
+          </Description>
+        </TextSection>
         <Buttons>
           <StyledPrimaryButton onClick={() => push('/contacts')}>
             {t('Team up with me')}
           </StyledPrimaryButton>
           <StyledSecondaryButton onClick={() => push('/about')}>{t('About')}</StyledSecondaryButton>
         </Buttons>
-      </TextSection>
+      </TextContainer>
     </Container>
   );
 };

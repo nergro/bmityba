@@ -21,10 +21,18 @@ const Container = styled.div`
 `;
 
 const LeftContent = styled.div`
-  width: 25%;
+  width: 100%;
+  max-width: 500px;
+  max-height: 600px;
+  @media (max-width: ${props => props.theme.breakpoints.l}) {
+    max-width: 400px;
+    max-height: 500px;
+  }
   @media (max-width: ${props => props.theme.breakpoints.m}) {
-    width: 70%;
     margin: 0 auto;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    padding: 0 20px;
   }
 `;
 
@@ -56,7 +64,11 @@ const StyledP = styled(P)`
 
 const LogosImage = styled.img`
   margin-top: 15px;
-  width: 65%;
+  width: 100%;
+  max-width: 700px;
+  @media (max-width: ${props => props.theme.breakpoints.m}) {
+    max-width: 500px;
+  }
 `;
 
 const CornerImage = styled.img`

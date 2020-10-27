@@ -8,6 +8,7 @@ import { ContactForm } from 'Molecules/ContactForm';
 import { Questions } from 'Molecules/Questions';
 import { SocialsSection } from 'Organisms/sections/SocialsSection';
 import React, { FC } from 'react';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { getLocale } from 'services/localStorage';
 import { useContacts } from 'store/contactsStore/hooks';
@@ -132,6 +133,12 @@ export const Contacts: FC = () => {
   const isLT = getLocale() === 'lt';
   return (
     <PageLayout title={t('Contacts')}>
+      <Helmet>
+        <meta
+          name="description"
+          content="Individuali konsultacija. Mitybos planas. Mitybos planas + sporto programa."
+        />
+      </Helmet>
       <Container>
         <LeftSection>
           <LeftTitle size="medium" weight="600">

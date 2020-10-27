@@ -5,6 +5,7 @@ import { P } from 'Atoms/text';
 import { PageLayout } from 'layouts/PageLayout';
 import { CallToActionSection } from 'Organisms/sections/CallToActionSection';
 import React, { FC } from 'react';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
@@ -85,6 +86,12 @@ export const About: FC = () => {
 
   return (
     <PageLayout title={t('About')}>
+      <Helmet>
+        <meta
+          name="description"
+          content="Kvalifikuota mitybos specialistė ir antropometristė, atsidavusi išspręsti Jūsų sveikatos dėlionę kartu su jumis."
+        />
+      </Helmet>
       <Container>
         <CornerImage src={fruitsImage} />
         <LeftContent>

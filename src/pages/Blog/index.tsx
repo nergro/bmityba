@@ -2,6 +2,7 @@ import { P } from 'Atoms/text';
 import { BlogLayout } from 'layouts/BlogLayout';
 import { Post } from 'Molecules/Post';
 import React, { FC, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { dummyPosts } from 'services/dummyData/dummyPosts';
@@ -56,6 +57,12 @@ export const Blog: FC = () => {
 
   return (
     <BlogLayout onSearchChange={event => setSearchInput(event.target.value)}>
+      <Helmet>
+        <meta
+          name="description"
+          content="Profesionalūs straipsniai ir patarimai kaip jaustis puikiai kiekvieną dieną. Mitybos planai ir konsultacijos visiems."
+        />
+      </Helmet>
       {filteredPosts.length > 0 ? (
         <Posts>
           {filteredPosts.map(x => (

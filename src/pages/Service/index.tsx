@@ -4,6 +4,7 @@ import { MainLoader } from 'Atoms/loaders/MainLoader';
 import { H2, P, Span } from 'Atoms/text';
 import { ServiceLayout } from 'layouts/ServiceLayout';
 import React, { FC } from 'react';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router-dom';
 import { getLocale } from 'services/localStorage';
@@ -122,6 +123,12 @@ export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, histor
   if (isLoading(services)) {
     return (
       <ServiceLayout title={`${t('Loading')}...`}>
+        <Helmet>
+          <meta
+            name="description"
+            content="Individuali konsultacija. Mitybos planas. Mitybos planas + sporto programa."
+          />
+        </Helmet>
         <StyledLoader />
       </ServiceLayout>
     );
@@ -136,7 +143,7 @@ export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, histor
   if (!service) {
     return (
       <ServiceLayout title={t('Not Found')} serviceId={serviceId} services={services.list}>
-        <p>Service not found</p>
+        <p>{t('Service not found')}</p>
       </ServiceLayout>
     );
   }
@@ -146,6 +153,12 @@ export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, histor
       serviceId={serviceId}
       services={services.list}
     >
+      <Helmet>
+        <meta
+          name="description"
+          content="Individuali konsultacija. Mitybos planas. Mitybos planas + sporto programa."
+        />
+      </Helmet>
       <Container>
         <Image src={service.image.imageUrl} />
         <DescriptionSection>

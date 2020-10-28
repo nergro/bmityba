@@ -5,6 +5,7 @@ import { ScrollToTop } from 'Molecules/ScrollToTop';
 import { ErrorPage } from 'pages/Error';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Modal from 'react-modal';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { lightTheme } from 'services/theme/lightTheme';
@@ -40,6 +41,11 @@ ReactDOM.render(
       <ProvidersInjector providers={storeProviders}>
         <ScrollToTop />
         <ThemeProvider theme={lightTheme}>
+          <MessengerCustomerChat
+            pageId="101922294933828"
+            appId="1293900634284248"
+            htmlRef="https://www.facebook.com/bmityba"
+          />
           <App />
           <ToastContainer />
         </ThemeProvider>

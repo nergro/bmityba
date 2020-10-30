@@ -1,4 +1,4 @@
-import callActionImage from 'assets/callToAction.jpg';
+import callActionImage from 'assets/callToAction.webp';
 import { PrimaryButton } from 'Atoms/buttons/ActionButton';
 import { H1 } from 'Atoms/text';
 import React, { FC } from 'react';

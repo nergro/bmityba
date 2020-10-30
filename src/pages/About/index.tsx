@@ -1,6 +1,6 @@
-import aboutFullImage from 'assets/about/about_full.jpg';
-import fruitsImage from 'assets/about/fruits.png';
-import logosImage from 'assets/about/logos.png';
+import aboutFullImage from 'assets/about/about_full.webp';
+import fruitsImage from 'assets/about/fruits.webp';
+import logosImage from 'assets/about/logos.webp';
 import { P } from 'Atoms/text';
 import { PageLayout } from 'layouts/PageLayout';
 import { CallToActionSection } from 'Organisms/sections/CallToActionSection';

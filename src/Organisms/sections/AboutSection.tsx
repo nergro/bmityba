@@ -1,5 +1,5 @@
-import backgroundImage from 'assets/about/background.jpg';
-import photoImage from 'assets/about/photo.jpg';
+import backgroundImage from 'assets/about/background.webp';
+import photoImage from 'assets/about/photo.webp';
 import { ReactComponent as ClockSvg } from 'assets/UI/clock.svg';
 import { ReactComponent as InfoSvg } from 'assets/UI/info.svg';
 import { ReactComponent as SecuritySvg } from 'assets/UI/security.svg';

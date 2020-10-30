@@ -1,4 +1,4 @@
-import HeroImage from 'assets/hero.jpg';
+import HeroImage from 'assets/hero.webp';
 import { H1 } from 'Atoms/text';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';

@@ -1,10 +1,8 @@
-import { Id } from 'types/id';
 import { Image } from 'types/image';
+import { PostCategory } from 'types/postCategory';
 
-import { PostCategory } from './postCategory';
-
-export interface Post {
-  id: Id;
+export interface PostDTO {
+  id: string;
   category: PostCategory;
   titleLT: string;
   titleEN: string;

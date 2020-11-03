@@ -28,7 +28,7 @@ export const LatestNews: FC = () => {
     <SideSection title={t('Latest Posts')}>
       <Posts>
         {(isLoading(posts) ? dummyPosts : sortPostsByDate(posts).slice(0, 4)).map(x => (
-          <StyledLatestPost key={x.id} post={x} />
+          <StyledLatestPost key={x.id.original} post={x} />
         ))}
       </Posts>
     </SideSection>

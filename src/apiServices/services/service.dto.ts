@@ -1,8 +1,8 @@
 import { Benefit } from 'types/benefit';
-import { Id } from 'types/id';
 import { Image } from 'types/image';
-export interface Service {
-  id: Id;
+
+export interface ServiceDTO {
+  id: string;
   image: Image;
   nameLT: string;
   nameEN: string;
@@ -21,5 +21,3 @@ export interface Service {
   benefitsDescriptionEN: string;
   benefits: Benefit[];
 }
-
-export type Services = Record<string, Service>;

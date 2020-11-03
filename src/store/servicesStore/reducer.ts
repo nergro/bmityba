@@ -8,7 +8,10 @@ export const reducer = (state: State, action: Action): State => {
       return Loading;
     }
     case 'Services/Loaded': {
-      const dict = action.payload.reduce((acc, value) => ({ ...acc, [value.id]: value }), {});
+      const dict = action.payload.reduce(
+        (acc, value) => ({ ...acc, [value.id.pretty]: value }),
+        {}
+      );
       return {
         list: action.payload,
         dict,

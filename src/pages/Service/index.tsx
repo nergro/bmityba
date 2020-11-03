@@ -116,7 +116,7 @@ const StyledLoader = styled(MainLoader)`
   top: 100px;
 `;
 
-export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) => {
+const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) => {
   const services = useServicesResource();
   const { t } = useTranslation();
 
@@ -210,3 +210,5 @@ export const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, histor
     </ServiceLayout>
   );
 };
+
+export default Service;

@@ -53,7 +53,7 @@ const StyledDateField = styled(DateField)`
   margin: 0 20px 20px 0;
 `;
 
-export const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
+const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
   const { t } = useTranslation();
 
   const posts = usePostsResource();
@@ -93,3 +93,5 @@ export const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     </BlogLayout>
   );
 };
+
+export default Post;

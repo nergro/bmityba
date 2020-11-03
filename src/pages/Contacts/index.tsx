@@ -126,7 +126,7 @@ const Contact: FC<ContactProps> = ({ className, icon, name, value }) => {
   );
 };
 
-export const Contacts: FC = () => {
+const Contacts: FC = () => {
   const contacts = useContacts();
   const { t } = useTranslation();
 
@@ -164,3 +164,5 @@ export const Contacts: FC = () => {
     </PageLayout>
   );
 };
+
+export default Contacts;

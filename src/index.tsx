@@ -1,8 +1,8 @@
 import 'services/http';
 import './i18n';
 
-import { MainLoader } from 'Atoms/loaders/MainLoader';
 import { ScrollToTop } from 'Molecules/ScrollToTop';
+import { SuspenceFallback } from 'Molecules/SuspenceFallback';
 import { ErrorPage } from 'pages/Error';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
@@ -49,7 +49,7 @@ const content = (
             appId="1293900634284248"
             htmlRef="https://www.facebook.com/bmityba"
           />
-          <Suspense fallback={<MainLoader />}>
+          <Suspense fallback={<SuspenceFallback />}>
             <App />
           </Suspense>
           <ToastContainer />

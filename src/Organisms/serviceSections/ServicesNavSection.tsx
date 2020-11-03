@@ -28,9 +28,9 @@ export const ServicesNavSection: FC<Props> = ({ className, services, serviceId }
     <Container className={className}>
       {(services || dummyServices).map(x => (
         <StyledServiceButton
-          key={x.id}
+          key={x.id.original}
           onClick={() => push(`/services/${x.id}`)}
-          active={x.id === serviceId}
+          active={x.id.pretty === serviceId}
         >
           {locale === 'lt' ? x.nameLT : x.nameEN}
         </StyledServiceButton>

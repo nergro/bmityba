@@ -66,7 +66,7 @@ export const Blog: FC = () => {
       {filteredPosts.length > 0 ? (
         <Posts>
           {filteredPosts.map(x => (
-            <StyledPost key={x.id} post={x} />
+            <StyledPost key={x.id.original} post={x} />
           ))}
         </Posts>
       ) : (

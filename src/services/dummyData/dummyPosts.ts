@@ -3,7 +3,10 @@ import { Post } from 'types/post';
 
 export const dummyPosts: Post[] = [
   {
-    id: '00',
+    id: {
+      original: '00',
+      pretty: '00',
+    },
     category: { id: '00', nameEN: '', nameLT: '' },
     titleLT: 'Kraunasi...',
     titleEN: 'Loading...',
@@ -19,7 +22,10 @@ export const dummyPosts: Post[] = [
     },
   },
   {
-    id: '000',
+    id: {
+      original: '000',
+      pretty: '000',
+    },
     category: { id: '000', nameEN: '', nameLT: '' },
     titleLT: 'Kraunasi...',
     titleEN: 'Loading...',
@@ -35,7 +41,10 @@ export const dummyPosts: Post[] = [
     },
   },
   {
-    id: '0000',
+    id: {
+      original: '0000',
+      pretty: '0000',
+    },
     category: { id: '0000', nameEN: '', nameLT: '' },
     titleLT: 'Kraunasi...',
     titleEN: 'Loading...',
@@ -51,7 +60,10 @@ export const dummyPosts: Post[] = [
     },
   },
   {
-    id: '00000',
+    id: {
+      original: '00000',
+      pretty: '00000',
+    },
     category: { id: '00000', nameEN: '', nameLT: '' },
     titleLT: 'Kraunasi...',
     titleEN: 'Loading...',

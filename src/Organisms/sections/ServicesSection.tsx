@@ -85,12 +85,12 @@ export const ServicesSection: FC<Props> = ({ className }) => {
     <ServicesLayout className={className}>
       {(isLoading(services) ? dummyServices : services.list).map(x => (
         <StyledService
-          key={x.id}
+          key={x.id.original}
           image={x.image.imageUrl}
           title={isLT ? x.nameLT : x.nameEN}
           subtitle={isLT ? x.labelLT : x.labelEN}
           description={isLT ? x.shortDescriptionLT : x.shortDescriptionEN}
-          to={`/services/${x.id}`}
+          to={`/services/${x.id.pretty}`}
         />
       ))}
     </ServicesLayout>

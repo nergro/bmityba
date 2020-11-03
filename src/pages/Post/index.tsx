@@ -66,7 +66,7 @@ export const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     );
   }
 
-  const post = posts.find(x => x.id === match.params.id);
+  const post = posts.find(x => x.id.pretty === match.params.id);
 
   if (!post) {
     return (

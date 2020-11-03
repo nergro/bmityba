@@ -35,7 +35,9 @@ const storeProviders = [
   PostCategoryStoreProvider,
 ];
 
-ReactDOM.render(
+const rootElement = document.getElementById('root');
+
+const content = (
   <ErrorBoundary error={<ErrorPage />}>
     <Router>
       <ProvidersInjector providers={storeProviders}>
@@ -51,6 +53,11 @@ ReactDOM.render(
         </ThemeProvider>
       </ProvidersInjector>
     </Router>
-  </ErrorBoundary>,
-  document.getElementById('root')
+  </ErrorBoundary>
 );
+
+if (rootElement && rootElement.hasChildNodes()) {
+  ReactDOM.hydrate(content, rootElement);
+} else {
+  ReactDOM.render(content, rootElement);
+}

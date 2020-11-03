@@ -41,7 +41,7 @@ const getPosts = (
         )
       );
 
-export const Blog: FC = () => {
+const Blog: FC = () => {
   const { t } = useTranslation();
 
   const [searchInput, setSearchInput] = useState<string>();
@@ -75,3 +75,5 @@ export const Blog: FC = () => {
     </BlogLayout>
   );
 };
+
+export default Blog;

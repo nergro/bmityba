@@ -7,7 +7,7 @@ import { SocialsSection } from 'Organisms/sections/SocialsSection';
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
 
-export const Home: FC = () => {
+const Home: FC = () => {
   return (
     <>
       <Helmet>
@@ -25,3 +25,5 @@ export const Home: FC = () => {
     </>
   );
 };
+
+export default Home;

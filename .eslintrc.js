@@ -28,7 +28,6 @@ module.exports = {
     'react/display-name': 'off',
     'sort-imports': 'off',
     'simple-import-sort/sort': 'error',
-    'import/no-default-export': 'error',
     '@typescript-eslint/explicit-function-return-type': [
       'warn',
       {

@@ -5,7 +5,7 @@ import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 
-export const Services: FC = () => {
+const Services: FC = () => {
   const { t } = useTranslation();
   return (
     <PageLayout title={t('Services')}>
@@ -20,3 +20,5 @@ export const Services: FC = () => {
     </PageLayout>
   );
 };
+
+export default Services;

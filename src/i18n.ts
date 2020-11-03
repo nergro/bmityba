@@ -19,6 +19,9 @@ i18n.use(initReactI18next).init({
   interpolation: {
     escapeValue: false,
   },
+  react: {
+    useSuspense: false,
+  },
 });
 
 // eslint-disable-next-line import/no-default-export

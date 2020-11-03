@@ -1,9 +1,10 @@
 import 'services/http';
 import './i18n';
 
+import { MainLoader } from 'Atoms/loaders/MainLoader';
 import { ScrollToTop } from 'Molecules/ScrollToTop';
 import { ErrorPage } from 'pages/Error';
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Modal from 'react-modal';
@@ -48,7 +49,9 @@ const content = (
             appId="1293900634284248"
             htmlRef="https://www.facebook.com/bmityba"
           />
-          <App />
+          <Suspense fallback={<MainLoader />}>
+            <App />
+          </Suspense>
           <ToastContainer />
         </ThemeProvider>
       </ProvidersInjector>

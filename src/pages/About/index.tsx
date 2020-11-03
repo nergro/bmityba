@@ -81,7 +81,7 @@ const CornerImage = styled.img`
   min-width: 100px;
 `;
 
-export const About: FC = () => {
+const About: FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -111,3 +111,5 @@ export const About: FC = () => {
     </PageLayout>
   );
 };
+
+export default About;

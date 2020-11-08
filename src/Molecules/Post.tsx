@@ -80,7 +80,7 @@ export const Post: FC<Props> = ({ className, post }) => {
       <StyledImage imageUrl={post.image.imageUrl} />
       <Info>
         <StyledDateField date={post.date} />
-        <StyledLink to={`/blog/${post.id.original}`}>
+        <StyledLink to={`/blog/${post.id.pretty}`}>
           <Title font="Spectral" color="secondaryAccent">
             {isLT ? post.titleLT : post.titleEN}
           </Title>

@@ -9,7 +9,7 @@ export const reducer = (state: State, action: Action): State => {
     }
     case 'Services/Loaded': {
       const dict = action.payload.reduce(
-        (acc, value) => ({ ...acc, [value.id.original]: value }),
+        (acc, value) => ({ ...acc, [value.id.pretty]: value }),
         {}
       );
       return {

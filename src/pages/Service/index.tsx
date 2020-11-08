@@ -123,12 +123,6 @@ const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) =>
   if (isLoading(services)) {
     return (
       <ServiceLayout title={`${t('Loading')}...`}>
-        <Helmet>
-          <meta
-            name="description"
-            content="Individuali konsultacija. Mitybos planas. Mitybos planas + sporto programa."
-          />
-        </Helmet>
         <StyledLoader />
       </ServiceLayout>
     );

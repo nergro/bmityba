@@ -6,6 +6,7 @@ import { ServicesSection } from 'Organisms/sections/ServicesSection';
 import { SocialsSection } from 'Organisms/sections/SocialsSection';
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
+import LazyLoad from 'react-lazyload';
 
 const Home: FC = () => {
   return (
@@ -18,10 +19,18 @@ const Home: FC = () => {
       </Helmet>
       <MainSection />
       <FeaturedSection />
-      <AboutSection />
-      <ServicesSection />
-      <ContactsSection />
-      <SocialsSection />
+      <LazyLoad>
+        <AboutSection />
+      </LazyLoad>
+      <LazyLoad>
+        <ServicesSection />
+      </LazyLoad>
+      <LazyLoad>
+        <ContactsSection />
+      </LazyLoad>
+      <LazyLoad>
+        <SocialsSection />
+      </LazyLoad>
     </>
   );
 };

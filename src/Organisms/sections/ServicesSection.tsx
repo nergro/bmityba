@@ -1,6 +1,7 @@
 import { H1 } from 'Atoms/text';
 import { Service } from 'Molecules/Service';
 import React, { FC } from 'react';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { dummyServices } from 'services/dummyData/dummyServices';
 import { getLocale } from 'services/localStorage';
@@ -81,8 +82,34 @@ export const ServicesSection: FC<Props> = ({ className }) => {
   const locale = getLocale();
   const isLT = locale === 'lt';
 
+  const metaServices = isLoading(services) ? dummyServices : services.list;
   return (
     <ServicesLayout className={className}>
+      <Helmet>
+        <meta
+          name="description"
+          content="Individuali konsultacija. Mitybos planas. Mitybos planas + sporto programa."
+        />
+
+        <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org/",
+          "@type": "Service",
+          "name": "Mitybos planas",
+          "description": "${metaServices[0].shortDescriptionLT}",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://bmityba.lt/services/dietary-plan",
+            "priceCurrency": "EUR",
+            "price": "${metaServices[0].price}",
+            "priceValidUntil": "2020-12-31",
+            "itemCondition": "https://schema.org/UsedCondition",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+    `}</script>
+      </Helmet>
+
       {(isLoading(services) ? dummyServices : services.list).map(x => (
         <StyledService
           key={x.id.original}
@@ -91,6 +118,7 @@ export const ServicesSection: FC<Props> = ({ className }) => {
           subtitle={isLT ? x.labelLT : x.labelEN}
           description={isLT ? x.shortDescriptionLT : x.shortDescriptionEN}
           to={`/services/${x.id.pretty}`}
+          price={x.price}
         />
       ))}
     </ServicesLayout>

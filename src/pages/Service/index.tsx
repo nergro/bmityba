@@ -148,10 +148,26 @@ const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) =>
       services={services.list}
     >
       <Helmet>
-        <meta
-          name="description"
-          content="Individuali konsultacija. Mitybos planas. Mitybos planas + sporto programa."
-        />
+        <meta name="description" content={service.priceDescriptionLT} />
+        <title>{service.nameLT}</title>
+
+        <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org/",
+          "@type": "Service",
+          "name": "${service.nameLT}",
+          "description": "${service.shortDescriptionLT}",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://bmityba.lt/services/dietary-plan",
+            "priceCurrency": "EUR",
+            "price": "${service.price}",
+            "priceValidUntil": "2020-12-31",
+            "itemCondition": "https://schema.org/UsedCondition",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+    `}</script>
       </Helmet>
       <Container>
         <Image src={service.image.imageUrl} />

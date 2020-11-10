@@ -6,7 +6,6 @@ import { ServicesSection } from 'Organisms/sections/ServicesSection';
 import { SocialsSection } from 'Organisms/sections/SocialsSection';
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
-import LazyLoad from 'react-lazyload';
 
 const Home: FC = () => {
   return (
@@ -16,21 +15,16 @@ const Home: FC = () => {
           name="description"
           content="Kvalifikuota mitybos specialistė ir antropometristė, atsidavusi išspręsti Jūsų sveikatos dėlionę kartu su jumis."
         />
+        <title>
+          Brigita Meiglaitė - mitybos specialistė. Mitybos planai, patarimai, sporto programa.
+        </title>
       </Helmet>
       <MainSection />
       <FeaturedSection />
-      <LazyLoad>
-        <AboutSection />
-      </LazyLoad>
-      <LazyLoad>
-        <ServicesSection />
-      </LazyLoad>
-      <LazyLoad>
-        <ContactsSection />
-      </LazyLoad>
-      <LazyLoad>
-        <SocialsSection />
-      </LazyLoad>
+      <AboutSection />
+      <ServicesSection />
+      <ContactsSection />
+      <SocialsSection />
     </>
   );
 };

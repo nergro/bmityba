@@ -3,7 +3,9 @@ import { PostImage } from 'Atoms/PostImage';
 import { H1 } from 'Atoms/text';
 import { BlogLayout } from 'layouts/BlogLayout';
 import { DateField } from 'Molecules/DateField';
+import moment from 'moment';
 import React, { FC } from 'react';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router-dom';
 import { getLocale } from 'services/localStorage';
@@ -81,6 +83,25 @@ const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
 
   return (
     <BlogLayout>
+      <Helmet>
+        <meta name="description" content={post.shortDescriptionLT} />
+        <title>{post.titleLT}</title>
+
+        <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org/",
+          "@type": "Post",
+          "name": "${post.titleLT}",
+          "author": {
+            "@type": "Person",
+            "name": "Brigita Meiglaitė"
+          },
+          "datePublished": "${moment(post.date).format('YYYY-MM-DD')}",
+          "description": "${post.shortDescriptionLT}",
+          "prepTime": "PT20M"
+        }
+    `}</script>
+      </Helmet>
       <Container>
         <StyledImage imageUrl={post.image.imageUrl} />
 

@@ -62,6 +62,9 @@ const Blog: FC = () => {
           name="description"
           content="Profesionalūs straipsniai ir patarimai kaip jaustis puikiai kiekvieną dieną. Mitybos planai ir konsultacijos visiems."
         />
+        <title>
+          Brigita Meiglaitė - mitybos specialistė. Mitybos planai, patarimai, sporto programa.
+        </title>
       </Helmet>
       {filteredPosts.length > 0 ? (
         <Posts>

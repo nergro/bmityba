@@ -70,7 +70,7 @@ const PriceBox = styled.div`
   flex-direction: column;
   justify-content: center;
   border: 1px solid ${props => props.theme.colors.separator.light};
-  padding: 15px 0px 35px;
+  padding: 15px 10px 35px;
   width: 400px;
   height: 380px;
   align-items: center;

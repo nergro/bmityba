@@ -118,6 +118,7 @@ export const ServicesSection: FC<Props> = ({ className }) => {
           subtitle={isLT ? x.labelLT : x.labelEN}
           description={isLT ? x.shortDescriptionLT : x.shortDescriptionEN}
           to={`/services/${x.id.pretty}`}
+          price={x.price}
         />
       ))}
     </ServicesLayout>

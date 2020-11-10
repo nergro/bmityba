@@ -1,5 +1,5 @@
 import { Link } from 'Atoms/links/AnimatedLink';
-import { P } from 'Atoms/text';
+import { P, Span } from 'Atoms/text';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
@@ -88,6 +88,10 @@ const Container = styled.button`
   padding: 0;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  outline: none;
+  position: relative;
+  padding-bottom: 55px;
+
   &:hover {
     ${Title} {
       color: ${props => props.theme.colors.text.primaryAccent};
@@ -116,6 +120,33 @@ const Container = styled.button`
   }
 `;
 
+const From = styled(Span)`
+  font-size: 40px;
+  margin-right: 3px;
+
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    font-size: 35px;
+  }
+`;
+
+const Price = styled(P)`
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 43px;
+  padding: 18px 0 10px;
+  @media (max-width: ${props => props.theme.breakpoints.s}) {
+    font-size: 35px;
+    width: 97%;
+    text-align: right;
+  }
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    width: 97%;
+    text-align: center;
+  }
+`;
+
 interface Props {
   className?: string;
   image: string;
@@ -123,9 +154,18 @@ interface Props {
   subtitle?: string;
   description: string;
   to: string;
+  price: number;
 }
 
-export const Service: FC<Props> = ({ className, description, image, subtitle, title, to }) => {
+export const Service: FC<Props> = ({
+  className,
+  description,
+  image,
+  subtitle,
+  title,
+  to,
+  price,
+}) => {
   const { push } = useHistory();
   const { t } = useTranslation();
 
@@ -142,6 +182,12 @@ export const Service: FC<Props> = ({ className, description, image, subtitle, ti
         <Description color="inactive">{description}</Description>
         <StyledLink to="#">{t('Learn more')}</StyledLink>
       </Content>
+      <Price color="tertiaryAccent" font="Oregano">
+        <From color="tertiaryAccent" font="Oregano">
+          {t('From')}
+        </From>{' '}
+        €{price}
+      </Price>
     </Container>
   );
 };

@@ -8,7 +8,7 @@ export const getPosts = async (): Promise<Post[]> => {
   const posts = await axios.get<PostDTO[]>('/post/all');
 
   return posts.data.map(x => {
-    const name = x.titleEN.toLocaleLowerCase().match(wordsOnlyReg);
+    const name = x.titleLT.toLocaleLowerCase().match(wordsOnlyReg);
     return {
       ...x,
       id: {

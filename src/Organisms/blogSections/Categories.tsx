@@ -85,7 +85,7 @@ export const Categories: FC<Props> = ({ className }) => {
           <Row key={x.id}>
             <Line />
             <CategoryButton
-              onClick={() => push({ pathname: '/blog', state: { categoryId: x.id } })}
+              onClick={() => push({ pathname: '/blogas', state: { categoryId: x.id } })}
             >
               {x.title} ({x.postsCount})
             </CategoryButton>

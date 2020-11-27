@@ -80,7 +80,7 @@ export const Post: FC<Props> = ({ className, post }) => {
       <StyledImage imageUrl={post.image.imageUrl} />
       <Info>
         <StyledDateField date={post.date} />
-        <StyledLink to={`/blog/${post.id.pretty}`}>
+        <StyledLink to={`/blogas/${post.id.pretty}`}>
           <Title font="Spectral" color="secondaryAccent">
             {isLT ? post.titleLT : post.titleEN}
           </Title>
@@ -88,7 +88,7 @@ export const Post: FC<Props> = ({ className, post }) => {
         <Description color="light">
           {isLT ? post.shortDescriptionLT : post.shortDescriptionEN}
         </Description>
-        <StyledAnimatedLink to={`/blog/${post.id}`}>{t('Read more')}</StyledAnimatedLink>
+        <StyledAnimatedLink to={`/blogas/${post.id}`}>{t('Read more')}</StyledAnimatedLink>
       </Info>
     </Container>
   );

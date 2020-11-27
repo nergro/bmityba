@@ -213,7 +213,7 @@ const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) =>
                   </StyledP>
                 ))}
             </PriceDescription>
-            <RoundButton onClick={() => history.push('/contacts')}>{t('Book now')}</RoundButton>
+            <RoundButton onClick={() => history.push('/kontaktai')}>{t('Book now')}</RoundButton>
           </PriceBox>
         </PriceSection>
       </Container>

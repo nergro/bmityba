@@ -60,7 +60,7 @@ export const CallToActionSection: FC = () => {
         <Title color="secondary" font="Spectral">
           {t('Ready to get started? Book a consultation')}
         </Title>
-        <PrimaryButton onClick={() => push('/contacts')}>{t('Contact me')}</PrimaryButton>
+        <PrimaryButton onClick={() => push('/kontaktai')}>{t('Contact me')}</PrimaryButton>
       </Content>
     </Container>
   );

@@ -117,7 +117,7 @@ export const ServicesSection: FC<Props> = ({ className }) => {
           title={isLT ? x.nameLT : x.nameEN}
           subtitle={isLT ? x.labelLT : x.labelEN}
           description={isLT ? x.shortDescriptionLT : x.shortDescriptionEN}
-          to={`/services/${x.id.pretty}`}
+          to={`/paslaugos/${x.id.pretty}`}
           price={x.price}
         />
       ))}

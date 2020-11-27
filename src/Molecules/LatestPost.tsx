@@ -49,7 +49,7 @@ export const LatestPost: FC<Props> = ({ className, post }) => {
   const isLT = locale === 'lt';
 
   return (
-    <Wrapper className={className} onClick={() => push(`/blog/${post.id}`)}>
+    <Wrapper className={className} onClick={() => push(`/blogas/${post.id.pretty}`)}>
       <Image src={post.image.imageUrl} />
       <Info>
         <DateField date={post.date} />

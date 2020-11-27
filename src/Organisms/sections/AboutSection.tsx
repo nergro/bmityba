@@ -217,7 +217,7 @@ export const AboutSection: FC<Props> = ({ className }) => {
           {t('Healthy Lifestyle Coach and Qualified Nutritionist')}
         </Title>
         <Description color="light">{t('AboutShort')}</Description>
-        <StyledMoreLink to="/about">{t('More About')}</StyledMoreLink>
+        <StyledMoreLink to="/apie">{t('More About')}</StyledMoreLink>
         <Features>
           <Feature>
             <StyledIcon svgComponent={ClockSvg} />

@@ -37,12 +37,12 @@ export const App: FC = () => {
       <GlobalStyle />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/contacts" exact component={Contacts} />
-        <Route path="/about" exact component={About} />
-        <Route path="/services" exact component={Services} />
-        <Route path="/services/:id" exact component={Service} />
-        <Route path="/blog" exact component={Blog} />
-        <Route path="/blog/:id" exact component={Post} />
+        <Route path="/kontaktai" exact component={Contacts} />
+        <Route path="/apie" exact component={About} />
+        <Route path="/paslaugos" exact component={Services} />
+        <Route path="/paslaugos/:id" exact component={Service} />
+        <Route path="/blogas" exact component={Blog} />
+        <Route path="/blogas/:id" exact component={Post} />
         <Route component={NotFound} />
       </Switch>
     </AppLayout>

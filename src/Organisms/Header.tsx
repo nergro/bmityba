@@ -133,16 +133,16 @@ export const Header: FC = () => {
           <StyledLink to="/" isActive={pathname === '/'}>
             {t('Home')}
           </StyledLink>
-          <StyledLink to="/about" isActive={pathname === '/about'}>
+          <StyledLink to="/apie" isActive={pathname === '/apie'}>
             {t('About')}
           </StyledLink>
-          <StyledLink to="/services" isActive={pathname === '/services'}>
+          <StyledLink to="/paslaugos" isActive={pathname === '/paslaugos'}>
             {t('Services')}
           </StyledLink>
-          <StyledLink to="/blog" isActive={pathname === '/blog'}>
+          <StyledLink to="/blogas" isActive={pathname === '/blogas'}>
             {t('Blog')}
           </StyledLink>
-          <StyledLink to="/contacts" isActive={pathname === '/contacts'}>
+          <StyledLink to="/kontaktai" isActive={pathname === '/kontaktai'}>
             {t('Contacts')}
           </StyledLink>
         </Links>

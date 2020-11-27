@@ -129,10 +129,10 @@ export const MainSection: FC<Props> = () => {
           </Description>
         </TextSection>
         <Buttons>
-          <StyledPrimaryButton onClick={() => push('/contacts')}>
+          <StyledPrimaryButton onClick={() => push('/kontaktai')}>
             {t('Team up with me')}
           </StyledPrimaryButton>
-          <StyledSecondaryButton onClick={() => push('/about')}>{t('About')}</StyledSecondaryButton>
+          <StyledSecondaryButton onClick={() => push('/apie')}>{t('About')}</StyledSecondaryButton>
         </Buttons>
       </TextContainer>
     </Container>

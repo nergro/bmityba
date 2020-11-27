@@ -8,7 +8,7 @@ export const getServices = async (): Promise<Service[]> => {
   const services = await axios.get<ServiceDTO[]>('/service/all');
 
   return services.data.map(x => {
-    const name = x.nameEN.toLocaleLowerCase().match(wordsOnlyReg);
+    const name = x.nameLT.toLocaleLowerCase().match(wordsOnlyReg);
     return {
       ...x,
       id: {

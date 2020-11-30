@@ -88,7 +88,7 @@ export const Post: FC<Props> = ({ className, post }) => {
         <Description color="light">
           {isLT ? post.shortDescriptionLT : post.shortDescriptionEN}
         </Description>
-        <StyledAnimatedLink to={`/blogas/${post.id}`}>{t('Read more')}</StyledAnimatedLink>
+        <StyledAnimatedLink to={`/blogas/${post.id.pretty}`}>{t('Read more')}</StyledAnimatedLink>
       </Info>
     </Container>
   );

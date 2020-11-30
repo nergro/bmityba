@@ -159,7 +159,7 @@ const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) =>
           "description": "${service.shortDescriptionLT}",
           "offers": {
             "@type": "Offer",
-            "url": "https://bmityba.lt/services/dietary-plan",
+            "url": "https://bmityba.lt/paslaugos/dietary-plan",
             "priceCurrency": "EUR",
             "price": "${service.price}",
             "priceValidUntil": "2020-12-31",

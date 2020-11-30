@@ -99,7 +99,7 @@ export const ServicesSection: FC<Props> = ({ className }) => {
           "description": "${metaServices[0].shortDescriptionLT}",
           "offers": {
             "@type": "Offer",
-            "url": "https://bmityba.lt/services/dietary-plan",
+            "url": "https://bmityba.lt/paslaugos/dietary-plan",
             "priceCurrency": "EUR",
             "price": "${metaServices[0].price}",
             "priceValidUntil": "2020-12-31",

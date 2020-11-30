@@ -29,7 +29,7 @@ export const ServicesNavSection: FC<Props> = ({ className, services, serviceId }
       {(services || dummyServices).map(x => (
         <StyledServiceButton
           key={x.id.original}
-          onClick={() => push(`/services/${x.id}`)}
+          onClick={() => push(`/paslaugos/${x.id.pretty}`)}
           active={x.id.pretty === serviceId}
         >
           {locale === 'lt' ? x.nameLT : x.nameEN}

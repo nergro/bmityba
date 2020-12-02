@@ -30,7 +30,6 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 10px 0 rgba(43, 52, 59, 0.1);
   @media (max-width: ${props => props.theme.breakpoints.s}) {
     margin-top: -50px;
   }
@@ -44,6 +43,9 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 40px 50px;
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: 0 0 50px;
+  }
 `;
 
 const StyledLoader = styled(MainLoader)`

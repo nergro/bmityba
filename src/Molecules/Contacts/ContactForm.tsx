@@ -118,6 +118,7 @@ export const ContactForm: FC<Props> = ({ className }) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setHasError(true);
+      return;
     }
     setLoading(true);
     try {
@@ -141,6 +142,8 @@ export const ContactForm: FC<Props> = ({ className }) => {
           <InputsLeft>
             <StyledInput
               placeholder={t('Name')}
+              type="text"
+              alt="Name input"
               required
               onChange={event => onChangeInput('name', event.target.value)}
             />
@@ -149,10 +152,13 @@ export const ContactForm: FC<Props> = ({ className }) => {
               type="email"
               required
               onChange={event => onChangeInput('email', event.target.value)}
+              alt="Email input"
             />
             <StyledInput
               placeholder={t('Subject')}
+              type="text"
               onChange={event => onChangeInput('subject', event.target.value)}
+              alt="Subject input"
             />
           </InputsLeft>
           <InputsRight>
@@ -160,21 +166,26 @@ export const ContactForm: FC<Props> = ({ className }) => {
               placeholder={t('Message')}
               required
               onChange={event => onChangeInput('message', event.target.value)}
+              data-testid="message-textarea"
             />
           </InputsRight>
         </Inputs>
         {hasError && (
-          <Error color="error">{t('Error. Check if all fields were filled correctly.')}</Error>
+          <Error color="error" data-testid="error-message">
+            {t('Error. Check if all fields were filled correctly.')}
+          </Error>
         )}
         <ButtonWrapper>
           {loading ? (
             <InlineLoader />
-          ) : messageSent ? (
+          ) : messageSent && !hasError ? (
             <P size="intermedium" weight="500">
               {t('Thank You!')}
             </P>
           ) : (
-            <PrimaryButtonFilled type="submit">{t('Submit')}</PrimaryButtonFilled>
+            <PrimaryButtonFilled type="submit" data-testid="submit-button">
+              {t('Submit')}
+            </PrimaryButtonFilled>
           )}
         </ButtonWrapper>
       </Form>

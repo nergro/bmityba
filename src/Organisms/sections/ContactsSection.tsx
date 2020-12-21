@@ -1,4 +1,4 @@
-import { ContactForm } from 'Molecules/ContactForm';
+import { ContactForm } from 'Molecules/Contacts/ContactForm';
 import { Questions } from 'Molecules/Questions';
 import React, { FC } from 'react';
 import styled from 'styled-components/macro';

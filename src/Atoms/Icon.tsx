@@ -21,7 +21,7 @@ interface Props {
 }
 
 const IconComp: React.FC<Props> = ({ className, svgComponent: SvgComponent }) => {
-  return <SvgComponent className={className} />;
+  return <SvgComponent className={className} data-testid="svg" />;
 };
 
 export const Icon = styled(IconComp)`

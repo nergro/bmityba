@@ -1,7 +1,6 @@
-import React, { ChangeEvent, FC } from 'react';
 import styled, { css } from 'styled-components/macro';
 
-const InputBase = css<Props>`
+const InputCSS = css<Props>`
   width: 100%;
   outline: none;
   border: 1px solid
@@ -20,12 +19,6 @@ const InputBase = css<Props>`
   }
 `;
 
-const StyledInput = styled.input`
-  ${InputBase};
-  height: 55px;
-  padding: 10px 10px 10px 20px;
-`;
-
 interface Props {
   className?: string;
   placeholder: string;
@@ -33,26 +26,15 @@ interface Props {
   required?: boolean;
 }
 
-interface InputProps extends Props {
-  type?: 'text' | 'email';
-  onChange?(e: ChangeEvent<HTMLInputElement>): void;
-}
+export const Input = styled.input`
+  ${InputCSS};
+  height: 55px;
+  padding: 10px 10px 10px 20px;
+`;
 
-export const Input: FC<InputProps> = ({ type = 'text', ...rest }) => {
-  return <StyledInput type={type} {...rest} />;
-};
-
-const StyledTextArea = styled.textarea`
-  ${InputBase};
+export const TextArea = styled.textarea`
+  ${InputCSS};
   height: 100%;
   resize: none;
   padding: 20px 10px 10px 20px;
 `;
-
-interface TextAreaProps extends Props {
-  onChange?(e: ChangeEvent<HTMLTextAreaElement>): void;
-}
-
-export const TextArea: FC<TextAreaProps> = ({ ...props }) => {
-  return <StyledTextArea {...props} />;
-};

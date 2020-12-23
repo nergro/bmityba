@@ -30,13 +30,13 @@ const Wrapper = styled.div`
   height: 15px;
   position: relative;
 
-  ${Rhombus}:nth-child(1) {
+  ${Rhombus}:nth-child (1) {
     animation-delay: calc(2500ms * 1 / -1.5);
   }
-  ${Rhombus}:nth-child(2) {
+  ${Rhombus}:nth-child (2) {
     animation-delay: calc(2500ms * 2 / -1.5);
   }
-  ${Rhombus}:nth-child(3) {
+  ${Rhombus}:nth-child (3) {
     animation-delay: calc(2500ms * 3 / -1.5);
   }
 `;
@@ -47,7 +47,7 @@ interface Props {
 
 export const InlineLoader: FC<Props> = () => {
   return (
-    <Wrapper>
+    <Wrapper data-testid="loader">
       <Rhombus />
       <Rhombus />
       <Rhombus />

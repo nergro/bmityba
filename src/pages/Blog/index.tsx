@@ -41,6 +41,10 @@ const getPosts = (
         )
       );
 
+      interface LocationState {
+        categoryId: string;
+      }
+
 const Blog: FC = () => {
   const { t } = useTranslation();
 
@@ -48,7 +52,9 @@ const Blog: FC = () => {
   const posts = usePostsResource();
   const location = useLocation();
 
-  const categoryId = location.state ? location.state.categoryId : undefined;
+  const state = location.state as LocationState | undefined;
+
+  const categoryId = state ? state.categoryId : undefined;
 
   const locale = getLocale();
   const isLT = locale === 'lt';

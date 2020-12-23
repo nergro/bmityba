@@ -7,6 +7,7 @@ import React, { FC, MouseEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
+
 const Box = styled.div`
   border: 5px solid #f0f0f0;
   width: 600px;
@@ -137,6 +138,12 @@ export const ContactForm: FC<Props> = ({ className }) => {
       <BoxTitle font="Roboto" weight="400" color="secondaryAccent">
         {t('Make an Appointment')}
       </BoxTitle>
+      <div data-testid="test-state">
+        error: {hasError.toString()}
+        name: {formData.name}
+        email: {formData.email}
+        message: {formData.message}
+        </div>
       <Form onSubmit={onSubmit}>
         <Inputs>
           <InputsLeft>

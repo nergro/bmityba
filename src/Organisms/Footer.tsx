@@ -18,7 +18,7 @@ const Container = styled.div`
   padding: 30px;
   display: flex;
   align-items: center;
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     padding: 30px 0px;
   }
 `;
@@ -28,10 +28,10 @@ const Content = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     width: 95%;
   }
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     flex-direction: column;
     align-items: center;
   }
@@ -44,7 +44,7 @@ const Contacts = styled.div`
   ${P} {
     white-space: nowrap;
   }
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
@@ -55,7 +55,7 @@ const StyledIcon = styled(Icon)`
   width: 15px;
   height: 15px;
   margin-right: 20px;
-  fill: ${props => props.theme.colors.text.secondary};
+  fill: ${(props) => props.theme.colors.text.secondary};
   transition: all 0.2s ease-out;
 `;
 
@@ -63,17 +63,17 @@ const Contact = styled.div`
   display: flex;
   align-items: center;
   margin-right: 15px;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     width: 200px;
     margin: 5px 0 0 35px;
   }
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     margin-left: 15px;
   }
 
   &:hover {
     ${StyledIcon} {
-      fill: ${props => props.theme.colors.accents.primary};
+      fill: ${(props) => props.theme.colors.accents.primary};
     }
   }
 `;
@@ -81,7 +81,7 @@ const Contact = styled.div`
 const Socials = styled.div`
   display: flex;
   align-items: center;
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     display: none;
   }
 `;
@@ -90,7 +90,7 @@ const Social = styled.a`
   &:not(:last-child) {
     margin-right: 20px;
   }
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     &:not(:last-child) {
       margin-right: 10px;
     }
@@ -104,7 +104,7 @@ const StyledP = styled(P)`
 const StyledSocialIcon = styled(Icon)`
   width: 20px;
   height: 20px;
-  fill: ${props => props.theme.colors.text.secondary};
+  fill: ${(props) => props.theme.colors.text.secondary};
   transition: all 0.2s ease-in-out;
   &:hover {
     transform: scale(1.1);
@@ -138,15 +138,27 @@ export const Footer: FC = () => {
       </Content>
       <Socials>
         <Social
+          rel="noopener"
           href={isMobile ? 'fb://page/101922294933828' : 'https://www.facebook.com/bmityba'}
           target="_blank"
+          aria-label="Facebook"
         >
           <StyledSocialIcon svgComponent={FacebookSvg} />
         </Social>
-        <Social href="https://www.instagram.com/b_mityba/" target="_blank">
+        <Social
+          href="https://www.instagram.com/b_mityba/"
+          target="_blank"
+          aria-label="Instagram"
+          rel="noopener"
+        >
           <StyledSocialIcon svgComponent={InstagramSvg} />
         </Social>
-        <Social href="https://www.linkedin.com/in/brigita-meiglaite-a29484130/" target="_blank">
+        <Social
+          href="https://www.linkedin.com/in/brigita-meiglaite-a29484130/"
+          rel="noopener"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
           <StyledSocialIcon svgComponent={LinkedInSvg} />
         </Social>
       </Socials>

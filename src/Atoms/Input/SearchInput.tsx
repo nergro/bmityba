@@ -11,17 +11,17 @@ const Wrapper = styled.div`
 const Input = styled.input`
   width: 100%;
   outline: none;
-  background: ${props => props.theme.colors.background.primary};
-  color: ${props => props.theme.colors.input.text};
-  font: ${props => props.theme.fonts.normalText};
-  border: 1px solid ${props => props.theme.colors.input.border};
+  background: ${(props) => props.theme.colors.background.primary};
+  color: ${(props) => props.theme.colors.input.text};
+  font: ${(props) => props.theme.fonts.normalText};
+  border: 1px solid ${(props) => props.theme.colors.input.border};
   transition: all linear 0.2s;
   box-shadow: 0 0 10px 0 rgba(3, 59, 74, 0.05);
   &::placeholder {
-    color: ${props => props.theme.colors.input.placeholder};
+    color: ${(props) => props.theme.colors.input.placeholder};
   }
   &:focus {
-    border: 1px solid ${props => props.theme.colors.accents.primary};
+    border: 1px solid ${(props) => props.theme.colors.accents.primary};
   }
 
   height: 55px;
@@ -34,7 +34,7 @@ const StyledIcon = styled(Icon)`
   position: absolute;
   top: 17px;
   right: 15px;
-  fill: ${props => props.theme.colors.text.inactive};
+  fill: ${(props) => props.theme.colors.text.inactive};
 `;
 
 interface Props {
@@ -47,7 +47,7 @@ export const SearchInput: FC<Props> = ({ className, onChange }) => {
 
   return (
     <Wrapper className={className}>
-      <Input onChange={onChange} placeholder={`${t('Search')} ...`} />
+      <Input onChange={onChange} placeholder={`${t('Search')} ...`} alt={t('Search')} />
       <StyledIcon svgComponent={SearchSvg} />
     </Wrapper>
   );

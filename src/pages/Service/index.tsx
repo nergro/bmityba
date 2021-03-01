@@ -26,13 +26,13 @@ const DescriptionSection = styled.div`
   margin-top: 20px;
   line-height: 30px;
   padding-bottom: 25px;
-  border-bottom: 1px solid ${props => props.theme.colors.separator.light};
+  border-bottom: 1px solid ${(props) => props.theme.colors.separator.light};
 `;
 
 const Title = styled(H2)`
   font-size: 32px;
   text-align: left;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     font-size: 27px;
   }
 `;
@@ -54,7 +54,7 @@ const StyledBenefit = styled(Benefit)`
   max-width: 250px;
   margin: 20px 15px 0 0;
 
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     max-width: 100%;
   }
 `;
@@ -69,12 +69,12 @@ const PriceBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid ${props => props.theme.colors.separator.light};
+  border: 1px solid ${(props) => props.theme.colors.separator.light};
   padding: 15px 10px 35px;
   width: 400px;
   height: 380px;
   align-items: center;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     width: 320px;
   }
 `;
@@ -83,7 +83,7 @@ const From = styled(Span)`
   font-size: 40px;
   margin-right: 3px;
 
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     font-size: 35px;
   }
 `;
@@ -91,7 +91,7 @@ const From = styled(Span)`
 const Price = styled(P)`
   text-align: center;
   font-size: 60px;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     font-size: 50px;
   }
 `;
@@ -105,7 +105,7 @@ const StyledP = styled(P)`
   &:not(:first-child) {
     margin-top: 15px;
   }
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     && {
       font-size: 16px;
     }
@@ -170,7 +170,7 @@ const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) =>
     `}</script>
       </Helmet>
       <Container>
-        <Image src={service.image.imageUrl} />
+        <Image src={service.image.imageUrl} alt={service.nameLT} />
         <DescriptionSection>
           <Title font="Spectral" color="secondaryAccent">
             {isLT ? service.nameLT : service.nameEN}
@@ -187,7 +187,7 @@ const Service: FC<RouteComponentProps<{ id: string }>> = ({ match, history }) =>
             {isLT ? service.benefitsDescriptionLT : service.benefitsDescriptionEN}
           </Description>
           <Benefits>
-            {service.benefits.map(benefit => (
+            {service.benefits.map((benefit) => (
               <StyledBenefit
                 key={isLT ? benefit.id : benefit.id}
                 name={isLT ? benefit.nameLT : benefit.nameEN}

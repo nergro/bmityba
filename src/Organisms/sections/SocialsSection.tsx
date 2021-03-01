@@ -43,7 +43,7 @@ const StyledP = styled(P)`
 const StyledIcon = styled(Icon)`
   width: 30px;
   height: 30px;
-  fill: ${props => props.theme.colors.text.social};
+  fill: ${(props) => props.theme.colors.text.social};
   margin-right: 10px;
   transition: all 0.2s ease-out;
 `;
@@ -57,7 +57,7 @@ const Social = styled.a`
     margin-right: 30px;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     ${StyledP} {
       display: none;
     }
@@ -65,10 +65,10 @@ const Social = styled.a`
 
   &:hover {
     ${StyledP} {
-      color: ${props => props.theme.colors.accents.primary};
+      color: ${(props) => props.theme.colors.accents.primary};
     }
     ${StyledIcon} {
-      fill: ${props => props.theme.colors.accents.primary};
+      fill: ${(props) => props.theme.colors.accents.primary};
     }
   }
 `;
@@ -87,15 +87,20 @@ export const SocialsSection: FC = () => {
           <Social
             href={isMobile ? 'fb://page/101922294933828' : 'https://www.facebook.com/bmityba'}
             target="_blank"
+            rel="noopener"
           >
             <StyledIcon svgComponent={FacebookSvg} />
             <StyledP color="social">Facebook</StyledP>
           </Social>
-          <Social href="https://www.instagram.com/b_mityba/" target="_blank">
+          <Social href="https://www.instagram.com/b_mityba/" target="_blank" rel="noopener">
             <StyledIcon svgComponent={InstagramSvg} />
             <StyledP color="social">Instagram</StyledP>
           </Social>
-          <Social href="https://www.linkedin.com/in/brigita-meiglaite-a29484130/" target="_blank">
+          <Social
+            href="https://www.linkedin.com/in/brigita-meiglaite-a29484130/"
+            target="_blank"
+            rel="noopener"
+          >
             <StyledIcon svgComponent={LinkedInSvg} />
             <StyledP color="social">LinkedIn</StyledP>
           </Social>

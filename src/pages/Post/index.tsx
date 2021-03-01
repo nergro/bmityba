@@ -18,10 +18,10 @@ const Title = styled(H1)`
   font-size: 35px;
   margin: 50px 0 30px;
   padding: 0 20px;
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     font-size: 26px;
   }
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     font-size: 22px;
   }
 `;
@@ -30,7 +30,7 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     margin-top: -50px;
   }
 `;
@@ -43,7 +43,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 40px 50px;
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     padding: 0 0 50px;
   }
 `;
@@ -70,7 +70,7 @@ const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     );
   }
 
-  const post = posts.find(x => x.id.pretty === match.params.id);
+  const post = posts.find((x) => x.id.pretty === match.params.id);
 
   if (!post) {
     return (
@@ -105,7 +105,7 @@ const Post: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     `}</script>
       </Helmet>
       <Container>
-        <StyledImage imageUrl={post.image.imageUrl} />
+        <StyledImage imageUrl={post.image.imageUrl} alt={post.titleLT} />
 
         <Title font="Spectral">{isLT ? post.titleLT : post.titleEN}</Title>
         <Content>

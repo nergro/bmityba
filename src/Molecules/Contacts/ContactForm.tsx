@@ -7,6 +7,7 @@ import React, { FC, MouseEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
+
 const Box = styled.div`
   border: 5px solid #f0f0f0;
   width: 600px;
@@ -118,6 +119,7 @@ export const ContactForm: FC<Props> = ({ className }) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setHasError(true);
+      return;
     }
     setLoading(true);
     try {
@@ -136,11 +138,19 @@ export const ContactForm: FC<Props> = ({ className }) => {
       <BoxTitle font="Roboto" weight="400" color="secondaryAccent">
         {t('Make an Appointment')}
       </BoxTitle>
+      <div data-testid="test-state">
+        error: {hasError.toString()}
+        name: {formData.name}
+        email: {formData.email}
+        message: {formData.message}
+        </div>
       <Form onSubmit={onSubmit}>
         <Inputs>
           <InputsLeft>
             <StyledInput
               placeholder={t('Name')}
+              type="text"
+              alt="Name input"
               required
               onChange={event => onChangeInput('name', event.target.value)}
             />
@@ -149,10 +159,13 @@ export const ContactForm: FC<Props> = ({ className }) => {
               type="email"
               required
               onChange={event => onChangeInput('email', event.target.value)}
+              alt="Email input"
             />
             <StyledInput
               placeholder={t('Subject')}
+              type="text"
               onChange={event => onChangeInput('subject', event.target.value)}
+              alt="Subject input"
             />
           </InputsLeft>
           <InputsRight>
@@ -160,21 +173,26 @@ export const ContactForm: FC<Props> = ({ className }) => {
               placeholder={t('Message')}
               required
               onChange={event => onChangeInput('message', event.target.value)}
+              data-testid="message-textarea"
             />
           </InputsRight>
         </Inputs>
         {hasError && (
-          <Error color="error">{t('Error. Check if all fields were filled correctly.')}</Error>
+          <Error color="error" data-testid="error-message">
+            {t('Error. Check if all fields were filled correctly.')}
+          </Error>
         )}
         <ButtonWrapper>
           {loading ? (
             <InlineLoader />
-          ) : messageSent ? (
+          ) : messageSent && !hasError ? (
             <P size="intermedium" weight="500">
               {t('Thank You!')}
             </P>
           ) : (
-            <PrimaryButtonFilled type="submit">{t('Submit')}</PrimaryButtonFilled>
+            <PrimaryButtonFilled type="submit" data-testid="submit-button">
+              {t('Submit')}
+            </PrimaryButtonFilled>
           )}
         </ButtonWrapper>
       </Form>

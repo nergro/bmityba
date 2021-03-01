@@ -8,4 +8,12 @@ export const sendMail = async (
   subject?: string
 ): Promise<void> => {
   await axios.post<Mail>('/mail', { name, email, message, subject });
+
+  // await fetch("https://balanced-diet.herokuapp.com/api/mail", {
+  //   method: "POST", // or 'PUT'
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({ name, email, message, subject })
+  // });
 };

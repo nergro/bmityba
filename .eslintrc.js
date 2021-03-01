@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'simple-import-sort', 'import', 'react-hooks', 'jsx-a11y'],
+  plugins: ['@typescript-eslint', 'import', 'react-hooks', 'jsx-a11y'],
   extends: [
     'eslint:recommended',
     'plugin:import/typescript',
@@ -27,7 +27,6 @@ module.exports = {
     ],
     'react/display-name': 'off',
     'sort-imports': 'off',
-    'simple-import-sort/sort': 'error',
     '@typescript-eslint/explicit-function-return-type': [
       'warn',
       {

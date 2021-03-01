@@ -19,10 +19,10 @@ const Image = styled.img`
   height: 70px;
   margin-right: 20px;
   object-fit: cover;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     display: none;
   }
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     display: block;
   }
 `;
@@ -50,7 +50,7 @@ export const LatestPost: FC<Props> = ({ className, post }) => {
 
   return (
     <Wrapper className={className} onClick={() => push(`/blogas/${post.id.pretty}`)}>
-      <Image src={post.image.imageUrl} />
+      <Image src={post.image.imageUrl} alt={post.titleLT} />
       <Info>
         <DateField date={post.date} />
         <Title>{isLT ? post.titleLT : post.titleEN}</Title>

@@ -8,12 +8,12 @@ import styled from 'styled-components/macro';
 const Image = styled.img`
   width: 100%;
   height: 45%;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     width: 35%;
     height: 100%;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     width: 100%;
     height: 48%;
   }
@@ -26,7 +26,7 @@ const Content = styled.div`
   height: 100%;
   width: 100%;
   padding: 10%;
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     padding: 6% 8%;
   }
 `;
@@ -37,10 +37,10 @@ const Title = styled(P)`
     font-size: 28px;
     margin-bottom: 10px;
 
-    @media (max-width: ${props => props.theme.breakpoints.l}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.l}) {
       font-size: 23px;
     }
-    @media (max-width: ${props => props.theme.breakpoints.m}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.m}) {
       font-weight: 600;
       margin-bottom: 20px;
     }
@@ -50,12 +50,12 @@ const Title = styled(P)`
 const Subtitle = styled(P)`
   && {
     font-size: 24px;
-    @media (max-width: ${props => props.theme.breakpoints.l}) {
+    @media (max-width: ${(props) => props.theme.breakpoints.l}) {
       margin: 5px 0;
       font-size: 21px;
     }
   }
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     display: none;
   }
 `;
@@ -64,7 +64,7 @@ const Description = styled(P)`
   margin-top: 20px;
   line-height: 25px;
   flex-grow: 1;
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     margin-top: 5px;
     line-height: 20px;
   }
@@ -72,7 +72,7 @@ const Description = styled(P)`
 
 const StyledLink = styled(Link)`
   margin-top: 20px;
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     margin-top: 5px;
   }
 `;
@@ -80,7 +80,7 @@ const StyledLink = styled(Link)`
 const Container = styled.button`
   width: 400px;
   height: 100%;
-  background: ${props => props.theme.colors.background.primary};
+  background: ${(props) => props.theme.colors.background.primary};
   box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.25);
   border: none;
   display: flex;
@@ -94,27 +94,27 @@ const Container = styled.button`
 
   &:hover {
     ${Title} {
-      color: ${props => props.theme.colors.text.primaryAccent};
+      color: ${(props) => props.theme.colors.text.primaryAccent};
     }
     ${StyledLink} {
-      color: ${props => props.theme.colors.accents.primary};
+      color: ${(props) => props.theme.colors.accents.primary};
     }
     ${StyledLink}:after {
-      box-shadow: inset 160px 0 0 0 ${props => props.theme.colors.accents.primary};
+      box-shadow: inset 160px 0 0 0 ${(props) => props.theme.colors.accents.primary};
     }
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     width: 300px;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     flex-direction: row;
     height: unset;
     width: 100%;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     flex-direction: column;
     height: 600px;
   }
@@ -124,7 +124,7 @@ const From = styled(Span)`
   font-size: 40px;
   margin-right: 3px;
 
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     font-size: 35px;
   }
 `;
@@ -136,12 +136,12 @@ const Price = styled(P)`
   width: 100%;
   font-size: 43px;
   padding: 18px 0 10px;
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     font-size: 35px;
     width: 97%;
     text-align: right;
   }
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}) {
     width: 97%;
     text-align: center;
   }
@@ -171,7 +171,7 @@ export const Service: FC<Props> = ({
 
   return (
     <Container className={className} onClick={() => push(to)}>
-      <Image src={image} />
+      <Image src={image} alt={title} />
       <Content>
         <Title color="inactive">{title}</Title>
         {subtitle && (

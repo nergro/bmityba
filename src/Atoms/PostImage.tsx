@@ -23,12 +23,13 @@ const ImageBox = styled.div`
 interface Props {
   className?: string;
   imageUrl: string;
+  alt: string;
 }
 
-export const PostImage: FC<Props> = ({ className, imageUrl }) => {
+export const PostImage: FC<Props> = ({ className, imageUrl, alt }) => {
   return (
     <ImageBox className={className}>
-      <Image src={imageUrl} />
+      <Image src={imageUrl} alt={alt} />
     </ImageBox>
   );
 };

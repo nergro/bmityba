@@ -38,7 +38,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   &:hover {
     ${Title} {
-      color: ${props => props.theme.colors.accents.primary};
+      color: ${(props) => props.theme.colors.accents.primary};
     }
   }
 `;
@@ -52,10 +52,10 @@ const Description = styled(P)`
 const StyledAnimatedLink = styled(AnimatedLink)`
   align-self: flex-end;
   margin-top: 20px;
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     margin-top: 5px;
   }
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     align-self: center;
   }
 `;
@@ -77,7 +77,7 @@ export const Post: FC<Props> = ({ className, post }) => {
 
   return (
     <Container className={className}>
-      <StyledImage imageUrl={post.image.imageUrl} />
+      <StyledImage imageUrl={post.image.imageUrl} alt={post.titleLT} />
       <Info>
         <StyledDateField date={post.date} />
         <StyledLink to={`/blogas/${post.id.pretty}`}>

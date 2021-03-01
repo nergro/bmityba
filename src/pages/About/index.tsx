@@ -14,7 +14,7 @@ const Container = styled.div`
   margin: 70px 0 0;
   padding: 0 6%;
   display: flex;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     flex-direction: column;
     padding: 0;
     margin: 70px 0;
@@ -25,14 +25,14 @@ const LeftContent = styled.div`
   width: 100%;
   max-width: 500px;
   max-height: 600px;
-  @media (max-width: ${props => props.theme.breakpoints.l}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.l}) {
     max-width: 400px;
     max-height: 500px;
   }
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     margin: 0 auto;
   }
-  @media (max-width: ${props => props.theme.breakpoints.s}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     padding: 0 20px;
   }
 `;
@@ -48,7 +48,7 @@ const RightContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     width: 100%;
     margin: 0;
     padding: 30px 20px 0;
@@ -67,7 +67,7 @@ const LogosImage = styled.img`
   margin-top: 15px;
   width: 100%;
   max-width: 700px;
-  @media (max-width: ${props => props.theme.breakpoints.m}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     max-width: 500px;
   }
 `;
@@ -93,9 +93,9 @@ const About: FC = () => {
         />
       </Helmet>
       <Container>
-        <CornerImage src={fruitsImage} />
+        <CornerImage src={fruitsImage} alt="fruits" />
         <LeftContent>
-          <Image src={aboutFullImage} />
+          <Image src={aboutFullImage} alt="About page" />
         </LeftContent>
         <RightContent>
           <StyledP>{t('AboutTitle1')}</StyledP>
@@ -104,7 +104,7 @@ const About: FC = () => {
           <StyledP>{t('AboutColumn2')}</StyledP>
           <StyledP>{t('AboutTitle3')}</StyledP>
           <StyledP>{t('AboutColumn3')}</StyledP>
-          <LogosImage src={logosImage} />
+          <LogosImage src={logosImage} alt="Universities" />
         </RightContent>
       </Container>
       <CallToActionSection />

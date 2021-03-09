@@ -8,6 +8,7 @@ import styled from 'styled-components/macro';
 const Image = styled.img`
   width: 100%;
   height: 45%;
+  min-height: 270px;
   @media (max-width: ${(props) => props.theme.breakpoints.s}) {
     width: 35%;
     height: 100%;
